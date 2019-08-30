@@ -1,0 +1,3 @@
+[submodule "prod"]
+	path = prod
+	url = https://github.com/CalebBurton/website-output.git
