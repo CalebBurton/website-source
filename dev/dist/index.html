@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Caleb Burton</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: space-evenly;
+            max-width: 800px;
+            margin: auto;
+            border: 1px solid red;
+        }
+
+        header {
+            margin: auto;
+            width: 100%;
+            text-align: center;
+            border: 1px solid blue;
+        }
+
+        .subhead {
+            display: flex;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .subhead li {
+            flex-grow: 1;
+            flex-basis: calc(100%/3);
+            border: 1px solid green;
+        }
+
+        .social {
+            display: flex;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .social li {
+            flex-grow: 1;
+            flex-basis: calc(100%/3);
+            border: 1px solid pink;
+        }
+
+        .social img {
+            height:2.5rem;
+            width: 2.5rem;
+        }
+    </style>
+</head>
+<body>
+    <script src="main.js"></script>
+    <header>
+        <h1>Caleb C. Burton</h1>
+        <ul class="subhead">
+            <li>Web Development</li>
+            <li>Embedded Systems</li>
+            <li>Global Health</li>
+        </ul>
+        <ul class="social">
+            <li>
+                <a href="" aria-label="Github">
+                    <img src="./static/github.svg" aria-hidden="true">
+                </a>
+            </li>
+            <li>
+                <a href="" aria-label="Email">
+                    <img src="./static/envelope.svg" aria-hidden="true">
+                </a>
+            </li>
+            <li>
+                <a href="" aria-label="LinkedIn">
+                    <img src="./static/linkedin-in.svg" aria-hidden="true">
+                </a>
+            </li>
+        </ul>
+    </header>
+    <main>
+        <!-- <section>
+            <li>Reading</li>
+            <li>Listening to</li>
+            <li>Watching</li>
+            <li>Working on</li>
+        </section> -->
+    </main>
+</body>
+</html>
