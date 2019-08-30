@@ -1,0 +1,43 @@
+body {
+    display: flex;
+    justify-content: space-evenly;
+    max-width: 800px;
+    margin: auto;
+    border: 1px solid red;
+}
+
+header {
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    border: 1px solid blue;
+}
+
+.subhead {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+
+    li {
+        flex-grow: 1;
+        flex-basis: calc(100%/3);
+        border: 1px solid green;
+    }
+}
+
+.social {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+
+    li {
+        flex-grow: 1;
+        flex-basis: calc(100%/3);
+        border: 1px solid pink;
+    }
+
+    img {
+        height:2.5rem;
+        width: 2.5rem;
+    }
+}
