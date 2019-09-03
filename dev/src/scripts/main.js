@@ -6,4 +6,12 @@ function component() {
   return element;
 }
 
-document.body.appendChild(component());
+function init() {
+  document.getElementById('copyright-year').innerText = new Date().getFullYear();
+}
+
+window.onload = function() {
+  init();
+}
+
+// document.body.appendChild(component());

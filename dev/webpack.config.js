@@ -46,7 +46,7 @@ function stylesheetsConfiguration(env, argv) {
         target: 'web',
         plugins: [
             new MiniCssExtractPlugin({
-                filename: 'styles.css',
+                filename: 'main.css',
             }),
         ]
     }

@@ -11,7 +11,7 @@
     "clean": "rm -rf ./dist",
     "lint": "npm run lint:check -- --fix",
     "lint:check": "tslint -t verbose -p .",
-    "publish": "npm run build && rm -rf ../prod/ && rsync -aq --exclude='*JUNK.js' ./dist/ ../prod"
+    "publish": "npm run build && rm -rf ../prod/ && rsync -aq --exclude='*JUNK.js' --exclude='*.DS_Store' ./dist/ ../prod"
   },
   "repository": {
     "type": "git",
