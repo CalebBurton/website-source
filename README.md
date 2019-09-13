@@ -6,6 +6,12 @@ Good info about `gh-pages` branch comes from [this gist](https://gist.github.com
 
 Git submodules reference: <https://www.vogella.com/tutorials/GitSubmodules/article.html#submodules_adding>
 
+## Handlebars
+
+- <https://cloudfour.com/thinks/the-hidden-power-of-handlebars-partials/>
+- <https://handlebarsjs.com/partials.html>
+- <https://github.com/sagold/handlebars-webpack-plugin>
+
 In `.zshrc`:
 
 ```bash
