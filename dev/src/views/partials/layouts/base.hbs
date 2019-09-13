@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Caleb Burton</title>
+    <link rel="stylesheet" href="./styles/main.css">
+</head>
+<body>
+    <script src="./scripts/main.js"></script>
+    <header>
+        <h1>Caleb C. Burton</h1>
+        <ul class="subhead">
+            <li>Web Development</li>
+            <li>Embedded Systems</li>
+            <li>Global Health</li>
+        </ul>
+    </header>
+    <main>
+        {{#> main-block}}
+            Content placeholder
+            {{!-- Main block content goes here. --}}
+        {{/main-block}}
+    </main>
+    <footer>
+        <div class="copyright">
+            &copy; Caleb Burton <span id="copyright-year"></span>
+        </div>
+        <div class="social">
+            <ul>
+                <li>
+                    <a href="https://github.com/CalebBurton/" title="Github">
+                        <picture aria-hidden="true">
+                            <source srcset="./static/github.svg 40w">
+                            <img src="./static/github.png" alt="Github" />
+                        </picture>
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:" title="Email">
+                        <picture aria-hidden="true">
+                            <source srcset="./static/envelope.svg 40w">
+                            <img src="./static/envelope.png" alt="Email" />
+                        </picture>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.linkedin.com/in/caleb-charles-burton/" title="LinkedIn">
+                        <picture aria-hidden="true">
+                            <source srcset="./static/linkedin.svg 40w">
+                            <img src="./static/linkedin.png" alt="LinkedIn" />
+                        </picture>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

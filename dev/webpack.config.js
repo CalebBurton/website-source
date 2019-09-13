@@ -1,4 +1,5 @@
 const path = require('path');
+const HandlebarsPlugin = require("handlebars-webpack-plugin");
 
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -26,6 +27,10 @@ function modules(tsLoaderOptions = {}) {
                     'sass-loader',
                 ]
             },
+            // {
+            //     test: /\.handlebars$/,
+            //     loader: 'handlebars-loader',
+            // },
         ]
     }
 }
@@ -82,6 +87,37 @@ function jsConfiguration(env, argv) {
     }
 }
 
+function htmlConfiguration(env, argv) {
+    const mode = argv.mode;
+    const isProduction = mode === 'production'
+
+    return {
+        mode,
+        module: modules(),
+        entry: ['./src/scripts/main.js'], // Not actually related, but I need an entry point
+        output: {
+            path: path.resolve(__dirname, './dist/static'),
+           // We actually don't care about this file, but webpack has to output some JS file
+            filename: 'JUNK.js',
+        },
+        watch: !isProduction,
+        target: 'web',
+        plugins: [
+            new HandlebarsPlugin({
+                entry: path.join(process.cwd(), "src", "views", "pages", "*.hbs"),
+                output: path.join(process.cwd(), "dist", "[name].html"),
+                partials: [
+                  path.join(process.cwd(), "src", "views", "partials", "*", "*.hbs")
+                ],
+            }),
+            // new CopyWebpackPlugin([{
+            //     from: './src/views',
+            //     to: '../'
+            // }, ]),
+        ],
+    }
+}
+
 function staticConfiguration(env, argv) {
     const mode = argv.mode;
     const isProduction = mode === 'production'
@@ -103,10 +139,6 @@ function staticConfiguration(env, argv) {
                 to: './'
             }, ]),
             new CopyWebpackPlugin([{
-                from: './src/views',
-                to: '../'
-            }, ]),
-            new CopyWebpackPlugin([{
                 from: './src/root',
                 to: '../'
             }, ]),
@@ -117,5 +149,6 @@ function staticConfiguration(env, argv) {
 module.exports = [
     stylesheetsConfiguration,
     jsConfiguration,
+    htmlConfiguration,
     staticConfiguration,
 ];
