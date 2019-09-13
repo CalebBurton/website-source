@@ -5,12 +5,10 @@
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run clean && webpack --mode=production",
-    "build:dev": "NODE_HEAPDUMP_OPTIONS=nosignal webpack --mode=development",
-    "build:verbose": "NODE_HEAPDUMP_OPTIONS=nosignal webpack --display-error-details --mode=development",
+    "build": "npm run clean && npm run lint && webpack --mode=production",
+    "build:dev": "npm run clean && npm run lint && NODE_HEAPDUMP_OPTIONS=nosignal webpack --mode=development",
     "clean": "rm -rf ./dist",
-    "lint": "npm run lint:check -- --fix",
-    "lint:check": "tslint -t verbose -p .",
+    "lint": "eslint --fix ./src/.",
     "publish": "npm run build && rm -rf ../prod/ && rsync -aq --exclude='*JUNK.js' --exclude='*.DS_Store' ./dist/ ../prod"
   },
   "repository": {
@@ -27,11 +25,15 @@
   "devDependencies": {
     "copy-webpack-plugin": "^5.0.4",
     "css-loader": "^3.2.0",
+    "eslint": "^6.3.0",
+    "handlebars-webpack-plugin": "^1.6.0",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.12.0",
     "sass-loader": "^8.0.0",
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.7"
   },
-  "dependencies": {}
+  "dependencies": {
+    "handlebars": "^4.2.0"
+  }
 }

@@ -1,17 +1,17 @@
-function component() {
-  const element = document.createElement('div');
+function component() { // eslint-disable-line no-unused-vars
+    const element = document.createElement('div');
 
-  element.innerHTML = ['Hello', 'webpack'].join(' ');
+    element.innerHTML = ['Hello', 'webpack',].join(' ');
 
-  return element;
+    return element;
 }
 
 function init() {
-  document.getElementById('copyright-year').innerText = new Date().getFullYear();
+    document.getElementById('copyright-year').innerText = new Date().getFullYear();
 }
 
 window.onload = function() {
-  init();
-}
+    init();
+};
 
 // document.body.appendChild(component());

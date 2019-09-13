@@ -1,0 +1,28 @@
+{
+    "root": true,
+
+    "parserOptions": {
+        "ecmaVersion": 2018
+    },
+
+    "env": {
+        "es6": true,
+        "browser": true
+    },
+
+    "extends": "eslint:recommended",
+    "rules": {
+        // enable additional rules
+        "eol-last": ["error", "always"],
+        "indent": ["error", 4],
+        "linebreak-style": ["error", "unix"],
+        "quotes": ["error", "single"],
+        "semi": ["error", "always"],
+
+        // override default options for rules from base configurations
+        "comma-dangle": ["error", "always"],
+
+        // disable rules from base configurations
+        "no-console": "off"
+    }
+}
