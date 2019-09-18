@@ -1,7 +1,7 @@
 function component() { // eslint-disable-line no-unused-vars
     const element = document.createElement('div');
 
-    element.innerHTML = ['Hello', 'webpack',].join(' ');
+    element.innerHTML = ['Hello', 'webpack'].join(' ');
 
     return element;
 }
@@ -24,7 +24,7 @@ function init() {
             },
         },
     };
-    
+
     for (const toggleName in devToggles) {
         const toggle = devToggles[toggleName];
         if (toggle.element) {
@@ -33,7 +33,7 @@ function init() {
     }
 }
 
-window.onload = function() {
+window.onload = function () {
     init();
 };
 

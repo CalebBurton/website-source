@@ -1,0 +1,8 @@
+{
+    // Extension page at https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify
+    // All rules available at https://github.com/HookyQR/VSCodeBeautify/blob/master/Settings.md
+    "wrap_line_length": 120,
+    "end_with_newline": true,
+    "indent_handlebars": true,
+    "space_after_anon_function": true
+}

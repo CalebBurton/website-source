@@ -1,10 +1,10 @@
 const path = require('path');
-const HandlebarsPlugin = require("handlebars-webpack-plugin");
+const HandlebarsPlugin = require('handlebars-webpack-plugin');
 
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-function modules(tsLoaderOptions = {}) {
+function modules(tsLoaderOptions = {}) { // eslint-disable-line no-unused-vars
     return {
         rules: [
             // {
@@ -22,22 +22,23 @@ function modules(tsLoaderOptions = {}) {
                     {
                         loader: 'css-loader',
                         options: {
-                            /* minimize: true */ }
+                            /* minimize: true */
+                        },
                     },
                     'sass-loader',
-                ]
+                ],
             },
             // {
             //     test: /\.handlebars$/,
             //     loader: 'handlebars-loader',
             // },
-        ]
-    }
+        ],
+    };
 }
 
 function stylesheetsConfiguration(env, argv) {
     const mode = argv.mode;
-    const isProduction = mode === 'production'
+    const isProduction = mode === 'production';
     return {
         mode,
         module: modules(),
@@ -53,13 +54,13 @@ function stylesheetsConfiguration(env, argv) {
             new MiniCssExtractPlugin({
                 filename: 'main.css',
             }),
-        ]
-    }
+        ],
+    };
 }
 
 function jsConfiguration(env, argv) {
     const mode = argv.mode;
-    const isProduction = mode === 'production'
+    const isProduction = mode === 'production';
     return {
         mode,
         module: modules({
@@ -84,12 +85,12 @@ function jsConfiguration(env, argv) {
         },
         watch: !isProduction,
         target: 'web',
-    }
+    };
 }
 
 function htmlConfiguration(env, argv) {
     const mode = argv.mode;
-    const isProduction = mode === 'production'
+    const isProduction = mode === 'production';
 
     return {
         mode,
@@ -97,17 +98,17 @@ function htmlConfiguration(env, argv) {
         entry: ['./src/scripts/main.js'], // Not actually related, but I need an entry point
         output: {
             path: path.resolve(__dirname, './dist/static'),
-           // We actually don't care about this file, but webpack has to output some JS file
+            // We actually don't care about this file, but webpack has to output some JS file
             filename: 'JUNK.js',
         },
         watch: !isProduction,
         target: 'web',
         plugins: [
             new HandlebarsPlugin({
-                entry: path.join(process.cwd(), "src", "views", "pages", "*.hbs"),
-                output: path.join(process.cwd(), "dist", "[name].html"),
+                entry: path.join(process.cwd(), 'src', 'views', 'pages', '*.hbs'),
+                output: path.join(process.cwd(), 'dist', '[name].html'),
                 partials: [
-                  path.join(process.cwd(), "src", "views", "partials", "*", "*.hbs")
+                    path.join(process.cwd(), 'src', 'views', 'partials', '*', '*.hbs'),
                 ],
             }),
             // new CopyWebpackPlugin([{
@@ -115,12 +116,12 @@ function htmlConfiguration(env, argv) {
             //     to: '../'
             // }, ]),
         ],
-    }
+    };
 }
 
 function staticConfiguration(env, argv) {
     const mode = argv.mode;
-    const isProduction = mode === 'production'
+    const isProduction = mode === 'production';
 
     return {
         mode,
@@ -128,7 +129,7 @@ function staticConfiguration(env, argv) {
         entry: ['./src/scripts/main.js'], // Not actually related, but I need an entry point
         output: {
             path: path.resolve(__dirname, './dist/static'),
-           // We actually don't care about this file, but webpack has to output some JS file
+            // We actually don't care about this file, but webpack has to output some JS file
             filename: 'JUNK.js',
         },
         watch: !isProduction,
@@ -136,14 +137,14 @@ function staticConfiguration(env, argv) {
         plugins: [
             new CopyWebpackPlugin([{
                 from: './src/static',
-                to: './'
-            }, ]),
+                to: './',
+            }]),
             new CopyWebpackPlugin([{
                 from: './src/root',
-                to: '../'
-            }, ]),
+                to: '../',
+            }]),
         ],
-    }
+    };
 }
 
 module.exports = [
