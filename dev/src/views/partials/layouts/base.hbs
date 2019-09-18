@@ -19,8 +19,7 @@
     </header>
     <main>
         {{#> main-block}}
-            Content placeholder
-            {{!-- Main block content goes here. --}}
+            {{!-- Main block content goes here. Error out if the content isn't added. --}}
         {{/main-block}}
     </main>
     <footer>
@@ -56,5 +55,8 @@
             </ul>
         </div>
     </footer>
+    {{#> dev-toggles-block}}
+        <!-- Dev toggles go here. This comment prevents errors if the toggles are excluded. -->
+    {{/dev-toggles-block}}
 </body>
 </html>
