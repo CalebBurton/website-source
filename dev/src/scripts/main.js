@@ -7,8 +7,6 @@ function component() { // eslint-disable-line no-unused-vars
 }
 
 function init() {
-    document.getElementById('copyright-year').innerText = new Date().getFullYear();
-
 
     const devToggles = {
         bg: {

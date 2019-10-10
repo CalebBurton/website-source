@@ -69,22 +69,21 @@ main {
 }
 
 footer {
-    display: flex;
+    text-align: center;
+    padding: 15px;
 }
 
-.copyright {
-    flex: 1 0 auto;
-    align-self: flex-end;
+.footer-copy {
+    display: block;
 }
 
-.social {
-    display: flex;
-
-    flex: 1 0 auto;
+.footer-social {
+    margin: 0px auto 10px;
+    max-width: 150px;
 
     ul {
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-between;
 
         width: 100%;
         list-style: none;
@@ -93,16 +92,12 @@ footer {
     }
 
     li {
-        display: flex;
-        justify-content: space-evenly;
-
-        flex-grow: 1;
-        flex-basis: calc(100%/3);
+        display: list-item;
     }
 
     picture,
     img {
-        height: 2.5rem;
-        width: 2.5rem;
+        height: 2.5em;
+        width: 2.5em;
     }
 }
