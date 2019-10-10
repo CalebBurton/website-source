@@ -26,7 +26,11 @@ Creating a website from scratch and getting it on the internet is hard. Luckily,
 - This initial version uses [jQuery](https://jquery.com/) as its __javascript framework__, which is provided under a [custom license](https://github.com/jquery/jquery/blob/master/LICENSE.txt). I plan to migrate away from it in the future, but for now it's still an important part of the site.
 - [node.js](https://nodejs.org/en/) pulled everything together and acted as the __platform__ for implementing many of the tools described above. It is an open-source project provided for free under a [custom license](https://raw.githubusercontent.com/nodejs/node/master/LICENSE).
 
-[//]: # (- Forestry for content management?)
+[//]: # (- EvilIcons for icons at https://github.com/evil-icons/evil-icons)
+[//]: # (- Other icons? Check https://marketplace.visualstudio.com/items?itemName=idleberg.svg-icons)
+[//]: # (- https://brittanychiang.com/ for inspiration)
+[//]: # (- https://kvlly.com/ for inspiration)
+[//]: # (- https://www.alispit.tel/ for inspiration)
 
 ## People
 

@@ -47,24 +47,64 @@ body {
     margin: auto;
 }
 
+header,
+main,
+footer {
+    padding: 0 25px;
+}
+
 header {
-    margin: auto;
+    display: flex;
+    height: 100px;
     width: 100%;
-    text-align: center;
+    
+    .header-wrapper {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .nav-toggle {
+        cursor: pointer;
+    }
+
+    nav {
+        position: fixed;
+
+        &[aria-hidden="true"] {
+            display: none;
+        }
+
+        &[aria-hidden="false"] {
+            display: block;
+        }
+    }
+
+    img.logo {
+        height: 2.5em;
+        width: 2.5em;
+    }
 }
 
 main {
     flex: 1 0 auto;
-}
 
-.subhead {
-    display: flex;
-    list-style: none;
-    padding-left: 0;
+    .masthead {
+        margin: auto;
+        width: 100%;
+        text-align: center;
+    }
 
-    li {
-        flex-grow: 1;
-        flex-basis: calc(100%/3);
+    .subhead {
+        display: flex;
+        list-style: none;
+        padding-left: 0;
+    
+        li {
+            flex-grow: 1;
+            flex-basis: calc(100%/3);
+        }
     }
 }
 

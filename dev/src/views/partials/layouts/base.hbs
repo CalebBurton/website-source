@@ -12,12 +12,30 @@
 <body>
     <script src="./scripts/main.js"></script>
     <header>
-        <h1>Caleb C. Burton</h1>
-        <ul class="subhead">
-            <li>Web Development</li>
-            <li>Embedded Systems</li>
-            <li>Global Health</li>
-        </ul>
+        <div class="header-wrapper">
+            <a href="/" title="Caleb BUrton" rel="home">
+                <picture aria-hidden="true">
+                    <source srcset="./static/logo.svg 40w">
+                    <img src="./static/logo.svg" alt="Logo" class="logo" />
+                </picture>
+            </a>
+            <div class="menu-wrapper">
+                <span class="nav-toggle">☰ Menu</span>
+                <nav class="menu" aria-hidden="true">
+                    <ul class="menu">
+                        <li class="">
+                            <a href="/about">About</a>
+                        </li>
+                        <li class="">
+                            <a href="/work">Work</a>
+                        </li>
+                        <li class="">
+                            <a href="/contact">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
     </header>
     <main>
         {{#> main-block}}
@@ -55,10 +73,14 @@
         </div>
         <div class="footer-copy">
             Designed, Built, and Maintained by Caleb Burton
+            <div class="view-source">
+                (<a href="">View the source here!</a>)
+            </div>
         </div>
     </footer>
     {{#> dev-toggles-block}}
-        <!-- Dev toggles go here. This comment prevents errors if the toggles are excluded. -->
+        {{!-- Dev toggles go here --}}
+        <!-- This HTML comment prevents errors if the toggles are excluded -->
     {{/dev-toggles-block}}
 </body>
 

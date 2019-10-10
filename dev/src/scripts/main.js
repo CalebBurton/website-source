@@ -1,13 +1,6 @@
-function component() { // eslint-disable-line no-unused-vars
-    const element = document.createElement('div');
-
-    element.innerHTML = ['Hello', 'webpack'].join(' ');
-
-    return element;
-}
-
 function init() {
 
+    // #region *** Developer Style Toggles
     const devToggles = {
         bg: {
             element: document.querySelector('.dev-toggle[name="bg"]'),
@@ -29,10 +22,21 @@ function init() {
             toggle.element.addEventListener('click', toggle.callback);
         }
     }
+    // #endregion
+
+    // #region *** Hamburger Menu
+    const navToggleElement = document.querySelector('header .nav-toggle');
+    const navMenuElement = document.querySelector('header nav');
+    if (navToggleElement && navMenuElement) {
+        navToggleElement.addEventListener('click', () => {
+            const navIsHidden = (navMenuElement.attributes['aria-hidden'] &&
+                                 navMenuElement.attributes['aria-hidden'].value === 'true');
+            navMenuElement.setAttribute('aria-hidden', !navIsHidden);
+        });
+    }
+    // #endregion
 }
 
 window.onload = function () {
     init();
 };
-
-// document.body.appendChild(component());
