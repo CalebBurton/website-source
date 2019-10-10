@@ -1,8 +1,14 @@
+@import 'colors';
+@import 'fonts';
+
+$bg-color: $purple-0;
+$font-color: $purple-3;
+
 // *********************
 // * Dev Styling
 // *********************
 
-html.dev-bg { background-color: rgba(255,0,0,.2); }
+html.dev-bg { background-color: $bg-color; }
 html.dev-bg * { background-color: rgba(0,255,0,.2); }
 html.dev-bg * * { background-color: rgba(0,0,255,.2); }
 html.dev-bg * * * { background-color: rgba(255,0,255,.2); }
@@ -45,6 +51,21 @@ body {
 
     max-width: 800px;
     margin: auto;
+
+    color: $font-color;
+    background-color: $bg-color;
+
+    font-family: $heading-sans;
+
+}
+
+svg {
+    fill: currentColor;
+}
+
+a,
+a:visited {
+    color: $blue-2;
 }
 
 header,
@@ -135,9 +156,7 @@ footer {
         display: list-item;
     }
 
-    picture,
-    img {
-        height: 2.5em;
-        width: 2.5em;
+    a svg{
+        color: $font-color;
     }
 }

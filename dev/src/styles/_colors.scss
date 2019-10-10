@@ -1,8 +1,30 @@
 //==============================================================================
-// Covenant Eyes Brand standard Colors
-//
-//   See http://cewiki.ces.cvnt.net/mediawiki/index.php/Brand_Standards
-//   for more information.
+// GO CATS Colors
+//==============================================================================
+
+$purple: #260841;
+$purple-0: #260841;
+$purple-1: #482476;
+$purple-2: #684c96;
+// $purple-3: #b8e;
+// $purple-3: hsl(225,20%,61%);
+$purple-3: hsl(266,20%,60%);
+$purple-3: hsl(266,20%,70%);
+
+$gold: #956a38;
+
+$green-0: #008656;
+
+$blue-0: #0d2d6c;
+$blue-1: #005bbb;
+$blue-2: #007fa4;
+
+$gray-0: #676767;
+$gray-1: #c7c7c7;
+$gray-2: #efe0ef;
+
+//==============================================================================
+// Standard Colors
 //==============================================================================
 
 // Blues
@@ -54,9 +76,7 @@ $rose-bud: #FBD4D4;
 
 
 //==============================================================================
-// Global Colors
-//
-//   These colors are global overrides for colors used in core modules.
+// Global Overrides
 //==============================================================================
 $black: #000000;
 $blue: $bahama;
@@ -64,4 +84,4 @@ $green: $kelly-green;
 $orange: $tang;
 $red: $old-spice;
 $white: #FFFFFF;
-$yellow: #FCFDB3;
+$yellow: #ffc520;

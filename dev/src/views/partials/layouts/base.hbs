@@ -17,6 +17,7 @@
                 <picture aria-hidden="true">
                     <source srcset="./static/logo.svg 40w">
                     <img src="./static/logo.svg" alt="Logo" class="logo" />
+                    {{!-- {{> includes/logo.svg }} --}}
                 </picture>
             </a>
             <div class="menu-wrapper">
@@ -47,26 +48,29 @@
             <ul>
                 <li>
                     <a href="https://github.com/CalebBurton/" title="Github">
-                        <picture aria-hidden="true">
+                        {{!-- <picture aria-hidden="true">
                             <source srcset="./static/github.svg 40w">
                             <img src="./static/github.svg" alt="Github" />
-                        </picture>
+                        </picture> --}}
+                        {{> includes/github.svg }}
                     </a>
                 </li>
                 <li>
                     <a href="mailto:" title="Email">
-                        <picture aria-hidden="true">
+                        {{!-- <picture aria-hidden="true">
                             <source srcset="./static/envelope.svg 40w">
                             <img src="./static/envelope.svg" alt="Email" />
-                        </picture>
+                        </picture> --}}
+                        {{> includes/envelope.svg }}
                     </a>
                 </li>
                 <li>
                     <a href="https://www.linkedin.com/in/caleb-charles-burton/" title="LinkedIn">
-                        <picture aria-hidden="true">
+                        {{!-- <picture aria-hidden="true">
                             <source srcset="./static/linkedin.svg 40w">
                             <img src="./static/linkedin.svg" alt="LinkedIn" />
-                        </picture>
+                        </picture> --}}
+                        {{> includes/linkedin.svg }}
                     </a>
                 </li>
             </ul>
