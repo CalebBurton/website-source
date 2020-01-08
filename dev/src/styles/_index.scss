@@ -49,7 +49,7 @@ body {
     display: flex;
     flex-direction: column;
 
-    max-width: 800px;
+    max-width: rem-calc(800px);
     margin: auto;
 
     color: $font-color;
@@ -71,12 +71,13 @@ a:visited {
 header,
 main,
 footer {
-    padding: 0 25px;
+    padding: 0 rem-calc(25px);
 }
 
 header {
     display: flex;
-    height: 100px;
+    height: rem-calc(100px);
+    margin-top: rem-calc(20px);
     width: 100%;
     
     .header-wrapper {
@@ -131,7 +132,7 @@ main {
 
 footer {
     text-align: center;
-    padding: 15px;
+    padding: rem-calc(15px);
 }
 
 .footer-copy {
@@ -139,8 +140,8 @@ footer {
 }
 
 .footer-social {
-    margin: 0px auto 10px;
-    max-width: 150px;
+    margin: 0px auto rem-calc(10px);
+    max-width: rem-calc(150px);
 
     ul {
         display: flex;
