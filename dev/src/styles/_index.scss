@@ -55,6 +55,11 @@ body {
     color: $font-color;
     background-color: $bg-color;
 
+    background: radial-gradient(ellipse at right top, $bg-color, transparent, $bg-color),
+                radial-gradient(ellipse at bottom, $black, $bg-color, $gold);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
     font-family: $heading-sans;
 
 }
