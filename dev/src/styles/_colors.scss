@@ -2,86 +2,62 @@
 // GO CATS Colors
 //==============================================================================
 
-$purple: #260841;
-$purple-0: #260841;
-$purple-1: #482476;
-$purple-2: #684c96;
-// $purple-3: #b8e;
-// $purple-3: hsl(225,20%,61%);
-$purple-3: hsl(266,20%,60%);
-$purple-3: hsl(266,20%,70%);
+$purple-0: hsl(266, 78%, 15%);
+$purple-1: hsl(266, 53%, 30%);
+$purple-2: hsl(266, 33%, 44%);
+$purple-3: hsl(266, 20%, 60%);
+$purple-4: hsl(266, 20%, 80%);
+$purple: $purple-0;
 
-$gold: #956a38;
+$gold: hsl(32, 45%, 40%);
 
-$green-0: #008656;
+$green-0: hsl(159, 100%, 26%);
 
-$blue-0: #0d2d6c;
-$blue-1: #005bbb;
-$blue-2: #007fa4;
+$blue-0: hsl(211, 78%, 15%);
+$blue-1: hsl(211, 100%, 30%);
 
-$gray-0: #676767;
-$gray-1: #c7c7c7;
-$gray-2: #efe0ef;
+$blue-2: hsl(194, 100%, 30%);
+$blue-3: hsl(194, 100%, 40%);
+
+$gray-0: hsl(0, 0%, 40%);
+$gray-1: hsl(0, 0%, 78%);
+$gray-2: hsl(300, 32%, 91%);
 
 //==============================================================================
 // Standard Colors
 //==============================================================================
 
-// Blues
-$regal-blue: #07466D;
-$bahama: #0175BB;
-$denim: #1997EB;
-$dodger: #5CC0FB;
-$cornflower: #8DD2FC;
-$french-pass: #BDE6FE;
-$aqua-spring: #E5F5FE;
-$lily-white: #F4FAFB;
-
 // Grays
-$mine-shaft: #3D3D3D;
-$emperor: #575757;
-$dove-gray: #707070;
-$dusty-gray: #969696;
-$silver: #BDBDBD;
-$alto: #D6D6D6;
-$wild-sand: #F5F5F5;
-
-// Greens
-$goblin: #38823E;
-$kelly-green: #439B4A;
-$fern: #69BF70;
-$moss-green: #9FD6A3;
-$pistachio: #D3ECD6;
+$mine-shaft: hsl(0, 0%, 24%);
+$emperor: hsl(0, 0%, 34%);
+$dove-gray: hsl(0, 0%, 44%);
+$dusty-gray: hsl(0, 0%, 59%);
+$silver: hsl(0, 0%, 74%);
+$alto: hsl(0, 0%, 84%);
+$wild-sand: hsl(0, 0%, 96%);
 
 // Teals
-$eastern-blue: #188B9F;
-$corvette: #1FA9C0;
-$scooter: #27CFEC;
-$malibu: #7CE7F6;
-$foam: #D0F6FC;
-
-// Oranges
-$zest: #D4691C;
-$tang: #EE7B24;
-$porsche: #F6A157;
-$peach: #FAC89B;
-$old-lace: #FDF0E3;
+$eastern-blue: hsl(189, 74%, 36%);
+$corvette: hsl(189, 72%, 44%);
+$scooter: hsl(189, 84%, 54%);
+$malibu: hsl(189, 87%, 73%);
+$foam: hsl(189, 88%, 90%);
 
 // Reds
-$old-spice: #BA1019;
-$crimson: #DB141E;
-$flamingo: #F1454A;
-$froly: #F47577;
-$rose-bud: #FBD4D4;
+$old-spice: hsl(357, 84%, 40%);
+$crimson: hsl(357, 84%, 47%);
+$flamingo: hsl(357, 86%, 61%);
+$froly: hsl(357, 85%, 71%);
+$rose-bud: hsl(0, 83%, 91%);
 
 
 //==============================================================================
 // Global Overrides
 //==============================================================================
-$black: #000000;
-$blue: $bahama;
-$green: $kelly-green;
-$orange: $tang;
-$red: $old-spice;
-$white: #FFFFFF;
-$yellow: #ffc520;
+$black: hsl(0, 0%, 0%);
+$blue: hsl(203, 99%, 37%);
+$green: hsl(125, 40%, 44%);
+$orange: hsl(26, 86%, 54%);
+$red: hsl(357, 84%, 40%);
+$white: hsl(0, 0%, 100%);
+$yellow: hsl(44, 100%, 56%);

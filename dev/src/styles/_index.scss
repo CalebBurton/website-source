@@ -2,7 +2,7 @@
 @import 'fonts';
 
 $bg-color: $purple-0;
-$font-color: $purple-3;
+$font-color: $purple-4;
 
 // *********************
 // * Dev Styling
@@ -49,11 +49,16 @@ body {
     display: flex;
     flex-direction: column;
 
-    max-width: 800px;
+    max-width: rem-calc(800px);
     margin: auto;
 
     color: $font-color;
     background-color: $bg-color;
+
+    background: radial-gradient(ellipse at right top, $bg-color, transparent, $bg-color),
+                radial-gradient(ellipse at bottom, $black, $bg-color, $gold);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 
     font-family: $heading-sans;
 
@@ -65,18 +70,19 @@ svg {
 
 a,
 a:visited {
-    color: $blue-2;
+    color: $blue-3;
 }
 
 header,
 main,
 footer {
-    padding: 0 25px;
+    padding: 0 rem-calc(25px);
 }
 
 header {
     display: flex;
-    height: 100px;
+    height: rem-calc(100px);
+    margin-top: rem-calc(20px);
     width: 100%;
     
     .header-wrapper {
@@ -131,7 +137,7 @@ main {
 
 footer {
     text-align: center;
-    padding: 15px;
+    padding: rem-calc(15px);
 }
 
 .footer-copy {
@@ -139,8 +145,8 @@ footer {
 }
 
 .footer-social {
-    margin: 0px auto 10px;
-    max-width: 150px;
+    margin: 0px auto rem-calc(10px);
+    max-width: rem-calc(150px);
 
     ul {
         display: flex;
