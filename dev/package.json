@@ -6,10 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run clean && npm run lint && webpack --mode=production",
-    "build:dev": "npm run clean && npm run lint && NODE_HEAPDUMP_OPTIONS=nosignal webpack --mode=development",
-    "clean": "rm -rf ./dist",
+    "build:dev": "npm run lint && NODE_HEAPDUMP_OPTIONS=nosignal webpack --mode=development",
+    "clean": "rm -rf ./dist && npm install",
     "lint": "eslint --fix ./src/.",
-    "publish": "npm run build && rm -rf ../prod/ && rsync -aq --exclude='*JUNK.js' --exclude='*.DS_Store' ./dist/ ../prod"
+    "publish": "npm run build && rm -rf ../website-output/ && rsync -aq --exclude='*JUNK.js' --exclude='*.DS_Store' ./dist/ ../website-output"
   },
   "repository": {
     "type": "git",
@@ -24,14 +24,14 @@
   "homepage": "https://github.com/CalebBurton/website-source#readme",
   "devDependencies": {
     "copy-webpack-plugin": "^5.1.1",
-    "css-loader": "^3.2.0",
-    "eslint": "^6.3.0",
-    "handlebars-webpack-plugin": "^1.6.0",
-    "mini-css-extract-plugin": "^0.8.0",
-    "node-sass": "^4.13.1",
-    "sass-loader": "^8.0.0",
-    "webpack": "^4.39.3",
-    "webpack-cli": "^3.3.7"
+    "css-loader": "^3.6.0",
+    "eslint": "^6.8.0",
+    "handlebars-webpack-plugin": "^1.8.1",
+    "mini-css-extract-plugin": "^0.8.2",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^8.0.2",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
   },
   "dependencies": {
     "handlebars": "^4.7.6"

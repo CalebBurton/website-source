@@ -1,4 +1,4 @@
-[submodule "prod"]
-	path = prod
+[submodule "website-output"]
+	path = website-output
 	url = https://github.com/CalebBurton/website-output.git
-	ignore = dirty
+	branch = gh-pages
