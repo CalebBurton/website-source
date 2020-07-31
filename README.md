@@ -1,8 +1,8 @@
-# calebburton.com
+# Source for calebburton.com
 
-Source code for my GitHub Pages website
+![CI](https://github.com/CalebBurton/website-source/workflows/CI/badge.svg?branch=main)
 
-Good info about `gh-pages` branch comes from [this gist](https://gist.github.com/cobyism/4730490)
+Source code for my personal website
 
 Git submodules reference: <https://www.vogella.com/tutorials/GitSubmodules/article.html#submodules_adding>
 
@@ -18,3 +18,9 @@ In `.zshrc`:
 alias website-go='cd ~/Documents/GitHub/website-source/dev && npm run build:dev'
 alias website-publish='cd ~/Documents/GitHub/website-source/dev && npm run publish'
 ```
+
+<!--
+sudo -u deployemon bash
+
+eval $(ssh-agent -s) && ssh-add ~/.ssh/id_github
+-->
