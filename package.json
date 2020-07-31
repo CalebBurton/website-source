@@ -4,12 +4,12 @@
   "description": "Source code for my GitHub Pages website",
   "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run clean && npm run lint",
     "build": "npm run clean && npm run lint && webpack --mode=production",
     "build:dev": "npm run lint && NODE_HEAPDUMP_OPTIONS=nosignal webpack --mode=development",
     "clean": "rm -rf ./dist && npm install",
     "lint": "eslint --fix ./src/.",
-    "publish": "npm run build && rm -rf ../website-output/ && rsync -aq --exclude='*JUNK.js' --exclude='*.DS_Store' ./dist/ ../website-output"
+    "publish": "npm run build && rsync -aq --exclude='*JUNK.js' --exclude='*.DS_Store' ./dist/ ../website-output"
   },
   "repository": {
     "type": "git",

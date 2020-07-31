@@ -15,8 +15,8 @@ Git submodules reference: <https://www.vogella.com/tutorials/GitSubmodules/artic
 In `.zshrc`:
 
 ```bash
-alias website-go='cd ~/Documents/GitHub/website-source/dev && npm run build:dev'
-alias website-publish='cd ~/Documents/GitHub/website-source/dev && npm run publish'
+alias website-go='cd ~/Documents/GitHub/website-source && npm run build:dev'
+alias website-publish='cd ~/Documents/GitHub/website-source && npm run publish'
 ```
 
 <!--
