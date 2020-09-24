@@ -1,6 +1,6 @@
 # Source for calebburton.com
 
-![CI](https://github.com/CalebBurton/website-source/workflows/CI/badge.svg?branch=main)
+[![CI](https://github.com/CalebBurton/website-source/workflows/CI/badge.svg?branch=main)](https://github.com/CalebBurton/website-source/actions?query=workflow%3ACI)
 
 Source code for my personal website
 
