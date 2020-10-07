@@ -9,7 +9,7 @@
     "start:dev": "npm run build && webpack --mode=development & ELEVENTY_ENV=development eleventy --serve ",
     "start": "npm run build && webpack --mode=production && ELEVENTY_ENV=production eleventy --serve ",
     "clean": "rm -rf ./dist && rm -rf ./_site && npm install",
-    "lint": "eslint --fix ./src/.",
+    "lint": "eslint --fix .",
     "publish": "npm run build && rsync -aq --exclude='*JUNK.js' --exclude='*.DS_Store' ./dist/ ../website-output"
   },
   "repository": {
@@ -25,17 +25,17 @@
   "homepage": "https://github.com/CalebBurton/website-source#readme",
   "devDependencies": {
     "@11ty/eleventy": "^0.11.0",
-    "clean-css": "4.2.3",
+    "clean-css": "^4.2.3",
     "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^3.6.0",
     "eslint": "^6.8.0",
-    "html-minifier": "4.0.0",
-    "markdown-it": "8.4.2",
-    "markdown-it-anchor": "5.2.5",
+    "html-minifier": "^4.0.0",
+    "markdown-it": "^8.4.2",
+    "markdown-it-anchor": "^5.2.5",
     "mini-css-extract-plugin": "^0.8.2",
     "node-sass": "^4.14.1",
     "sass-loader": "^8.0.2",
-    "terser": "4.6.7",
+    "terser": "^4.6.7",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12"
   },
