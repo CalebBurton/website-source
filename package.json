@@ -8,9 +8,9 @@
     "build": "npm run clean && eleventy && webpack --mode=production && rm -rf ./_site/junk",
     "start:dev": "npm run build && webpack --mode=development & ELEVENTY_ENV=development eleventy --serve ",
     "start": "npm run build && webpack --mode=production && ELEVENTY_ENV=production eleventy --serve ",
-    "clean": "rm -rf ./dist && rm -rf ./_site && npm install",
+    "clean": "rm -rf ./_site && npm install",
     "lint": "eslint --fix .",
-    "publish": "npm run build && rsync -aq --exclude='*JUNK.js' --exclude='*.DS_Store' ./dist/ ../website-output"
+    "publish": "npm run build && rsync -aq --exclude='*JUNK.js' --exclude='*.DS_Store' ./_site/ ../website-output"
   },
   "repository": {
     "type": "git",
