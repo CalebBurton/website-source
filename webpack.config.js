@@ -1,19 +1,16 @@
 const path = require('path');
-const HandlebarsPlugin = require('handlebars-webpack-plugin');
 
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-function modules(tsLoaderOptions = {}) { // eslint-disable-line no-unused-vars
+function modules() {
     return {
         rules: [
+            // // Transpile and polyfill our JavaScript
             // {
-            //     test: /\.tsx?$/,
-            //     loader: 'ts-loader',
+            //     test: /\.js$/,
+            //     use: 'babel-loader',
             //     exclude: /node_modules/,
-            //     options: {
-            //         ...tsLoaderOptions,
-            //     },
             // },
             {
                 test: /\.(sa|sc|c)ss$/,
@@ -44,7 +41,7 @@ function stylesheetsConfiguration(env, argv) {
         module: modules(),
         entry: ['./src/styles/global.scss'],
         output: {
-            path: path.resolve(__dirname, './dist/styles'),
+            path: path.resolve(__dirname, './_site/junk'),
             // We actually don't care about this file, but webpack has to output some JS file
             filename: 'JUNK.js',
         },
@@ -52,7 +49,7 @@ function stylesheetsConfiguration(env, argv) {
         target: 'web',
         plugins: [
             new MiniCssExtractPlugin({
-                filename: 'main.css',
+                filename: '../styles/main.css',
             }),
         ],
     };
@@ -76,7 +73,7 @@ function jsConfiguration(env, argv) {
             main: './src/scripts/main.js',
         },
         output: {
-            path: path.resolve(__dirname, './dist/scripts'),
+            path: path.resolve(__dirname, './_site/scripts'),
             filename: '[name].js',
         },
         resolve: {
@@ -88,36 +85,36 @@ function jsConfiguration(env, argv) {
     };
 }
 
-function htmlConfiguration(env, argv) {
-    const mode = argv.mode;
-    const isProduction = mode === 'production';
+// function htmlConfiguration(env, argv) {
+//     const mode = argv.mode;
+//     const isProduction = mode === 'production';
 
-    return {
-        mode,
-        module: modules(),
-        entry: ['./src/scripts/main.js'], // Not actually related, but I need an entry point
-        output: {
-            path: path.resolve(__dirname, './dist/static'),
-            // We actually don't care about this file, but webpack has to output some JS file
-            filename: 'JUNK.js',
-        },
-        watch: !isProduction,
-        target: 'web',
-        plugins: [
-            new HandlebarsPlugin({
-                entry: path.join(process.cwd(), 'src', 'views', 'pages', '*.hbs'),
-                output: path.join(process.cwd(), 'dist', '[name].html'),
-                partials: [
-                    path.join(process.cwd(), 'src', 'views', 'partials', '*', '*.hbs'),
-                ],
-            }),
-            // new CopyWebpackPlugin([{
-            //     from: './src/views',
-            //     to: '../'
-            // }, ]),
-        ],
-    };
-}
+//     return {
+//         mode,
+//         module: modules(),
+//         entry: ['./src/scripts/main.js'], // Not actually related, but I need an entry point
+//         output: {
+//             path: path.resolve(__dirname, './_site/junk'),
+//             // We actually don't care about this file, but webpack has to output some JS file
+//             filename: 'JUNK.js',
+//         },
+//         watch: !isProduction,
+//         target: 'web',
+//         plugins: [
+//             new HandlebarsPlugin({
+//                 entry: path.join(process.cwd(), 'src', 'views', 'pages', '*.hbs'),
+//                 output: path.join(process.cwd(), 'dist', '[name].html'),
+//                 partials: [
+//                     path.join(process.cwd(), 'src', 'views', 'partials', '*', '*.hbs'),
+//                 ],
+//             }),
+//             // new CopyWebpackPlugin([{
+//             //     from: './src/views',
+//             //     to: '../'
+//             // }, ]),
+//         ],
+//     };
+// }
 
 function staticConfiguration(env, argv) {
     const mode = argv.mode;
@@ -128,7 +125,7 @@ function staticConfiguration(env, argv) {
         module: modules(),
         entry: ['./src/scripts/main.js'], // Not actually related, but I need an entry point
         output: {
-            path: path.resolve(__dirname, './dist/static'),
+            path: path.resolve(__dirname, './_site/junk'),
             // We actually don't care about this file, but webpack has to output some JS file
             filename: 'JUNK.js',
         },
@@ -137,12 +134,12 @@ function staticConfiguration(env, argv) {
         plugins: [
             new CopyWebpackPlugin([{
                 from: './src/static',
-                to: './',
+                to: '../static',
             }]),
-            new CopyWebpackPlugin([{
-                from: './src/root',
-                to: '../',
-            }]),
+            // new CopyWebpackPlugin([{
+            //     from: './src/root',
+            //     to: '../',
+            // }]),
         ],
     };
 }
@@ -150,6 +147,6 @@ function staticConfiguration(env, argv) {
 module.exports = [
     stylesheetsConfiguration,
     jsConfiguration,
-    htmlConfiguration,
+    // htmlConfiguration,
     staticConfiguration,
 ];
