@@ -1,0 +1,55 @@
+---
+layout: layouts/main.njk
+logoLink: /docs/
+ignoreGitHubButtons: true
+ignoreSupporters: true
+searchTitle: Eleventy Home
+bigPossum: true
+---
+
+<section class="masthead">
+    <h1>Caleb C. Burton</h1>
+    <ul class="subhead">
+        <li>Web Development</li>
+        <li>Embedded Systems</li>
+        <li>Global Health</li>
+    </ul>
+</section>
+
+## About
+
+I'm a web developer, electronics tinkerer, and automation nerd with a background in Biomedical Engineering and Computer Engineering. This website is mostly just a placeholder for now, but thanks for stopping by!
+
+<!-- Eleventy 69.0 requires Node 8 or newer. Use `node --version` on the command line to find your local Node version.
+
+``` bash
+npm install -g @11ty/eleventy
+echo '# Page header' > README.md
+eleventy
+```
+
+This will compile any files matching valid input [template file extensions](/docs/languages/) (`.md` is one of them) in the current directory into the output folder (defaults to `_site`).
+
+``` text
+Writing _site/README/index.html from ./README.md.
+Wrote 1 file in 0.11 seconds (v0.11.0)
+```
+
+Run `eleventy --serve` to start up a web server. Then open `http://localhost:8080/README/` in your web browser of choice to see your Eleventy output.
+
+➡ Keep going! Read a longer [Getting Started guide](/docs/getting-started/) or check out the full [**Documentation for 69.0**]({{ "/docs/" | url }}).
+
+<h2 id="eleventy-is-supported-by">Eleventy is <a href="/docs/supporters/">supported</a> by… <a class="direct-link" href="#eleventy-is-supported-by">#</a></h2>
+
+## Latest [News]({{ '/news/' | url }})
+
+{%- set news = collections.news | reverse | first %}
+{%- if news %}
+[{{ news.data.newstitle }}]({{ news.data.page.url }}) ({{ news.date | newsDate }})
+{%- endif %}
+
+<a href="{{ "/docs/" | url }}" class="rainbow-active rainbow-active-noanim">Documentation for <span>Eleventy 69.0</span></a><span>Todd and [Bruce](https://twitter.com/brucel/status/1107699886584143872) said this button should be bigger and as you can see they were right</span>
+
+## Don’t take my word for it {% emoji "🌈" %}
+
+Listen to what these [happy developers](/docs/testimonials/) are saying about Eleventy -->

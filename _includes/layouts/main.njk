@@ -1,0 +1,13 @@
+---
+title: Eleventy is a simpler static site generator.
+layout: layouts/base.njk
+templateClass: elv-default
+headerClass: elv-header-default
+---
+{% include "header.njk" %}
+
+<main>
+	{{ content | safe }}
+</main>
+
+{% include "footer.njk" %}
