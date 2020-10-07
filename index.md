@@ -1,10 +1,7 @@
 ---
 layout: layouts/main.njk
 logoLink: /docs/
-ignoreGitHubButtons: true
-ignoreSupporters: true
-searchTitle: Eleventy Home
-bigPossum: true
+searchTitle: Caleb Burton's Personal Website
 ---
 
 <section class="masthead">

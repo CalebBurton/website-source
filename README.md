@@ -4,13 +4,10 @@
 
 Source code for my personal website
 
-Git submodules reference: <https://www.vogella.com/tutorials/GitSubmodules/article.html#submodules_adding>
+## Eleventy
 
-## Handlebars
-
-- <https://cloudfour.com/thinks/the-hidden-power-of-handlebars-partials/>
-- <https://handlebarsjs.com/partials.html>
-- <https://github.com/sagold/handlebars-webpack-plugin>
+- <https://www.11ty.dev/>
+- <https://github.com/11ty/11ty-website>
 
 In `.zshrc`:
 
