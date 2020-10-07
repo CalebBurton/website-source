@@ -18,6 +18,10 @@ alias website-publish='cd ~/Documents/GitHub/website-source && npm run publish'
 
 <!--
 sudo -u deployemon bash
-
+cd ~/website-source
 eval $(ssh-agent -s) && ssh-add ~/.ssh/id_github
+git pull
+npm run publish
+
+vi /etc/apache2/apache2.conf
 -->
