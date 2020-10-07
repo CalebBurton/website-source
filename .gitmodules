@@ -1,4 +1,0 @@
-[submodule "website-output"]
-	path = website-output
-	url = https://github.com/CalebBurton/website-output.git
-	branch = gh-pages
