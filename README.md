@@ -7,8 +7,8 @@ Source code for my personal website
 
 ## Eleventy
 
-- <https://www.11ty.dev/>
-- <https://github.com/11ty/11ty-website>
+-   <https://www.11ty.dev/>
+-   <https://github.com/11ty/11ty-website>
 
 In `.zshrc`:
 

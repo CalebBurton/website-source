@@ -4,10 +4,10 @@ $large-breakpoint: 1440px !default;
 $xlarge-breakpoint: 1920px !default;
 
 // Here we define the lower and upper bounds for each media size
-$small-range:   (0, $small-breakpoint) !default; /* 0, 640px */
-$medium-range:  ($small-breakpoint  + 1px, $medium-breakpoint) !default; /* 641px, 1024px */
-$large-range:   ($medium-breakpoint + 1px, $large-breakpoint)  !default; /* 1025px, 1440px */
-$xlarge-range:  ($large-breakpoint  + 1px, $xlarge-breakpoint) !default; /* 1441px, 1920px */
+$small-range: (0, $small-breakpoint) !default; /* 0, 640px */
+$medium-range: ($small-breakpoint + 1px, $medium-breakpoint) !default; /* 641px, 1024px */
+$large-range: ($medium-breakpoint + 1px, $large-breakpoint) !default; /* 1025px, 1440px */
+$xlarge-range: ($large-breakpoint + 1px, $xlarge-breakpoint) !default; /* 1441px, 1920px */
 $xxlarge-range: ($xlarge-breakpoint + 1px, 99999999px) !default; /* 1921px, ... */
 
 $screen: "only screen";
@@ -30,10 +30,10 @@ $xlarge-only: "#{$screen} and (min-width:#{lower-bound($xlarge-range)}) and (max
 $xxlarge-up: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)})";
 $xxlarge-only: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)}) and (max-width:#{upper-bound($xxlarge-range)})";
 
-@function headings($from:1, $to:6) {
+@function headings($from: 1, $to: 6) {
     @if $from == $to {
-        @return 'h#{$from}';
+        @return "h#{$from}";
     } @else {
-        @return 'h#{$from},' + headings($from+1, $to);
+        @return "h#{$from}," + headings($from + 1, $to);
     }
 }

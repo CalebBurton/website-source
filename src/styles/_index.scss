@@ -1,5 +1,5 @@
-@import 'colors';
-@import 'fonts';
+@import "colors";
+@import "fonts";
 
 $bg-color: $purple-0;
 $font-color: $purple-4;
@@ -8,15 +8,33 @@ $font-color: $purple-4;
 // * Dev Styling
 // *********************
 
-html.dev-bg { background-color: $bg-color; }
-html.dev-bg * { background-color: rgba(0,255,0,.2); }
-html.dev-bg * * { background-color: rgba(0,0,255,.2); }
-html.dev-bg * * * { background-color: rgba(255,0,255,.2); }
-html.dev-bg * * * * { background-color: rgba(0,255,255,.2); }
-html.dev-bg * * * * * { background-color: rgba(255,255,0,.2); }
-html.dev-bg * * * * * * { background-color: rgba(255,0,0,.2); }
-html.dev-bg * * * * * * * { background-color: rgba(0,255,0,.2); }
-html.dev-bg * * * * * * * * { background-color: rgba(0,0,255,.2); }
+html.dev-bg {
+    background-color: $bg-color;
+}
+html.dev-bg * {
+    background-color: rgba(0, 255, 0, 0.2);
+}
+html.dev-bg * * {
+    background-color: rgba(0, 0, 255, 0.2);
+}
+html.dev-bg * * * {
+    background-color: rgba(255, 0, 255, 0.2);
+}
+html.dev-bg * * * * {
+    background-color: rgba(0, 255, 255, 0.2);
+}
+html.dev-bg * * * * * {
+    background-color: rgba(255, 255, 0, 0.2);
+}
+html.dev-bg * * * * * * {
+    background-color: rgba(255, 0, 0, 0.2);
+}
+html.dev-bg * * * * * * * {
+    background-color: rgba(0, 255, 0, 0.2);
+}
+html.dev-bg * * * * * * * * {
+    background-color: rgba(0, 0, 255, 0.2);
+}
 
 html.dev-border * {
     box-shadow: 0 0 0 1px red;
@@ -42,7 +60,7 @@ html.dev-border * {
 
 html,
 body {
-    height: 100%
+    height: 100%;
 }
 
 body {
@@ -56,12 +74,11 @@ body {
     background-color: $bg-color;
 
     background: radial-gradient(ellipse at right top, $bg-color, transparent, $bg-color),
-                radial-gradient(ellipse at bottom, $black, $bg-color, $gold);
+        radial-gradient(ellipse at bottom, $black, $bg-color, $gold);
     background-repeat: no-repeat;
     background-attachment: fixed;
 
     font-family: $heading-sans;
-
 }
 
 svg {
@@ -84,7 +101,7 @@ header {
     height: rem-calc(100px);
     margin-top: rem-calc(20px);
     width: 100%;
-    
+
     .header-wrapper {
         width: 100%;
         display: flex;
@@ -127,10 +144,10 @@ main {
         display: flex;
         list-style: none;
         padding-left: 0;
-    
+
         li {
             flex-grow: 1;
-            flex-basis: calc(100%/3);
+            flex-basis: calc(100% / 3);
         }
     }
 }
@@ -162,7 +179,7 @@ footer {
         display: list-item;
     }
 
-    a svg{
+    a svg {
         color: $font-color;
     }
 }
