@@ -123,9 +123,9 @@ module.exports = function (eleventyConfig) {
         return parseFloat(num).toFixed(2);
     });
 
-    // eleventyConfig.addShortcode("junkCode", function() {
-    // 	return process.env.ELEVENTY_ENV != 'production';
-    // });
+    eleventyConfig.addShortcode("isProduction", function() {
+    	return process.env.ELEVENTY_ENV != 'production';
+    });
 
     eleventyConfig.addFilter("orphanWrap", (str) => {
         let splitSpace = str.split(" ");

@@ -5,7 +5,7 @@
     "private": true,
     "scripts": {
         "test": "npm run clean && npm run lint",
-        "build": "npm run clean && eleventy && webpack --mode=production && rm -rf ./_site/junk",
+        "build": "npm run clean && ELEVENTY_ENV=production eleventy && webpack --mode=production && rm -rf ./_site/junk",
         "start:dev": "npm run build && webpack --mode=development & ELEVENTY_ENV=development eleventy --serve ",
         "start": "npm run build && webpack --mode=production && ELEVENTY_ENV=production eleventy --serve ",
         "clean": "rm -rf ./_site && npm install",

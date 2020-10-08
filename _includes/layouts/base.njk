@@ -9,7 +9,6 @@ social:
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
         {%- set subtitle %}{{ newstitle or searchTitle or relatedTitle or tiptitle or eleventyNavigation.key or title }}{% endset %}
         {%- set subtitleText %}{% if subtitle %}{{ subtitle }} | {% endif %}Caleb Burton's Personal Website{% endset %}
         <title>{{ subtitleText }}</title>
@@ -75,7 +74,7 @@ social:
 
         {{ content | safe }}
 
-        {% if not shouldShowDevToggles %}
+        {% if not isProduction %}
         {% include "dev-toggles.njk" %}
         {% endif %}
 
