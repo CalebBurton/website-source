@@ -3,7 +3,6 @@ layout: layouts/main.njk
 logoLink: /docs/
 searchTitle: Caleb Burton's Personal Website
 ---
-
 <section class="masthead">
     <h1>Caleb C. Burton</h1>
     <ul class="subhead">
@@ -13,11 +12,15 @@ searchTitle: Caleb Burton's Personal Website
     </ul>
 </section>
 
-## About
-
-I'm a web developer, electronics tinkerer, and automation nerd with a background in Biomedical Engineering and Computer Engineering. This website is mostly just a placeholder for now, but thanks for stopping by!
-
-<!-- Eleventy 69.0 requires Node 8 or newer. Use `node --version` on the command line to find your local Node version.
+<section>
+    <h2 id="about">About<a class="direct-link" href="#about">#</a></h2>
+    <p>
+        I'm a web developer, electronics tinkerer, and automation nerd with a background in Biomedical Engineering and
+        Computer Engineering. This website is mostly just a placeholder for now, but thanks for stopping by!
+    </p>
+</section>
+{#
+Eleventy 69.0 requires Node 8 or newer. Use `node --version` on the command line to find your local Node version.
 
 ``` bash
 npm install -g @11ty/eleventy
@@ -49,4 +52,5 @@ Run `eleventy --serve` to start up a web server. Then open `http://localhost:808
 
 ## Don’t take my word for it {% emoji "🌈" %}
 
-Listen to what these [happy developers](/docs/testimonials/) are saying about Eleventy -->
+Listen to what these [happy developers](/docs/testimonials/) are saying about Eleventy
+#}
