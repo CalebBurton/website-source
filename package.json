@@ -9,7 +9,7 @@
     "start:dev": "npm run build && webpack --mode=development & ELEVENTY_ENV=development eleventy --serve ",
     "start": "npm run build && webpack --mode=production && ELEVENTY_ENV=production eleventy --serve ",
     "clean": "rm -rf ./_site && npm install",
-    "lint": "eslint --fix .",
+    "lint": "eslint --fix . && prettier -w .",
     "publish": "npm run build && rsync -aq --exclude='*JUNK.js' --exclude='*.DS_Store' ./_site/ ../website-output"
   },
   "repository": {
@@ -34,6 +34,7 @@
     "markdown-it-anchor": "^5.2.5",
     "mini-css-extract-plugin": "^0.8.2",
     "node-sass": "^4.14.1",
+    "prettier": "^2.1.2",
     "sass-loader": "^8.0.2",
     "terser": "^4.6.7",
     "webpack": "^4.44.1",

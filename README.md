@@ -1,6 +1,7 @@
 # Source for calebburton.com
 
 [![CI](https://github.com/CalebBurton/website-source/workflows/CI/badge.svg?branch=main)](https://github.com/CalebBurton/website-source/actions?query=workflow%3ACI)
+[![Code Style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 Source code for my personal website
 
