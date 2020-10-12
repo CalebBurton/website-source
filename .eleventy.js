@@ -1,9 +1,9 @@
-const markdownIt = require("markdown-it");
-const fs = require("fs");
+const markdownIt = require('markdown-it');
+const fs = require('fs');
 
 // const navigationPlugin = require("@11ty/eleventy-navigation");
 // const rssPlugin = require("@11ty/eleventy-plugin-rss");
-const minificationLocalPlugin = require("./config/minification");
+const minificationLocalPlugin = require('./config/minification');
 // const objectHas = require("./config/object-has");
 
 // Load yaml from Prism to highlight frontmatter
@@ -12,7 +12,7 @@ const minificationLocalPlugin = require("./config/minification");
 let defaultAvatarHtml = `<img src="/img/default-avatar.png" alt="Default Avatar" loading="lazy" class="avatar">`;
 const shortcodes = {
     link: function (linkUrl, content) {
-        return (linkUrl ? `<a href="${linkUrl}">` : "") + content + (linkUrl ? `</a>` : "");
+        return (linkUrl ? `<a href="${linkUrl}">` : '') + content + (linkUrl ? `</a>` : '');
     },
 };
 
@@ -27,8 +27,8 @@ module.exports = function (eleventyConfig) {
         ghostMode: false,
         callbacks: {
             ready: function (err, bs) {
-                bs.addMiddleware("*", (req, res) => {
-                    const content_404 = fs.readFileSync("_site/404.html");
+                bs.addMiddleware('*', (req, res) => {
+                    const content_404 = fs.readFileSync('_site/404.html');
                     // Provides the 404 content without redirect.
                     res.write(content_404);
                     // Add 404 http status code in request header.
@@ -58,80 +58,80 @@ module.exports = function (eleventyConfig) {
     // eleventyConfig.addPlugin(monthDiffPlugin);
     eleventyConfig.addPlugin(minificationLocalPlugin);
 
-    eleventyConfig.addCollection("sidebarNav", function (collection) {
+    eleventyConfig.addCollection('sidebarNav', function (collection) {
         // filter out excludeFromSidebar options
         return collection.getAll().filter((item) => (item.data || {}).excludeFromSidebar !== true);
     });
 
     let md = new markdownIt();
-    eleventyConfig.addPairedShortcode("callout", function (content, level = "warn", format = "html") {
-        if (format === "md") {
+    eleventyConfig.addPairedShortcode('callout', function (content, level = 'warn', format = 'html') {
+        if (format === 'md') {
             content = md.renderInline(content);
         }
         return `<div class="elv-callout elv-callout-${level}">${content}</div>`;
     });
 
-    eleventyConfig.addShortcode("emoji", function (emoji, alt = "") {
+    eleventyConfig.addShortcode('emoji', function (emoji, alt = '') {
         return (
             `<span aria-hidden="true" class="emoji">${emoji}</span>` +
-            (alt ? `<span class="sr-only">${alt}</span>` : "")
+            (alt ? `<span class="sr-only">${alt}</span>` : '')
         );
     });
 
-    eleventyConfig.addShortcode("codetitle", function (title, heading = "Filename") {
+    eleventyConfig.addShortcode('codetitle', function (title, heading = 'Filename') {
         return `<div class="codetitle codetitle-left"><b>${heading} </b>${title}</div>`;
     });
 
-    eleventyConfig.addPairedShortcode("minilink", function (text, href) {
+    eleventyConfig.addPairedShortcode('minilink', function (text, href) {
         return `<a href="${href}" class="minilink minilink-lower">${text}</a>`;
     });
 
     eleventyConfig.addPassthroughCopy({
-        "node_modules/@11ty/logo/img/logo.svg": "img/logo.svg",
-        "node_modules/@11ty/logo/img/logo-784x1093.png": "img/logo.png",
-        "node_modules/@11ty/logo/img/logo-300x418.png": "img/logo-github.png",
-        "node_modules/@11ty/logo/img/logo-96x96.png": "img/favicon.png",
+        'node_modules/@11ty/logo/img/logo.svg': 'img/logo.svg',
+        'node_modules/@11ty/logo/img/logo-784x1093.png': 'img/logo.png',
+        'node_modules/@11ty/logo/img/logo-300x418.png': 'img/logo-github.png',
+        'node_modules/@11ty/logo/img/logo-96x96.png': 'img/favicon.png',
     });
 
-    eleventyConfig.addPassthroughCopy("_redirects");
-    eleventyConfig.addPassthroughCopy("netlify-email");
-    eleventyConfig.addPassthroughCopy("css/fonts");
-    eleventyConfig.addPassthroughCopy("img");
-    eleventyConfig.addPassthroughCopy("favicon.ico");
+    eleventyConfig.addPassthroughCopy('_redirects');
+    eleventyConfig.addPassthroughCopy('netlify-email');
+    eleventyConfig.addPassthroughCopy('css/fonts');
+    eleventyConfig.addPassthroughCopy('img');
+    eleventyConfig.addPassthroughCopy('favicon.ico');
 
-    eleventyConfig.addFilter("fileExists", function (url) {
+    eleventyConfig.addFilter('fileExists', function (url) {
         return fs.pathExistsSync(`.${url}`);
     });
 
-    eleventyConfig.addFilter("toJSON", function (obj) {
+    eleventyConfig.addFilter('toJSON', function (obj) {
         return JSON.stringify(obj);
     });
 
-    eleventyConfig.addFilter("toSearchEntry", function (str) {
-        return str.replace(/<a class="direct-link"[^>]*>#<\/a\>/g, "");
+    eleventyConfig.addFilter('toSearchEntry', function (str) {
+        return str.replace(/<a class="direct-link"[^>]*>#<\/a\>/g, '');
     });
 
-    eleventyConfig.addFilter("humanReadableNum", function (num) {
+    eleventyConfig.addFilter('humanReadableNum', function (num) {
         return HumanReadable.toHumanString(num);
     });
 
-    eleventyConfig.addFilter("commaNumber", function (num) {
+    eleventyConfig.addFilter('commaNumber', function (num) {
         return commaNumber(num);
     });
 
-    eleventyConfig.addFilter("displayPrice", function (num) {
+    eleventyConfig.addFilter('displayPrice', function (num) {
         return parseFloat(num).toFixed(2);
     });
 
-    eleventyConfig.addShortcode("isProduction", function() {
-    	return process.env.ELEVENTY_ENV != 'production';
+    eleventyConfig.addShortcode('isProduction', function () {
+        return process.env.ELEVENTY_ENV != 'production';
     });
 
-    eleventyConfig.addFilter("orphanWrap", (str) => {
-        let splitSpace = str.split(" ");
-        let after = "";
+    eleventyConfig.addFilter('orphanWrap', (str) => {
+        let splitSpace = str.split(' ');
+        let after = '';
         if (splitSpace.length > 2) {
-            after += " ";
+            after += ' ';
 
             // TODO strip HTML from this?
             let lastWord = splitSpace.pop();
@@ -140,7 +140,7 @@ module.exports = function (eleventyConfig) {
             after += `${secondLastWord}&nbsp;${lastWord}`;
         }
 
-        return splitSpace.join(" ") + after;
+        return splitSpace.join(' ') + after;
     });
 
     function randomizeArray(arr) {
@@ -153,7 +153,7 @@ module.exports = function (eleventyConfig) {
     }
 
     // Thanks to https://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array
-    eleventyConfig.addFilter("shuffle", (arr) => {
+    eleventyConfig.addFilter('shuffle', (arr) => {
         if (Array.isArray(arr)) {
             return randomizeArray(arr);
         }
@@ -167,7 +167,7 @@ module.exports = function (eleventyConfig) {
     });
 
     // Thanks to https://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array
-    eleventyConfig.addFilter("randompick", (arr) => {
+    eleventyConfig.addFilter('randompick', (arr) => {
         if (Array.isArray(arr)) {
             return arr[Math.floor(Math.random() * arr.length)];
         }
@@ -176,7 +176,7 @@ module.exports = function (eleventyConfig) {
         return arr[randkey];
     });
 
-    eleventyConfig.addFilter("getsize", (arr) => {
+    eleventyConfig.addFilter('getsize', (arr) => {
         if (Array.isArray(arr)) {
             return arr.length;
         }
@@ -184,18 +184,18 @@ module.exports = function (eleventyConfig) {
         return Object.keys(arr).length;
     });
 
-    eleventyConfig.addShortcode("addToSampleSites", function () {
+    eleventyConfig.addShortcode('addToSampleSites', function () {
         return `<a href="https://github.com/11ty/11ty-website/issues/new/choose"><strong>Want to add your site to this list?</strong></a>`;
     });
 
-    eleventyConfig.addCollection("quicktipssorted", function (collection) {
-        return collection.getFilteredByTag("quicktips").sort(function (a, b) {
+    eleventyConfig.addCollection('quicktipssorted', function (collection) {
+        return collection.getFilteredByTag('quicktips').sort(function (a, b) {
             return parseInt(a.data.tipindex, 10) - parseInt(b.data.tipindex, 10);
         });
     });
 
     /* Markdown */
-    let markdownItAnchor = require("markdown-it-anchor");
+    let markdownItAnchor = require('markdown-it-anchor');
     // let markdownItToc = require("markdown-it-table-of-contents");
 
     let mdIt = markdownIt({
@@ -206,22 +206,22 @@ module.exports = function (eleventyConfig) {
         permalink: true,
         // slugify: markdownItSlugify,
         permalinkBefore: false,
-        permalinkClass: "direct-link",
-        permalinkSymbol: "#",
+        permalinkClass: 'direct-link',
+        permalinkSymbol: '#',
         level: [1, 2, 3, 4],
     });
 
-    mdIt.linkify.tlds(".io", false);
-    eleventyConfig.setLibrary("md", mdIt);
+    mdIt.linkify.tlds('.io', false);
+    eleventyConfig.setLibrary('md', mdIt);
 
-    eleventyConfig.addFilter("newsDate", (dateObj, format = "yyyy LLLL dd") => {
-        if (typeof dateObj === "number") {
+    eleventyConfig.addFilter('newsDate', (dateObj, format = 'yyyy LLLL dd') => {
+        if (typeof dateObj === 'number') {
             dateObj = new Date(dateObj);
         }
         return DateTime.fromJSDate(dateObj).toFormat(format);
     });
 
-    eleventyConfig.addFilter("objectFilterNot", (obj, compareKey) => {
+    eleventyConfig.addFilter('objectFilterNot', (obj, compareKey) => {
         let newObj = {};
         for (let j in obj) {
             if (!obj[j][compareKey]) {
@@ -231,7 +231,7 @@ module.exports = function (eleventyConfig) {
         return newObj;
     });
 
-    eleventyConfig.addFilter("rankSortByNumericKey", (arr, ...keys) => {
+    eleventyConfig.addFilter('rankSortByNumericKey', (arr, ...keys) => {
         return arr
             .filter((entry) => true)
             .sort((a, b) => {
@@ -245,7 +245,7 @@ module.exports = function (eleventyConfig) {
             });
     });
 
-    eleventyConfig.addFilter("calc", (sites, type, key, greaterThanOrEqualTo = 1) => {
+    eleventyConfig.addFilter('calc', (sites, type, key, greaterThanOrEqualTo = 1) => {
         let sum = 0;
         let values = [];
         let keys;
@@ -265,25 +265,25 @@ module.exports = function (eleventyConfig) {
             if (test) {
                 count++;
             }
-            if (typeof site[key] === "number") {
+            if (typeof site[key] === 'number') {
                 sum += site[key];
                 values.push(site[key]);
             }
         }
-        if (type === "count") {
+        if (type === 'count') {
             return count;
         }
-        if (type === "mean") {
+        if (type === 'mean') {
             return sum / values.length;
         }
-        if (type === "median") {
+        if (type === 'median') {
             if (values.length > 0) {
                 return values.sort((a, b) => b - a)[Math.floor(values.length / 2)];
             }
         }
     });
 
-    eleventyConfig.addFilter("findBy", (data, key, value) => {
+    eleventyConfig.addFilter('findBy', (data, key, value) => {
         return data.filter((entry) => {
             if (!key || !value || !entry[key]) {
                 return false;
@@ -298,7 +298,7 @@ module.exports = function (eleventyConfig) {
         });
     });
 
-    eleventyConfig.addFilter("findSiteDataByUrl", (url, sites) => {
+    eleventyConfig.addFilter('findSiteDataByUrl', (url, sites) => {
         let sitesArr = sites;
         if (!Array.isArray(sitesArr)) {
             sitesArr = Object.values(sites);
@@ -316,14 +316,14 @@ module.exports = function (eleventyConfig) {
         }
     });
 
-    eleventyConfig.addFilter("repeat", (number, str) => {
+    eleventyConfig.addFilter('repeat', (number, str) => {
         if (number > 0) {
             return str + new Array(number).join(str);
         }
-        return "";
+        return '';
     });
 
-    eleventyConfig.addFilter("topAuthors", (sites) => {
+    eleventyConfig.addFilter('topAuthors', (sites) => {
         let counts = {};
         let eligibleCounts = {};
         getAuthors(sites, (name, site) => {
@@ -358,12 +358,12 @@ module.exports = function (eleventyConfig) {
         return top;
     });
 
-    eleventyConfig.addFilter("head", (arr, num) => {
+    eleventyConfig.addFilter('head', (arr, num) => {
         return num ? arr.slice(0, num) : arr;
     });
 
     // Sort an object that has `order` props in values. Return an array
-    eleventyConfig.addFilter("sortObjectByOrder", (obj) => {
+    eleventyConfig.addFilter('sortObjectByOrder', (obj) => {
         let arr = [];
         for (let key in obj) {
             arr.push(obj[key]);
@@ -377,9 +377,9 @@ module.exports = function (eleventyConfig) {
     // eleventyConfig.addFilter("has", objectHas);
 
     return {
-        templateFormats: ["html", "njk", "md", "11ty.js"],
-        markdownTemplateEngine: "njk",
-        htmlTemplateEngine: "njk",
+        templateFormats: ['html', 'njk', 'md', '11ty.js'],
+        markdownTemplateEngine: 'njk',
+        htmlTemplateEngine: 'njk',
         dataTemplateEngine: false,
     };
 };
