@@ -9,8 +9,9 @@
         "start:dev": "npm run build && webpack --mode=development & ELEVENTY_ENV=development eleventy --serve ",
         "start": "npm run build && webpack --mode=production && ELEVENTY_ENV=production eleventy --serve ",
         "clean": "rm -rf ./_site && npm install",
-        "lint": "eslint --fix . && prettier -w .",
-        "publish": "npm run build && rsync -aq --exclude='*JUNK.js' --exclude='*.DS_Store' ./_site/ ../website-output"
+        "lint": "eslint --fix .",
+        "lint:harsh": "eslint --fix . && prettier -w .",
+        "publish": "npm run build && rsync -aq --del --exclude='*JUNK.js' --exclude='*.DS_Store' ./_site/ ../website-output && cp ./build.cgi ../website-output"
     },
     "repository": {
         "type": "git",
@@ -40,7 +41,5 @@
         "webpack": "^4.44.1",
         "webpack-cli": "^3.3.12"
     },
-    "dependencies": {
-        "handlebars": "^4.5.3"
-    }
+    "dependencies": {}
 }
