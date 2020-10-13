@@ -32,4 +32,6 @@ npm run publish
 
 vi /etc/apache2/apache2.conf
 sudo service apache2 restart
+
+scp ~/Documents/GitHub/website-source/.env deployemon@do-site:/home/deployemon/website-source
 -->
