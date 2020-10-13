@@ -8,10 +8,12 @@
         "build": "npm run clean && ELEVENTY_ENV=production eleventy && webpack --mode=production && rm -rf ./_site/junk",
         "start:dev": "npm run build && webpack --mode=development & ELEVENTY_ENV=development eleventy --serve ",
         "start": "npm run build && webpack --mode=production && ELEVENTY_ENV=production eleventy --serve ",
-        "clean": "rm -rf ./_site && npm install",
+        "clean": "rm -rf ./_site && npm --silent install",
         "lint": "eslint --fix .",
         "lint:harsh": "eslint --fix . && prettier -w .",
-        "publish": "npm run build && rsync -aq --del --exclude='*JUNK.js' --exclude='*.DS_Store' ./_site/ ../website-output && cp ./build.cgi ../website-output"
+        "publish": "npm run build && npm run sync:site && npm run sync:cgi",
+        "sync:site": "rsync -qa --del --exclude='*JUNK.js' --exclude='*.DS_Store' ./_site/ ../website-output",
+        "sync:cgi": "rsync -qp --chmod=a+x ./build.cgi ../website-output"
     },
     "repository": {
         "type": "git",

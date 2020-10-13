@@ -22,26 +22,18 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # - name: ssh into VPS and build latest version
-      #   uses: garygrossgarten/github-action-ssh@release
-      #   with:
-      #     host: ${{ secrets.HOST }}
-      #     username: ${{ secrets.USERNAME }}
-      #     privateKey: ${{ secrets.KEY }}
-      #     command: ls -hal
-      #     # port: ${{ secrets.PORT }}
-      #     # script_stop: true
-      #     # debug: true
-      #     # script: whoami
-      #     # script: |
-      #     #   cd ~/website-source
-      #     #   eval $(ssh-agent -s) && ssh-add ~/.ssh/id_github
-      #     #   git pull
-      #     #   npm run publish
-
       - name: Run a one-line script
         run: echo Hello, world!
 
-      # - name: Run a multi-line script
-      #   run: |
-      #     npm run lint
+      - name: Trigger website build
+        run: |
+          if [ $(curl -s -o /dev/null -w "%{http_code}" -X POST -d "${{ secrets.BUILD_KEY }}" "${{ secrets.BUILD_URL }}") = "200" ]; then
+            exit 0
+          else
+            exit 1
+          fi
+
+      - name: Run a multi-line script
+        run: |
+          TZ=America/New_York date +'%Y-%m-%d at %H:%M %Z'
+          date -u +'(%H:%M UTC)'
