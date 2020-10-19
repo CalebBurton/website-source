@@ -18,10 +18,11 @@ alias website-go='cd ~/Documents/GitHub/website-source && npm run build:dev'
 alias website-publish='cd ~/Documents/GitHub/website-source && npm run publish'
 ```
 
-Harden Apache:
+Harden Apache ([reference docs](https://httpd.apache.org/docs/)):
 
 - [x] <https://www.tecmint.com/hide-apache-web-server-version-information/>
-- [ ] <https://geekflare.com/apache-web-server-hardening-security/>
+- [x] <https://geekflare.com/apache-web-server-hardening-security/>
+- [x] <https://infosec.mozilla.org/guidelines/web_security>
 
 <!--
 sudo -u deployemon bash
@@ -34,4 +35,13 @@ vi /etc/apache2/apache2.conf
 sudo service apache2 restart
 
 scp ~/Documents/GitHub/website-source/.env deployemon@do-site:/home/deployemon/website-source
+-->
+
+<!--
+sudo a2enmod cgid
+sudo a2enmod headers
+sudo a2enmod http2
+systemctl restart apache2
+
+sudo service apache2 restart
 -->
