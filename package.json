@@ -6,8 +6,8 @@
     "scripts": {
         "test": "npm run clean && npm run lint",
         "build": "npm run clean && ELEVENTY_ENV=production eleventy && webpack --mode=production && rm -rf ./_site/junk",
-        "start:dev": "npm run build && webpack --mode=development & ELEVENTY_ENV=development eleventy --serve ",
-        "start": "npm run build && webpack --mode=production && ELEVENTY_ENV=production eleventy --serve ",
+        "start:dev": "npm run clean && webpack --mode=development & ELEVENTY_ENV=development eleventy --serve ",
+        "start": "npm run clean && webpack --mode=production && ELEVENTY_ENV=production eleventy --serve ",
         "clean": "rm -rf ./_site && npm --silent install",
         "lint": "eslint --fix .",
         "lint:harsh": "eslint --fix . && prettier -w .",

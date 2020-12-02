@@ -68,7 +68,7 @@ showCredits: true
 
         {{ content | safe }}
 
-        {% if not isProduction %}
+        {% if config.env != 'production' %}
         {% include "dev-toggles.njk" %}
         {% endif %}
 
