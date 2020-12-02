@@ -31,10 +31,16 @@
         </ul>
     </section>
     <section id="footer-copy">
-        Designed, built, and maintained by Caleb Burton
-        {# <a href="/docs/credits/" class="elv-nav-light">Credits</a> #}
-        <div class="view-source">
-            (<a href="https://github.com/CalebBurton/website-source" target="_blank" rel="noopener">View the source here!</a>)
-        </div>
+        <hr />
+        <p>
+            Designed, built, and maintained by Caleb Burton.
+        </p>
+        <p>
+        {%- if showCredits %}
+            <a href="/pages/credits" class="elv-nav-light">See the credits</a> or <a href="https://github.com/CalebBurton/website-source" target="_blank" rel="noopener">view the source code</a>
+        {%- else %}
+            <a href="https://github.com/CalebBurton/website-source" target="_blank" rel="noopener">View the source code</a>
+        {% endif %}
+        </p>
     </section>
 </footer>

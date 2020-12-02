@@ -41,7 +41,7 @@ html.dev-border * {
 }
 
 .dev-toggles-container {
-    position: absolute;
+    position: fixed;
     bottom: 0;
     right: 0;
 
@@ -59,12 +59,13 @@ html.dev-border * {
     text-decoration-skip-ink: auto; // This is the default anyway, but just in case
 }
 
-html,
-body {
+html {
     height: 100%;
+    scrollbar-width: none;
 }
 
 body {
+    height: 100%;
     display: flex;
     flex-direction: column;
 
@@ -104,6 +105,7 @@ header {
     width: 100%;
 
     .header-wrapper {
+        height: 6rem;
         width: 100%;
         display: flex;
         align-items: center;
