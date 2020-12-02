@@ -1,13 +1,13 @@
 <header>
     <div class="header-wrapper">
-        <a href="#" title="Caleb Burton" rel="home">
+        <a href="/" title="Home Page" rel="home">
             <picture aria-hidden="true">
-                <source srcset="static/logo.svg 40w">
-                <img src="static/logo.svg" alt="Logo" class="logo" />
-                {# {% include "svgs/logo.svg" %} #}
+                <source srcset="/static/logo.svg 40w">
+                <img src="/static/logo.svg" alt="Logo" class="logo" />
+                {#- {% include "svgs/logo.svg" %} #}
             </picture>
         </a>
-        <div class="menu-wrapper">
+        {#- <div class="menu-wrapper">
             <span class="nav-toggle">☰ Menu</span>
             <nav class="menu" aria-hidden="true">
                 <ul class="menu">
@@ -22,11 +22,10 @@
                     </li>
                 </ul>
             </nav>
-        </div>
+        </div> #}
     </div>
 </header>
-
-{# <header class="elv-layout elv-layout-full elv-header{% if headerClass %} {{ headerClass }}{% endif %}">
+{#- <header class="elv-layout elv-layout-full elv-header{% if headerClass %} {{ headerClass }}{% endif %}">
     <div class="announcement">
         <div class="lo announcement-lo">
             <a href="https://blacklivesmatter.com/" class="lo-c">Black Lives Matter</a>
