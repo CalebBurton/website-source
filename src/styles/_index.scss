@@ -56,6 +56,7 @@ html.dev-border * {
 
 * {
     box-sizing: border-box;
+    text-decoration-skip-ink: auto; // This is the default anyway, but just in case
 }
 
 html,
@@ -157,11 +158,11 @@ footer {
     padding: rem-calc(15px);
 }
 
-.footer-copy {
+#footer-copy {
     display: block;
 }
 
-.footer-social {
+#footer-social {
     margin: 0px auto rem-calc(10px);
     max-width: rem-calc(150px);
 
