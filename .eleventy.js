@@ -9,6 +9,8 @@ const minificationLocalPlugin = require('./config/minification');
 // Load yaml from Prism to highlight frontmatter
 // loadLanguages(['yaml']);
 
+const inclusiveLangPlugin = require("@11ty/eleventy-plugin-inclusive-language");
+
 let defaultAvatarHtml = `<img src="/img/default-avatar.png" alt="Default Avatar" loading="lazy" class="avatar">`;
 const shortcodes = {
     link: function (linkUrl, content) {
@@ -58,6 +60,15 @@ module.exports = function (eleventyConfig) {
     // eleventyConfig.addPlugin(monthDiffPlugin);
     eleventyConfig.addPlugin(minificationLocalPlugin);
 
+    eleventyConfig.addPlugin(inclusiveLangPlugin);
+
+    eleventyConfig.addShortcode('url', function (href, text) {
+        const isExternal = href.indexOf('http') != -1;
+        return (isExternal ?
+            `<a href="${href}" class="external" target="_blank" rel="noopener">${text}<img src="/static/external.svg" /></a>` :
+            `<a href="${href}" >${text}</a>`);
+    });
+
     eleventyConfig.addCollection('sidebarNav', function (collection) {
         // filter out excludeFromSidebar options
         return collection.getAll().filter((item) => (item.data || {}).excludeFromSidebar !== true);
@@ -76,10 +87,6 @@ module.exports = function (eleventyConfig) {
             `<span aria-hidden="true" class="emoji">${emoji}</span>` +
             (alt ? `<span class="sr-only">${alt}</span>` : '')
         );
-    });
-
-    eleventyConfig.addShortcode('codetitle', function (title, heading = 'Filename') {
-        return `<div class="codetitle codetitle-left"><b>${heading} </b>${title}</div>`;
     });
 
     eleventyConfig.addPairedShortcode('minilink', function (text, href) {

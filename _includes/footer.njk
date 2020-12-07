@@ -46,9 +46,9 @@
         </p>
         <p>
         {%- if showCredits %}
-            <a href="/pages/credits" class="elv-nav-light">See the credits</a> or <a href="https://github.com/CalebBurton/website-source" target="_blank" rel="noopener">view the source code</a>
+            <a href="/pages/credits" class="elv-nav-light">See the credits</a> or {% url 'https://github.com/CalebBurton/website-source', 'view the source code' %}
         {%- else %}
-            <a href="https://github.com/CalebBurton/website-source" target="_blank" rel="noopener">View the source code</a>
+            {% url 'https://github.com/CalebBurton/website-source', 'View the source code' %}
         {% endif %}
         </p>
     </section>

@@ -28,10 +28,12 @@
     "homepage": "https://github.com/CalebBurton/website-source#readme",
     "devDependencies": {
         "@11ty/eleventy": "^0.11.0",
+        "@11ty/eleventy-plugin-inclusive-language": "^1.0.0",
         "clean-css": "^4.2.3",
         "copy-webpack-plugin": "^5.1.1",
         "css-loader": "^3.6.0",
         "eslint": "^6.8.0",
+        "file-loader": "^6.2.0",
         "html-minifier": "^4.0.0",
         "markdown-it": "^8.4.2",
         "markdown-it-anchor": "^5.2.5",
