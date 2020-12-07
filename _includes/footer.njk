@@ -2,7 +2,7 @@
     <section id="footer-social">
         <ul>
             <li>
-                <a href="https://github.com/CalebBurton/" title="Github">
+                <a href="https://github.com/CalebBurton/" title="Github" target="_blank" rel="noopener">
                     {#- <picture aria-hidden="true">
                         <source srcset="static/github.svg 40w">
                         <img src="static/github.svg" alt="Github" />
@@ -29,7 +29,7 @@
                 </a>
             </li>
             <li>
-                <a href="https://www.linkedin.com/in/caleb-charles-burton/" title="LinkedIn">
+                <a href="https://www.linkedin.com/in/caleb-charles-burton/" title="LinkedIn" target="_blank" rel="noopener">
                     {#- <picture aria-hidden="true">
                         <source srcset="static/linkedin.svg 40w">
                         <img src="static/linkedin.svg" alt="LinkedIn" />
@@ -46,7 +46,7 @@
         </p>
         <p>
         {%- if showCredits %}
-            <a href="/pages/credits" class="elv-nav-light">See the credits</a> or {% url 'https://github.com/CalebBurton/website-source', 'view the source code' %}
+            {% url '/pages/credits', 'See the credits' %} or {% url 'https://github.com/CalebBurton/website-source', 'view the source code' %}
         {%- else %}
             {% url 'https://github.com/CalebBurton/website-source', 'View the source code' %}
         {% endif %}

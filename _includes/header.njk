@@ -12,13 +12,13 @@
             <nav class="menu" aria-hidden="true">
                 <ul class="menu">
                     <li class="">
-                        <a href="/about">About</a>
+                        {% url '/about', 'About' %}
                     </li>
                     <li class="">
-                        <a href="/work">Work</a>
+                        {% url '/work', 'Work' %}
                     </li>
                     <li class="">
-                        <a href="/contact">Contact</a>
+                        {% url '/contact', 'Contact' %}
                     </li>
                 </ul>
             </nav>
