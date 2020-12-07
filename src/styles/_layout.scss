@@ -17,3 +17,24 @@
         }
     }
 }
+
+a.direct-link {
+    margin-left: 0.25rem;
+}
+
+p {
+    line-height: 1.4rem;
+}
+
+li {
+    margin-top: 0.75rem;
+}
+
+pre {
+    background: $dark;
+    color: $light;
+    padding: 10px;
+
+    border: 1px solid $gray;
+    border-radius: 4px;
+}

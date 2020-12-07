@@ -13,6 +13,10 @@ function modules() {
             //     exclude: /node_modules/,
             // },
             {
+                test   : /\.(ttf|eot|svg|woff2?)$/,
+                loader : 'file-loader',
+            },
+            {
                 test: /\.(sa|sc|c)ss$/,
                 use: [
                     MiniCssExtractPlugin.loader,

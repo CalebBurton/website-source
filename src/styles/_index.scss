@@ -2,7 +2,7 @@
 @import "fonts";
 
 $bg-color: $purple-0;
-$font-color: $purple-4;
+$font-color: $purple-5;
 
 // *********************
 // * Dev Styling
@@ -92,6 +92,10 @@ a:visited {
     color: $blue-3;
 }
 
+// hr {
+//     color: $font-color;
+// }
+
 header,
 main,
 footer {
@@ -166,7 +170,7 @@ footer {
 
 #footer-social {
     margin: 0px auto rem-calc(10px);
-    max-width: rem-calc(150px);
+    max-width: rem-calc(175px);
 
     ul {
         display: flex;
@@ -178,11 +182,9 @@ footer {
         margin: 0;
     }
 
-    li {
-        display: list-item;
-    }
-
     a svg {
         color: $font-color;
+        height: 1.5rem;
+        width: 1.5rem;
     }
 }
