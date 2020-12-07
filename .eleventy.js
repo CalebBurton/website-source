@@ -62,11 +62,17 @@ module.exports = function (eleventyConfig) {
 
     eleventyConfig.addPlugin(inclusiveLangPlugin);
 
-    eleventyConfig.addShortcode('url', function (href, text) {
+    eleventyConfig.addShortcode('url', function (href, text, isDownload = false) {
         const isExternal = href.indexOf('http') != -1;
-        return (isExternal ?
-            `<a href="${href}" class="external" target="_blank" rel="noopener">${text}<img src="/static/external.svg" /></a>` :
-            `<a href="${href}" >${text}</a>`);
+        let output;
+        if (isDownload) {
+            output = `<a href="${href}" class="download">${text}<img src="/static/download.svg" /></a>`
+        } else if (isExternal) {
+            output = `<a href="${href}" class="external">${text}<img src="/static/external.svg" /></a>`
+        } else {
+            output = `<a href="${href}">${text}</a>`
+        }
+        return output;
     });
 
     eleventyConfig.addCollection('sidebarNav', function (collection) {

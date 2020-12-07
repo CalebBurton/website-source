@@ -23,10 +23,13 @@ a.direct-link {
 }
 
 // Use https://codepen.io/calebburton/pen/MWjepRJ to convert to the color of choice, in this case $blue-2
-a.external img {
-    filter: invert(44%) sepia(22%) saturate(2710%) hue-rotate(156deg) brightness(101%) contrast(101%);
-    margin-left: rem-calc(1px);
-    vertical-align: middle;
+a.external,
+a.download {
+    img {
+        filter: invert(44%) sepia(22%) saturate(2710%) hue-rotate(156deg) brightness(101%) contrast(101%);
+        margin-left: rem-calc(2px);
+        vertical-align: middle;
+    }
 }
 
 p {
