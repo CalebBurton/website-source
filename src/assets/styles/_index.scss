@@ -1,15 +1,12 @@
 @import "colors";
 @import "fonts";
 
-$bg-color: $purple-0;
-$font-color: $purple-5;
-
 // *********************
 // * Dev Styling
 // *********************
 
 html.dev-bg {
-    background-color: $bg-color;
+    background-color: var(--color-bg);
 }
 html.dev-bg * {
     background-color: rgba(0, 255, 0, 0.2);
@@ -72,15 +69,15 @@ body {
     max-width: rem-calc(800px);
     margin: auto;
 
-    color: $font-color;
-    background-color: $bg-color;
+    color: var(--color-text);
+    background-color: var(--color-bg);
 
-    background: radial-gradient(ellipse at right top, $bg-color, transparent, $bg-color),
-        radial-gradient(ellipse at bottom, $black, $bg-color, $gold);
+    background: radial-gradient(ellipse at right top, var(--color-bg), transparent, var(--color-bg)),
+        radial-gradient(ellipse at bottom, var(--black), var(--color-bg), var(--gold));
     background-repeat: no-repeat;
     background-attachment: fixed;
 
-    font-family: $heading-sans;
+    font-family: var(--heading-sans);
 }
 
 svg {
@@ -89,11 +86,11 @@ svg {
 
 a,
 a:visited {
-    color: $blue-3;
+    color: var(--blue-3);
 }
 
 // hr {
-//     color: $font-color;
+//     color: var(--color-text);
 // }
 
 header,
@@ -183,7 +180,7 @@ footer {
     }
 
     a svg {
-        color: $font-color;
+        color: var(--color-text);
         height: 1.5rem;
         width: 1.5rem;
     }

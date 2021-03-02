@@ -5,10 +5,10 @@
     "private": true,
     "scripts": {
         "test": "npm run clean && npm run lint",
-        "build": "npm run clean && ELEVENTY_ENV=production eleventy && webpack --mode=production && rm -rf ./_site/junk",
-        "start:dev": "npm run clean && webpack --mode=development & ELEVENTY_ENV=development eleventy --serve ",
-        "start": "npm run clean && webpack --mode=production && ELEVENTY_ENV=production eleventy --serve ",
-        "clean": "rm -rf ./_site && npm --silent install",
+        "build": "npm run clean && ELEVENTY_ENV=production eleventy && rm -rf ./_site/junk",
+        "start:dev": "npm run clean && ELEVENTY_ENV=development eleventy --serve ",
+        "start": "npm run clean && ELEVENTY_ENV=production eleventy --serve ",
+        "clean": "rm -rf ./_site && rm -rf ./_site && npm --silent install",
         "lint": "eslint --fix .",
         "lint:harsh": "eslint --fix . && prettier -w .",
         "publish": "npm run build && npm run sync:site && npm run sync:cgi",
@@ -45,5 +45,13 @@
         "webpack": "^4.44.1",
         "webpack-cli": "^3.3.12"
     },
-    "dependencies": {}
+    "dependencies": {
+        "@babel/core": "^7.11.4",
+        "@babel/plugin-transform-react-jsx": "^7.12.12",
+        "@babel/plugin-transform-runtime": "^7.11.0",
+        "@babel/preset-env": "^7.11.0",
+        "babel-loader": "^8.2.2",
+        "eleventy-plugin-page-assets": "^0.3.0",
+        "sanitize-html": "^2.3.2"
+    }
 }

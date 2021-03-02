@@ -1,4 +1,5 @@
 .github
 _site
+dist
 node_modules
-src/old
+old
