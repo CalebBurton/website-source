@@ -89,9 +89,15 @@ a:visited {
     color: var(--blue-3);
 }
 
-// hr {
-//     color: var(--color-text);
-// }
+hr {
+    border-color: var(--color-text);
+}
+
+code {
+    background: var(--light);
+    color: var(--dark);
+    padding: 0.1rem;
+}
 
 header,
 main,
