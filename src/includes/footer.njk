@@ -42,7 +42,10 @@
     <section id="footer-copy">
         <hr />
         <p>
-            Designed, built, and maintained by Caleb Burton.
+            Designed, built, and maintained by Caleb Burton. {% url 'https://github.com/CalebBurton/website-source/blob/main/LICENSE', 'No rights reserved.' %}
+        </p>
+        <p>
+            Last build was <code>{{ computed.now.dateString }}</code> at <code>{{ computed.now.timeString }} UTC</code>
         </p>
         <p>
         {%- if showCredits %}
