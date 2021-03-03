@@ -21,6 +21,20 @@
     }
 }
 
+:target {
+    animation-name: fadeout-background;
+    animation-duration: 2s;
+}
+
+@keyframes fadeout-background {
+    from {
+        background-color: var(--gold);
+    }
+    to {
+        background-color: unset;
+    }
+}
+
 .disabled,
 :disabled {
     cursor: not-allowed !important;

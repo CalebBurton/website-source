@@ -43,9 +43,10 @@ li {
 
 pre {
     background: var(--dark);
-    color: var(--light);
+    color: var(--color-text);
     padding: 10px;
+    overflow: auto;
 
-    border: 1px solid var(--gray);
+    border: 1px solid var(--color-text);
     border-radius: 4px;
 }
