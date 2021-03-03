@@ -5,14 +5,14 @@
     "private": true,
     "scripts": {
         "test": "npm run clean && npm run lint",
-        "build": "npm run clean && ELEVENTY_ENV=production eleventy && rm -rf ./_site/junk",
+        "build": "npm run clean && ELEVENTY_ENV=production eleventy",
         "start:dev": "npm run clean && ELEVENTY_ENV=development eleventy --serve ",
         "start": "npm run clean && ELEVENTY_ENV=production eleventy --serve ",
-        "clean": "rm -rf ./_site && rm -rf ./_site && npm --silent install",
+        "clean": "rm -rf ./dist && npm --silent install",
         "lint": "eslint --fix .",
         "lint:harsh": "eslint --fix . && prettier -w .",
-        "publish": "npm run build && npm run sync:site && npm run sync:cgi",
-        "sync:site": "rsync -qa --del --exclude='*JUNK.js' --exclude='*.DS_Store' ./_site/ ../website-output",
+        "publish": "npm run build && npm run sync:dist && npm run sync:cgi",
+        "sync:dist": "rsync -qa --del --exclude='*JUNK.js' --exclude='*.DS_Store' ./dist/ ../website-output",
         "sync:cgi": "rsync -qp --chmod=a+x ./build.cgi ../website-output"
     },
     "repository": {
