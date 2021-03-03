@@ -27,7 +27,8 @@ a.external,
 a.download {
     img {
         filter: invert(44%) sepia(22%) saturate(2710%) hue-rotate(156deg) brightness(101%) contrast(101%);
-        margin-left: rem-calc(2px);
+        margin-left: 0.125rem;
+        margin-right: 0.125rem;
         vertical-align: middle;
     }
 }
