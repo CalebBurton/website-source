@@ -1,5 +1,4 @@
 .github
-_site
 dist
 node_modules
 old
