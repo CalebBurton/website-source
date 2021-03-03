@@ -73,7 +73,7 @@ body {
     background-color: var(--color-bg);
 
     background: radial-gradient(ellipse at right top, var(--color-bg), transparent, var(--color-bg)),
-        radial-gradient(ellipse at bottom, var(--black), var(--color-bg), var(--gold));
+        radial-gradient(ellipse at bottom, var(--color-primary), var(--color-bg), var(--color-secondary));
     background-repeat: no-repeat;
     background-attachment: fixed;
 
@@ -86,7 +86,7 @@ svg {
 
 a,
 a:visited {
-    color: var(--blue-3);
+    color: var(--color-links);
 }
 
 hr {
@@ -95,7 +95,7 @@ hr {
 
 code {
     background: var(--color-text);
-    color: var(--dark);
+    color: var(--color-primary);
     padding: 0.1rem;
 }
 

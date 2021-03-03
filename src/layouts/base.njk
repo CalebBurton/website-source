@@ -11,6 +11,7 @@ showCredits: true
         <title>{{ fullTitle | safe }}</title>
         <meta name="title" content="{{ fullTitle }}">
         <meta name="description" content="{{ fullTitle }}">
+        <meta name="color-scheme" content="dark light">
         <link rel="icon" type="image/png" sizes="96x96" href="/assets/static/logo.svg">
 {#-
         <!-- Open Graph / Facebook -->
@@ -54,6 +55,7 @@ showCredits: true
         {{ googlefonts | safe }}
         {% endset %}
 #}
+        <link rel="stylesheet" href="/assets/styles/themes.css">
         <link rel="stylesheet" href="/assets/styles/main.css">
 {#-
         {% if feedTitle and feedUrl %}
@@ -64,7 +66,7 @@ showCredits: true
         <script src="/assets/scripts/main.js" type="module" async></script>
         {% endif %}
     </head>
-    <body>
+    <body data-theme="dark">
 
         {{ content | safe }}
 

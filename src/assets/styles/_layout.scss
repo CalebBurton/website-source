@@ -33,8 +33,9 @@ a.download {
     }
 }
 
-p {
-    line-height: 1.4rem;
+p,
+li {
+    line-height: 1.4;
 }
 
 li {
@@ -42,7 +43,7 @@ li {
 }
 
 pre {
-    background: var(--dark);
+    background: var(--color-primary);
     color: var(--color-text);
     padding: 10px;
     overflow: auto;
