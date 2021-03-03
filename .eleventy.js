@@ -69,9 +69,9 @@ module.exports = function (config) {
         const isExternal = href.indexOf('http') != -1;
         let output;
         if (isDownload) {
-            output = `<a href="${href}" class="download">${text}<img src="/assets/static/download.svg" /></a>`
+            output = `<a href="${href}" class="download">${text}<img src="/assets/static/download.svg" alt="Download Link"/></a>`
         } else if (isExternal) {
-            output = `<a href="${href}" class="external">${text}<img src="/assets/static/external.svg" /></a>`
+            output = `<a href="${href}" class="external">${text}<img src="/assets/static/external.svg" alt="External Link"/></a>`
         } else {
             output = `<a href="${href}">${text}</a>`
         }
