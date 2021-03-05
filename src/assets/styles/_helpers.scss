@@ -1,24 +1,10 @@
-.visuallyhidden {
-    // Structure
-    border: 0;
-    clip: rect(0 0 0 0);
+/* https://a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden {
+    position: absolute !important;
     height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
     width: 1px;
-    &.focusable {
-        &:active,
-        &:focus {
-            clip: auto;
-            height: auto;
-            margin: 0;
-            overflow: visible;
-            position: static;
-            width: auto;
-        }
-    }
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
 }
 
 :target {
@@ -30,6 +16,7 @@
     from {
         background-color: var(--color-secondary);
     }
+
     to {
         background-color: unset;
     }
@@ -38,4 +25,16 @@
 .disabled,
 :disabled {
     cursor: not-allowed !important;
+}
+
+/* https://github.com/mozdevs/cssremedy/issues/11#issuecomment-462867630 */
+@media (prefers-reduced-motion: reduce) {
+    *:not(.safe-animation),
+    *:not(.safe-animation)::before,
+    *:not(.safe-animation)::after {
+        animation-duration: 0.01s !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0s !important;
+        scroll-behavior: auto !important;
+    }
 }
