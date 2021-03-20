@@ -45,3 +45,10 @@ systemctl restart apache2
 
 sudo service apache2 restart
 -->
+
+<!--
+Everything is being redirected by /etc/apache2/mods-enabled/alias.conf
+
+sudo tail /var/log/apache2/access.log
+sudo tail /var/log/apache2/access_detailed.log
+-->
