@@ -27,7 +27,7 @@
     },
     "homepage": "https://github.com/CalebBurton/website-source#readme",
     "devDependencies": {
-        "@11ty/eleventy": "^0.11.0",
+        "@11ty/eleventy": "^0.12.1",
         "@11ty/eleventy-plugin-inclusive-language": "^1.0.0",
         "clean-css": "^4.2.3",
         "copy-webpack-plugin": "^5.1.1",
