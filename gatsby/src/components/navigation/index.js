@@ -4,7 +4,12 @@ import { useInView } from "react-intersection-observer";
 
 import styles from "./navigation.module.scss";
 
-const SECTIONS = ["about", "skills", "projects", "contact"];
+const SECTIONS = [
+  "about",
+  "skills",
+  // "projects",
+  "contact",
+];
 
 const Navigation = () => {
   const [ref, inView] = useInView({ threshold: 1, triggerOnce: true });
