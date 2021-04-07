@@ -27,9 +27,11 @@ const Priorities = () => {
         <h2 className={`text--xl ${styles.prioritiesHeader}`}>
           I provide work that is
         </h2>
-        {prioritiesData.map((priority, index) => (
-          <Priority priority={priority} key={index} />
-        ))}
+        <div className={styles.prioritiesRow}>
+          {prioritiesData.map((priority, index) => (
+            <Priority priority={priority} key={index} />
+          ))}
+        </div>
       </div>
     </section>
   );

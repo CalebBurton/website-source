@@ -3,20 +3,6 @@
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 100%;
   width: 100%;
-
-  &::after {
-    content: "";
-    grid-row: 1 / 2;
-    grid-column: 1 / 2;
-    z-index: -1;
-  }
-
-  &::before {
-    content: "";
-    grid-row: 2 / 3;
-    grid-column: 1 / 2;
-    background-color: var(--color-primary);
-  }
 }
 
 .priorities-wrapper {
@@ -28,8 +14,6 @@
   border-radius: var(--radius-sm);
   margin: 1rem 5rem;
 
-  display: grid;
-  grid-template-rows: repeat(3, 1fr);
   justify-self: center;
 
   @media only screen and (min-width: 450px) {
@@ -52,14 +36,18 @@
 }
 
 .priorities-header {
-  grid-row: 1;
-  grid-column: 1 / 4;
-
   padding-top: 3rem;
   text-align: center;
 }
 
+.priorities-row {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+}
+
 .priority {
+  max-width: 20rem;
   display: grid;
   justify-items: center;
   grid-template-rows: max-content max-content 1fr;
@@ -69,7 +57,7 @@
   text-align: center;
 
   & > * {
-    // ANIMATION PRESETS
+    // Animation presets
     opacity: 0;
   }
 
