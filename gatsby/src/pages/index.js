@@ -23,14 +23,13 @@ const Home = () => {
       >
         <meta charSet="utf-8" />
         <link rel="icon" type="image/png" sizes="96x96" href={logo}></link>
-        <title>Caleb Burton</title>
+        <title>Caleb Charles Burton</title>
       </Helmet>
 
       <Banner />
       <Navigation />
       <main>
         <About />
-        <Priorities />
         <Skills />
         <Projects />
         <Contact />

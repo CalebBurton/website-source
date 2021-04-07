@@ -4,8 +4,8 @@ export const prioritiesData = [
   {
     title: "Detail-Oriented",
     icon: html,
-    altText: "HTML tag",
-    text: "With quality built-in from the start",
+    altText: "Code window",
+    text: "With quality built in from the start",
   },
   {
     title: "Modern",
