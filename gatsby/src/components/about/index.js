@@ -2,6 +2,8 @@ import React from "react";
 import { useInView } from "react-intersection-observer";
 
 import styles from "./about.module.scss";
+import Priorities from "../priorities";
+import { isAvailableData } from "../../data";
 
 const About = () => {
   const [ref, inView] = useInView({ threshold: 0.6, triggerOnce: true });
@@ -26,8 +28,8 @@ const About = () => {
           things healthcare.
         </p>
         <p className="text--md font--heading aligned--left">
-          My most recent hobbies have involved running some self-hosted projects
-          like&ensp;
+          My most recent hobbies have been running some self-hosted projects
+          like{" "}
           <a
             href="https://www.home-assistant.io/"
             target="_blank"
@@ -35,7 +37,7 @@ const About = () => {
           >
             Home Assistant
           </a>
-          ,&ensp;
+          ,{" "}
           <a
             href="https://nextcloud.com/"
             target="_blank"
@@ -43,7 +45,7 @@ const About = () => {
           >
             NextCloud
           </a>
-          , and&ensp;
+          , and{" "}
           <a
             href="https://jellyfin.org/"
             target="_blank"
@@ -51,13 +53,26 @@ const About = () => {
           >
             Jellyfin
           </a>
-          . They're pretty neat, check them out if you haven't!
-        </p>
-        <p className="text--md font--heading aligned--left">
-          Other ways I love to spend time are by playing with my dogs, reading,
+          . Other ways I love to spend time are playing with my dogs, reading,
           and making music.
         </p>
+        <p className="text--md font--heading aligned--left">
+          {isAvailableData.isAvailable ? (
+            <>
+              <span className={styles.availability}>I'm</span> currently
+              available for part-time freelance projects. Reach out using the
+              contact information below.
+            </>
+          ) : (
+            <>
+              I'm <span className={styles.availability}>NOT</span> currently
+              available for freelance work, but if you have a project I'm happy
+              to recommend other developers who might suit your needs.
+            </>
+          )}
+        </p>
       </div>
+      <Priorities />
     </section>
   );
 };
