@@ -1,3 +1,5 @@
+// Icons from https://iconify.design/icon-sets/vscode-icons/
+
 export const apollo = {
   logo: require("./apollo.svg"),
   title: "Apollo",
@@ -14,23 +16,30 @@ export const django = {
   logo: require("./django.svg"),
   title: "Django",
 };
+export const databases = {
+  logo: require("./db.svg"),
+  title: "Databases",
+};
 export const bootstrap = {
-  logo: "", //require("./django.svg"),
+  logo: require("./bootstrap.svg"),
   title: "Bootstrap",
 };
 export const jquery = {
-  logo: "", //require("./django.svg"),
+  logo: require("./jquery.svg"),
   title: "jQuery",
 };
 export const jekyll = {
-  logo: "", // require("./django.svg"),
+  logo: require("./jekyll.svg"),
   title: "Jekyll",
 };
 export const docker = {
   logo: require("./docker.svg"),
   title: "Docker",
 };
-export const firebase = { logo: "", title: "Firebase" };
+export const firebase = {
+  logo: require("./firebase.svg"),
+  title: "Firebase",
+};
 export const gatsby = {
   logo: require("./gatsby.svg"),
   title: "Gatsby",
@@ -75,6 +84,10 @@ export const python = {
   logo: require("./python.svg"),
   title: "Python",
 };
+export const rails = {
+  logo: require("./rails.svg"),
+  title: "Rails",
+};
 export const react = {
   logo: require("./react.svg"),
   title: "React",
@@ -82,6 +95,10 @@ export const react = {
 export const redux = {
   logo: require("./redux.svg"),
   title: "Redux",
+};
+export const rust = {
+  logo: require("./rust.svg"),
+  title: "Rust",
 };
 export const sass = {
   logo: require("./sass.svg"),
@@ -94,4 +111,8 @@ export const tailwind = {
 export const typescript = {
   logo: require("./typescript.svg"),
   title: "TypeScript",
+};
+export const vue = {
+  logo: require("./vue.svg"),
+  title: "Vue",
 };
