@@ -5,8 +5,8 @@ import About from "../components/about";
 import Banner from "../components/banner";
 import Footer from "../components/footer";
 import Navigation from "../components/navigation";
-import Projects from "../components/projects";
 import Priorities from "../components/priorities";
+// import Projects from "../components/projects";
 import Skills from "../components/skills";
 import Contact from "../components/contact";
 import logo from "../../static/logo.svg";
@@ -31,7 +31,7 @@ const Home = () => {
       <main>
         <About />
         <Skills />
-        <Projects />
+        {/* <Projects /> */}
         <Contact />
       </main>
       <Footer />
