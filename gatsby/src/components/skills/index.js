@@ -28,7 +28,7 @@ const Skills = () => {
   return (
     <section className="section section--primary" id="skills">
       <div className="heading">
-        <h2 className="text--xl font--heading font--bold">My Skills</h2>
+        <h2 className="text--xl font--heading font--bold">Skills</h2>
         <p className="text--md font--heading">
           Here's an overview of my skill set, with an emphasis on foundational
           technologies rather than the tooling and libraries that extend them
