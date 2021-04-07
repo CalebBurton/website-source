@@ -1,14 +1,16 @@
 module.exports = {
   plugins: [
+    "gatsby-plugin-sass",
     {
-      resolve: "gatsby-plugin-google-fonts",
+      resolve: `gatsby-plugin-build-date`,
       options: {
-        fonts: ["roboto:300,400,700", "sen:400,700"],
-        display: "swap",
+        formatAsDateString: true,
+        formatting: {
+          format: "YYYY-MM-DD",
+          utc: false,
+        },
       },
     },
-    "gatsby-plugin-sass",
-    "gatsby-plugin-smoothscroll",
     "gatsby-plugin-react-helmet",
   ],
 };
