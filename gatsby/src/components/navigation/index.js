@@ -1,5 +1,5 @@
 import React from "react";
-import scrollTo from "gatsby-plugin-smoothscroll";
+import { Link } from "react-scroll";
 import { useInView } from "react-intersection-observer";
 
 import styles from "./navigation.module.scss";
@@ -17,12 +17,27 @@ const Navigation = () => {
       >
         {SECTIONS.map((section, index) => (
           <li className={styles.link} key={index}>
-            <button
-              className="text--lg color--primary"
-              onClick={() => scrollTo(`#${section}`)}
+            <Link
+              className={`text--lg color--primary ${styles.navLink}`}
+              activeClass={styles.active}
+              to={section}
+              spy={true}
+              smooth={true}
+              offset={-30}
+              duration={750}
             >
               {section}
-            </button>
+            </Link>
+            {/* <button
+              role="link"
+              className="text--lg color--primary"
+              onClick={() => {
+                scrollTo(`#${section}`);
+                setTimeout(() => (window.location.hash = `#${section}`), 500);
+              }}
+            >
+              {section}
+            </button> */}
           </li>
         ))}
       </ul>

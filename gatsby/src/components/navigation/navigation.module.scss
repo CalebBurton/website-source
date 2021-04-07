@@ -1,5 +1,5 @@
 .navigation {
-  --nav-height: 8rem;
+  --nav-height: 6rem;
 
   height: var(--nav-height);
   display: grid;
@@ -8,6 +8,7 @@
   position: sticky;
   top: 0;
   z-index: 2;
+  box-shadow: var(--shadow-1);
 }
 
 .links {
@@ -29,12 +30,16 @@
 .link {
   cursor: pointer;
 
-  button {
+  .nav-link {
     height: var(--nav-height);
     background: transparent;
     border: none;
     cursor: pointer;
     text-transform: capitalize;
+
+    &.active {
+      border-bottom: 2px solid var(--color-primary);
+    }
   }
 
   &:not(:last-child):after {
@@ -42,7 +47,7 @@
     color: var(--color-primary);
     font-weight: var(--weight-bold);
     font-family: var(--font-heading);
-    font-size: var(--text-xl);
+    font-size: var(--text-lg);
     padding: 0 0.75rem;
     cursor: auto;
   }
