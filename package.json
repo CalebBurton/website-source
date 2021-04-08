@@ -1,6 +1,6 @@
 {
   "name": "website-source",
-  "version": "1.0.0",
+  "version": "3.0.0",
   "description": "Source code for my personal website",
   "private": true,
   "scripts": {
@@ -19,11 +19,14 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "Unlicense",
   "bugs": {
     "url": "https://github.com/CalebBurton/website-source/issues"
   },
   "homepage": "https://github.com/CalebBurton/website-source#readme",
+  "engines": {
+    "node": ">=12 <14"
+  },
   "dependencies": {
     "gatsby": "^2.26.1",
     "gatsby-plugin-build-date": "^1.0.0",
