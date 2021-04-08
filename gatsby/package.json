@@ -7,10 +7,10 @@
     "test": "npm run clean && npm run lint",
     "build": "npm run clean && gatsby build",
     "start": "npm run clean && gatbsy develop",
-    "clean": "rm -rf ./dist && npm --silent install && gatsby clean",
+    "clean": "rm -rf ./public && npm --silent install && gatsby clean",
     "lint": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "publish": "npm run build && npm run sync:dist && npm run sync:cgi",
-    "sync:dist": "rsync -qa --del --exclude='*JUNK.js' --exclude='*.DS_Store' ./dist/ ../website-output",
+    "sync:dist": "rsync -qa --del --exclude='*JUNK.js' --exclude='*.DS_Store' ./public/ ../website-output",
     "sync:cgi": "rsync -qp --chmod=a+x ./build.cgi ../website-output"
   },
   "repository": {
@@ -26,17 +26,17 @@
   "homepage": "https://github.com/CalebBurton/website-source#readme",
   "dependencies": {
     "gatsby": "^2.26.1",
+    "gatsby-plugin-build-date": "^1.0.0",
     "gatsby-plugin-react-helmet": "^3.5.0",
     "gatsby-plugin-react-svg": "^3.0.0",
     "gatsby-plugin-sass": "^2.6.0",
     "node-sass": "^4.14.1",
+    "prettier": "2.1.2",
     "react": "^16.12.0",
     "react-device-detect": "^1.14.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.1.0",
     "react-intersection-observer": "^8.31.0",
-    "gatsby-plugin-build-date": "^1.0.0",
-    "prettier": "2.1.2",
     "react-scroll": "^1.8.2",
     "typescript": "^4.2.3"
   }
