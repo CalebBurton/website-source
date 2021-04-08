@@ -1,9 +1,42 @@
-*.DS_Store
-node_modules/
-package-lock.json
-
-dist/
-
+# Secrets and such
 .env
-.log
 .cache
+
+
+# Logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+# node-waf configuration
+.lock-wscript
+
+# Compiled binary addons (http://nodejs.org/api/addons.html)
+build/Release
+
+node_modules/
+# I know you're not supposed to do this, but...
+package-lock.json
+integration-tests/gatsby-cli/execution-folder/*
+*.un~
+dist/
+bin/published.js
+
+# Build Path of Test Fixtures
+test/**/public
+.gatsby-context.js
+public/
+node_modules/
+e2e-tests/gatsby-pnp/
+.cache/
+.netlify
+.Rhistory
+
+# IDE specific
+.vscode/
+
+# We love macOS
+.DS_Store
