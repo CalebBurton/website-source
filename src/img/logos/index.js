@@ -16,9 +16,9 @@ export const django = {
   logo: require("./django.svg"),
   title: "Django",
 };
-export const databases = {
+export const sql = {
   logo: require("./db.svg"),
-  title: "Databases",
+  title: "SQL",
 };
 export const bootstrap = {
   logo: require("./bootstrap.svg"),

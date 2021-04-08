@@ -1,7 +1,8 @@
 import {
   css,
   django,
-  databases,
+  sql,
+  firebase,
   docker,
   graphql,
   html,
@@ -22,7 +23,7 @@ export const skillsData = [
   },
   {
     phrase: "am familiar with",
-    items: [docker, django, python, databases],
+    items: [docker, django, python, sql, firebase],
   },
   {
     phrase: "and am currently exploring",
