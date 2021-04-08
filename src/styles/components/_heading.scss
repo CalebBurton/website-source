@@ -4,6 +4,10 @@
   padding: 0 8rem;
   text-align: center;
 
+  @media only screen and (max-width: 500px) {
+    padding: 0 var(--gutter-sm);
+  }
+
   @media only screen and (min-width: 700px) {
     max-width: var(--items-max-width);
     justify-self: center;
