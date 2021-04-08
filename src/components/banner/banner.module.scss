@@ -30,8 +30,12 @@
   row-gap: 1.2rem;
 }
 
+.title {
+  text-align: center;
+}
+
 .line,
-.title,
+.subtitle,
 .arrow {
   opacity: 0;
   transform: translateY(6px);
@@ -42,16 +46,8 @@
   animation-iteration-count: 1;
 }
 
-.title {
+.subtitle {
   animation-delay: 1000ms;
-
-  //   @media only screen and (min-width: 700px) {
-  //     font-size: 2.6rem;
-  //   }
-
-  //   @media only screen and (min-width: 1000px) {
-  //     font-size: 3rem;
-  //   }
 }
 
 .line {

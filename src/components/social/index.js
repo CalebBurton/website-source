@@ -12,7 +12,7 @@ const Social = ({ icon, aValues, classNames = [] }) => {
 
   return (
     <li id="contact" className={classNames}>
-      <a aria-label={ariaLabel} {...otherAValues}>
+      <a title={ariaLabel} {...otherAValues}>
         {icon}
       </a>
     </li>

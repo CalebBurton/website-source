@@ -7,9 +7,11 @@ const Banner = () => {
     <>
       <header className={styles.banner}>
         <div className={styles.text}>
-          <h1 className="text--xxl">Caleb C. Burton</h1>
+          <h1 className={`text--xxl ${styles.title}`}>Caleb C. Burton</h1>
           <div className={styles.line} />
-          <h2 className={`text--md ${styles.title}`}>Full Stack Developer</h2>
+          <h2 className={`text--md ${styles.subtitle}`}>
+            Full Stack Developer
+          </h2>
         </div>
       </header>
       <Link
