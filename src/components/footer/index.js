@@ -15,12 +15,18 @@ const Footer = () => {
     }
   `);
 
-  //   let openInNewTab = { target: "_blank", rel: "noopener noreferrer" };
+  const openInNewTab = { target: "_blank", rel: "noopener noreferrer" };
 
   return (
     <footer className={styles.footerWrapper}>
       <span className={styles.byline}>
-        Designed, built, and maintained by Caleb Burton
+        Designed, built, and maintained by Caleb Burton.{" "}
+        <a
+          href="https://github.com/CalebBurton/website-source"
+          {...openInNewTab}
+        >
+          View the source here.
+        </a>
       </span>
       <div
         className={`${styles.footer} ${inView ? styles.footerVisible : null}`}
@@ -30,7 +36,10 @@ const Footer = () => {
           Last build was {data.currentBuildDate.currentDate}
         </span>
         <span className={styles.fontStack}>
-          <a href="https://bitsofco.de/the-new-system-font-stack/">
+          <a
+            href="https://bitsofco.de/the-new-system-font-stack/"
+            {...openInNewTab}
+          >
             System Font Stack
           </a>
         </span>
