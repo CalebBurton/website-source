@@ -33,13 +33,19 @@ html {
   line-height: 1.6;
   // max-width: 100vw;
 
-  section {
-    // max-width: 100vw;
-  }
-
   p + p {
     margin-top: 1rem;
     margin-bottom: 1rem;
+  }
+
+  a {
+    transition-property: all;
+    transition-duration: 50ms;
+
+    &:hover {
+      text-decoration-style: wavy;
+      text-decoration-skip-ink: none;
+    }
   }
 
   @media only screen and (min-width: 500px) {
