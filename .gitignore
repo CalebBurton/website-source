@@ -1,7 +1,5 @@
 # Secrets and such
 .env
-.cache
-
 
 # Logs
 *.log
@@ -11,29 +9,16 @@ pids
 *.pid
 *.seed
 
-# node-waf configuration
-.lock-wscript
-
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
-
 node_modules/
-# I know you're not supposed to do this, but...
+# I know you're not supposed to do this, but lock files are so annoying.
 package-lock.json
-integration-tests/gatsby-cli/execution-folder/*
-*.un~
-dist/
-bin/published.js
 
-# Build Path of Test Fixtures
-test/**/public
-.gatsby-context.js
+# Built files
+dist/
 public/
-node_modules/
-e2e-tests/gatsby-pnp/
-.cache/
-.netlify
-.Rhistory
+.cache
 
 # IDE specific
 .vscode/
