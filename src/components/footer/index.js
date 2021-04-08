@@ -20,13 +20,7 @@ const Footer = () => {
   return (
     <footer className={styles.footerWrapper}>
       <span className={styles.byline}>
-        Designed, built, and maintained by Caleb Burton.{" "}
-        <a
-          href="https://github.com/CalebBurton/website-source"
-          {...openInNewTab}
-        >
-          View the source here.
-        </a>
+        Designed, built, and maintained by Caleb Burton{" "}
       </span>
       <div
         className={`${styles.footer} ${inView ? styles.footerVisible : null}`}
@@ -35,7 +29,15 @@ const Footer = () => {
         <span className={styles.lastBuilt}>
           Last build was {data.currentBuildDate.currentDate}
         </span>
-        <span className={styles.fontStack}>
+        <span>
+          <a
+            href="https://github.com/CalebBurton/website-source"
+            {...openInNewTab}
+          >
+            Source
+          </a>
+        </span>
+        <span>
           <a
             href="https://bitsofco.de/the-new-system-font-stack/"
             {...openInNewTab}
@@ -43,9 +45,16 @@ const Footer = () => {
             System Font Stack
           </a>
         </span>
-        <span className={styles.colors}>Colors by Coolers</span>
-        {/* https://jarv.is/notes/css-waving-hand-emoji/ */}
+        <span>
+          <a
+            href="https://coolors.co/292929-203142-a6845e-ebebeb"
+            {...openInNewTab}
+          >
+            Color Palette
+          </a>
+        </span>
       </div>
+      {/* https://jarv.is/notes/css-waving-hand-emoji/ */}
     </footer>
   );
 };
