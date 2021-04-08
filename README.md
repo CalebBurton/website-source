@@ -6,10 +6,18 @@
 
 Source code for my personal website
 
+<!--
 ## Eleventy
 
 -   <https://www.11ty.dev/>
 -   <https://github.com/11ty/11ty-website>
+-->
+
+## Gatsby
+
+Let's check out this React thing all the cool kids are talking about.
+
+- <https://www.gatsbyjs.com/docs>
 
 In `.zshrc`:
 
