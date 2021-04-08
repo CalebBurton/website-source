@@ -1,12 +1,5 @@
 {
-    "printWidth": 120,
-    "tabWidth": 4,
-    "overrides": [
-        {
-            "files": "*.njk",
-            "options": {
-                "parser": "html"
-            }
-        }
-    ]
+  "tabWidth": 2,
+  "printWidth": 80,
+  "useTabs": false
 }
