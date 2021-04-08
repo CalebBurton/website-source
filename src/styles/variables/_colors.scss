@@ -3,7 +3,8 @@
   --color-email: #d44638;
   --color-linkedin: #2867b2;
 
-  --color-grey: #37322e;
+  // --color-grey: #37322e;
+  --color-grey: hsl(0, 0%, 16%);
   --color-gray: var(--color-grey);
 
   // --color-white: #ffffff;
@@ -15,10 +16,13 @@
   --color-purple: hsl(266, 79%, 15%); // hsl(266, 78%, 15%);
   // --color-white: hsl(0, 0%, 95%);
   --color-gold: hsl(33, 27%, 51%); // hsl(32, 45%, 40%);
-  --color-blue: hsl(215, 27%, 47%);
+  // --color-blue: hsl(215, 27%, 47%);
 
   // --color-book: #a259ff;
   // --color-course: #d72516;
   // --color-conference: #21815b;
   // --color-employment: #0b70ba;
+  --color-blue-2: hsl(210, 35%, 19%);
+  // --color-khaki: hsl(32, 29%, 66%);
+  --color-khaki: hsl(32, 29%, 50%);
 }
