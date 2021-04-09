@@ -21,6 +21,7 @@ const Home = () => {
         }}
       >
         <meta charSet="utf-8" />
+        <meta name="description" content="Caleb Burton's personal website" />
         <link rel="icon" type="image/png" sizes="96x96" href={logo}></link>
         <title>Caleb Charles Burton</title>
       </Helmet>
