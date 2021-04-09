@@ -1,0 +1,34 @@
+{
+  "root": true,
+
+  "parserOptions": {
+    "ecmaVersion": 2021,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+
+  "plugins": ["react"],
+
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "rules": {
+    // enable additional rules
+    "eol-last": ["error", "always"],
+    "linebreak-style": ["error", "unix"],
+
+    // override default options for rules from base configurations
+    "no-unused-vars": "warn",
+    "no-console": "off",
+
+    // override react plugin
+    "react/no-unescaped-entities": ["error", { "forbid": [">", "\"", "}"] }],
+    "react/prop-types": "off"
+  }
+}

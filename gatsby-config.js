@@ -3,7 +3,7 @@ module.exports = {
     // `gatsby-plugin-csp`,
     "gatsby-plugin-sass",
     {
-      resolve: `gatsby-plugin-build-date`,
+      resolve: "gatsby-plugin-build-date",
       options: {
         formatAsDateString: true,
         formatting: {
