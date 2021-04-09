@@ -2,7 +2,7 @@
   "root": true,
 
   "parserOptions": {
-    "ecmaVersion": 2021,
+    "ecmaVersion": 2020,
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
@@ -16,6 +16,13 @@
   },
 
   "plugins": ["react"],
+
+  "settings": {
+    "react": {
+      "pragma": "React",
+      "version": "16.12"
+    }
+  },
 
   "extends": ["eslint:recommended", "plugin:react/recommended"],
   "rules": {
