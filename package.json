@@ -5,11 +5,9 @@
   "private": true,
   "scripts": {
     "test": "echo 'Write some tests'",
-    "start": "npm run g-clean && npm run g-start",
-    "build": "npm run g-clean && npm run g-build",
-    "g-clean": "npm --silent install && npm run lint && which gatsby && gatsby clean",
-    "g-start": "which gatsby && gatsby develop",
-    "g-build": "which gatsby && gatsby build",
+    "start": "npm run clean && gatsby develop",
+    "build": "npm run clean && gatsby build",
+    "clean": "npm --silent --maxsockets 5 --prefer-offline install && npm run lint && gatsby clean",
     "lint": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\" && eslint . --fix",
     "publish": "npm run build && npm run sync:dist && npm run sync:cgi",
     "sync:dist": "rsync -qa --del --exclude='*JUNK.js' --exclude='*.DS_Store' ./public/ ../website-output",
@@ -30,7 +28,7 @@
     "node": ">=12 <14"
   },
   "dependencies": {
-    "eslint": "^7.23.0",
+    "eslint": "^6.0.0",
     "eslint-plugin-react": "^7.23.2",
     "gatsby": "^2.26.1",
     "gatsby-plugin-build-date": "^1.0.0",

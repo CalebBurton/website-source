@@ -11,7 +11,7 @@ if [ "$REQUEST_METHOD" = "POST" ] && [ "$CONTENT_LENGTH" -gt 0 ]; then
         eval $(ssh-agent -s) > /dev/null && ssh-add ~/.ssh/id_github > /dev/null
         git reset --hard origin/main > /dev/null
         git pull > /dev/null
-        npm run --silent publish > /dev/null
+        nice -n 10 npm run --silent publish > /dev/null
         echo -e "$LOG_PREFIX Succeeded" >> /var/log/build_requests.log
         echo "Build triggered on $(TZ=America/New_York date +'%Y-%m-%d at %H:%M %Z') $(date -u +'(%H:%M UTC)')"
     else
