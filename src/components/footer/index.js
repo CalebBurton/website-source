@@ -47,7 +47,7 @@ const Footer = () => {
         </span>
         <span>
           <a
-            href="https://coolors.co/292929-203142-a6845e-ebebeb"
+            href="https://coolors.co/292929-203142-e3af72-ebebeb"
             {...openInNewTab}
           >
             Color Palette
