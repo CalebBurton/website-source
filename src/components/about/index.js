@@ -60,8 +60,8 @@ const About = () => {
           {isAvailableData.isAvailable ? (
             <>
               <span className={styles.availability}>I'm</span> currently
-              available for part-time freelance projects. Reach out using the
-              contact information below.
+              available for part-time freelance projects. If you'd like to work
+              together, please reach out using the contact information below.
             </>
           ) : (
             <>
