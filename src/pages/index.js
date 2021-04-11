@@ -1,41 +1,32 @@
 import React from "react";
-import { Helmet } from "react-helmet";
 
 import About from "../components/about";
 import Banner from "../components/banner";
 import Footer from "../components/footer";
 import Navigation from "../components/navigation";
 // import Projects from "../components/projects";
+import SEO from "../components/seo";
 import Skills from "../components/skills";
 import Contact from "../components/contact";
-import logo from "../../static/logo.svg";
 
 import styles from "./index.module.scss";
 
 const Home = () => {
   return (
-    <div className={`${styles.app} theme--default`}>
-      <Helmet
-        htmlAttributes={{
-          lang: "en",
-        }}
-      >
-        <meta charSet="utf-8" />
-        <meta name="description" content="Caleb Burton's personal website" />
-        <link rel="icon" type="image/png" sizes="96x96" href={logo}></link>
-        <title>Caleb Charles Burton</title>
-      </Helmet>
-
-      <Banner />
-      <Navigation />
-      <main>
-        <About />
-        <Skills />
-        {/* <Projects /> */}
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <>
+      <SEO />
+      <div className={`${styles.app} theme--default`}>
+        <Banner />
+        <Navigation />
+        <main>
+          <About />
+          <Skills />
+          {/* <Projects /> */}
+          <Contact />
+        </main>
+        <Footer />
+      </div>
+    </>
   );
 };
 
