@@ -31,6 +31,8 @@ Harden Apache ([reference docs](https://httpd.apache.org/docs/)):
 - [x] <https://www.tecmint.com/hide-apache-web-server-version-information/>
 - [x] <https://geekflare.com/apache-web-server-hardening-security/>
 - [x] <https://infosec.mozilla.org/guidelines/web_security>
+- [x] <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Opener-Policy>
+- [x] <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy>
 
 <!--
 sudo -u deployemon bash
