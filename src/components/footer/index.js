@@ -7,13 +7,20 @@ import styles from "./footer.module.scss";
 const Footer = () => {
   const [ref, inView] = useInView({ threshold: 0.6, triggerOnce: true });
 
-  const data = useStaticQuery(graphql`
+  const {
+    siteBuildMetadata: { buildTime },
+  } = useStaticQuery(graphql`
     query {
-      currentBuildDate {
-        currentDate
+      siteBuildMetadata {
+        buildTime
       }
     }
   `);
+
+  // Intl.DateTimeFormat() would be great here, but it doesn't have ISO 8601 support yet
+  const re = /(?<date>\d{4}-\d{2}-\d{2})T(?<hour>\d{2}):(?<minute>\d{2}):(?<second>\d{2}).(?<ms>\d{3})Z/;
+  const { groups } = re.exec(buildTime);
+  const formattedBuildTime = `${groups.date} at ${groups.hour}:${groups.minute} UTC`;
 
   const openInNewTab = { target: "_blank", rel: "noopener noreferrer" };
 
@@ -27,7 +34,7 @@ const Footer = () => {
         ref={ref}
       >
         <span className={styles.lastBuilt}>
-          Last build was {data.currentBuildDate.currentDate}
+          Last build was {formattedBuildTime}
         </span>
         <span>
           <a
