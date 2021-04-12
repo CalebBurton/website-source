@@ -7,7 +7,7 @@ import styles from "./404.module.scss";
 const Custom404 = () => {
   return (
     <>
-      <SEO title="404" />
+      <SEO title="Not Found" />
       <div className={`${styles.app} theme--default`}>
         <main>
           <h1 className="text--xl font--heading font--bold">Oops!</h1>

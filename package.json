@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo 'Write some tests'",
     "start": "npm run clean && gatsby develop",
+    "start:fast": "gatsby develop",
     "build": "npm run clean && gatsby build",
     "clean": "npm --silent --maxsockets 5 --prefer-offline install && npm run lint && gatsby clean",
     "lint": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\" && eslint . --fix",

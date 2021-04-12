@@ -14,7 +14,7 @@ import styles from "./index.module.scss";
 const Home = () => {
   return (
     <>
-      <SEO />
+      <SEO title="Homepage" />
       <div className={`${styles.app} theme--default`}>
         <Banner />
         <Navigation />
