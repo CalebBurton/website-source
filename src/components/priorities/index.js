@@ -3,7 +3,7 @@ import { useInView } from "react-intersection-observer";
 
 import { prioritiesData } from "../../data";
 
-import styles from "./priorities.module.scss";
+import * as styles from "./priorities.module.scss";
 
 const Priority = ({ priority }) => {
   const [ref, inView] = useInView({ threshold: 0.4, triggerOnce: true });

@@ -3,7 +3,7 @@ import React from "react";
 import { socialData } from "../../data";
 
 import Social from "../social";
-import styles from "./contact.module.scss";
+import * as styles from "./contact.module.scss";
 
 const Contact = () => (
   <section className={`${styles.contactBackground}`} id="contact">

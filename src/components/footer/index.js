@@ -2,7 +2,7 @@ import React from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import { useInView } from "react-intersection-observer";
 
-import styles from "./footer.module.scss";
+import * as styles from "./footer.module.scss";
 
 const Footer = () => {
   const [ref, inView] = useInView({ threshold: 0.6, triggerOnce: true });
@@ -18,7 +18,8 @@ const Footer = () => {
   `);
 
   // Intl.DateTimeFormat() would be great here, but it doesn't have ISO 8601 support yet
-  const re = /(?<date>\d{4}-\d{2}-\d{2})T(?<hour>\d{2}):(?<minute>\d{2}):(?<second>\d{2}).(?<ms>\d{3})Z/;
+  const re =
+    /(?<date>\d{4}-\d{2}-\d{2})T(?<hour>\d{2}):(?<minute>\d{2}):(?<second>\d{2}).(?<ms>\d{3})Z/;
   const { groups } = re.exec(buildTime);
   const formattedBuildTime = `${groups.date} at ${groups.hour}:${groups.minute} UTC`;
 

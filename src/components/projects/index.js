@@ -4,7 +4,7 @@ import ProjectCard from "./project-card";
 
 import { projectsData } from "../../data";
 
-import styles from "./projects.module.scss";
+import * as styles from "./projects.module.scss";
 
 const Projects = () => {
   return (

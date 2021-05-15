@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "./css-toggle.module.scss";
+import * as styles from "./css-toggle.module.scss";
 
 function toggleCss() {
   const styles = Array.from(document.querySelectorAll("style"));

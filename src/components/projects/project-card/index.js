@@ -4,7 +4,7 @@ import { isMobile } from "react-device-detect";
 
 import SkillItem from "../../skill-item";
 
-import styles from "./project-card.module.scss";
+import * as styles from "./project-card.module.scss";
 
 const ProjectCard = ({ project }) => {
   const [ref, inView] = useInView({ threshold: 0.2, triggerOnce: true });

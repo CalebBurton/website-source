@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-scroll";
 import { useInView } from "react-intersection-observer";
 
-import styles from "./navigation.module.scss";
+import * as styles from "./navigation.module.scss";
 
 const SECTIONS = [
   "about",

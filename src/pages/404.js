@@ -2,7 +2,7 @@ import React from "react";
 
 import SEO from "../components/seo";
 
-import styles from "./404.module.scss";
+import * as styles from "./404.module.scss";
 
 const Custom404 = () => {
   return (

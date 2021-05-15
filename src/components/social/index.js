@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "./social.module.scss";
+import * as styles from "./social.module.scss";
 
 const Social = ({ icon, aValues, classNames = [] }) => {
   classNames = [

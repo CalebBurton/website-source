@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./banner.module.scss";
+import * as styles from "./banner.module.scss";
 import { Link } from "react-scroll";
 
 const Banner = () => {

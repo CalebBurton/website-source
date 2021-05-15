@@ -9,7 +9,7 @@ import SEO from "../components/seo";
 import Skills from "../components/skills";
 import Contact from "../components/contact";
 
-import styles from "./index.module.scss";
+import * as styles from "./index.module.scss";
 
 const Home = () => {
   return (

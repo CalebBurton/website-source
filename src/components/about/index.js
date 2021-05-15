@@ -1,7 +1,7 @@
 import React from "react";
 import { useInView } from "react-intersection-observer";
 
-import styles from "./about.module.scss";
+import * as styles from "./about.module.scss";
 import Priorities from "../priorities";
 import { isAvailableData } from "../../data";
 

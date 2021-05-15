@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "./skill-item.module.scss";
+import * as styles from "./skill-item.module.scss";
 
 const SkillItem = ({ skill }) => {
   let { logo, title } = skill;

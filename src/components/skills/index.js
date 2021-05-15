@@ -5,7 +5,7 @@ import { skillsData } from "../../data";
 
 import SkillItem from "../skill-item";
 
-import styles from "./skills.module.scss";
+import * as styles from "./skills.module.scss";
 
 const SkillSet = ({ data }) => {
   const [ref, inView] = useInView({ threshold: 0.6, triggerOnce: true });

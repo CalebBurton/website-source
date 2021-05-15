@@ -11,8 +11,7 @@ export const prioritiesData = [
     title: "Modern",
     icon: rocket,
     altText: "Rocket ship",
-    text:
-      "Aligned with industry trends, emerging tools, and proven technologies",
+    text: "Aligned with industry trends, emerging tools, and proven technologies",
   },
   {
     title: "Accessible",
