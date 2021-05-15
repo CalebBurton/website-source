@@ -59,15 +59,15 @@ const About = () => {
         <p className="text--md font--heading aligned--left">
           {isAvailableData.isAvailable ? (
             <>
-              <span className={styles.availability}>I'm</span> currently
-              available for part-time freelance projects. If you'd like to work
-              together, please reach out using the contact information below.
+              <span className="">I'm</span> currently available for part-time
+              freelance projects. If you'd like to work together, please reach
+              out using the contact information below.
             </>
           ) : (
             <>
-              I'm <span className={styles.availability}>NOT</span> currently
-              available for freelance work, but if you have a project I'm happy
-              to recommend other developers who might suit your needs.
+              I'm <span className="">NOT</span> currently available for
+              freelance work, but if you have a project I'm happy to recommend
+              other developers who might suit your needs.
             </>
           )}
         </p>

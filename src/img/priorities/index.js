@@ -1,3 +1,7 @@
-export const html = require("./html.svg");
-export const responsiveDesign = require("./responsive-design.svg");
-export const rocket = require("./rocket-ship.svg");
+import IconHtml from "./html.svg";
+import IconResponsive from "./responsive-design.svg";
+import IconRocket from "./rocket-ship.svg";
+
+export const html = IconHtml;
+export const responsiveDesign = IconResponsive;
+export const rocket = IconRocket;

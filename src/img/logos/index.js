@@ -1,118 +1,147 @@
 // Icons from https://iconify.design/icon-sets/vscode-icons/
+import LogoApollo from "./apollo.svg";
+import LogoChakra from "./chakra-ui.svg";
+import LogoCss from "./css.svg";
+import LogoDjango from "./django.svg";
+import LogoDb from "./db.svg";
+import LogoBootstrap from "./bootstrap.svg";
+import LogoJquery from "./jquery.svg";
+import LogoJekyll from "./jekyll.svg";
+import LogoDocker from "./docker.svg";
+import LogoFirebase from "./firebase.svg";
+import LogoGatsby from "./gatsby.svg";
+import LogoGraphql from "./graphql.svg";
+import LogoHtml from "./html.svg";
+import LogoJavascript from "./javascript.svg";
+import LogoKubernetes from "./kubernetes.svg";
+import LogoMongodb from "./mongodb.svg";
+import LogoNextjs from "./nextjs.svg";
+import LogoNodejs from "./nodejs.svg";
+import LogoPostgres from "./postgres.svg";
+import LogoPrisma from "./prisma.svg";
+import LogoPython from "./python.svg";
+import LogoRails from "./rails.svg";
+import LogoReact from "./react.svg";
+import LogoRedux from "./redux.svg";
+import LogoRust from "./rust.svg";
+import LogoSass from "./sass.svg";
+import LogoTailwind from "./tailwind.svg";
+import LogoTypescript from "./typescript.svg";
+import LogoVue from "./vue.svg";
 
 export const apollo = {
-  logo: require("./apollo.svg"),
+  logo: LogoApollo,
   title: "Apollo",
 };
 export const chakra = {
-  logo: require("./chakra-ui.svg"),
+  logo: LogoChakra,
   title: "Chakra UI",
 };
 export const css = {
-  logo: require("./css.svg"),
+  logo: LogoCss,
   title: "CSS",
 };
 export const django = {
-  logo: require("./django.svg"),
+  logo: LogoDjango,
   title: "Django",
 };
 export const sql = {
-  logo: require("./db.svg"),
+  logo: LogoDb,
   title: "SQL",
 };
 export const bootstrap = {
-  logo: require("./bootstrap.svg"),
+  logo: LogoBootstrap,
   title: "Bootstrap",
 };
 export const jquery = {
-  logo: require("./jquery.svg"),
+  logo: LogoJquery,
   title: "jQuery",
 };
 export const jekyll = {
-  logo: require("./jekyll.svg"),
+  logo: LogoJekyll,
   title: "Jekyll",
 };
 export const docker = {
-  logo: require("./docker.svg"),
+  logo: LogoDocker,
   title: "Docker",
 };
 export const firebase = {
-  logo: require("./firebase.svg"),
+  logo: LogoFirebase,
   title: "Firebase",
 };
 export const gatsby = {
-  logo: require("./gatsby.svg"),
+  logo: LogoGatsby,
   title: "Gatsby",
 };
 export const graphql = {
-  logo: require("./graphql.svg"),
+  logo: LogoGraphql,
   title: "GraphQL",
 };
 export const html = {
-  logo: require("./html.svg"),
+  logo: LogoHtml,
   title: "HTML",
 };
 export const javascript = {
-  logo: require("./javascript.svg"),
+  logo: LogoJavascript,
   title: "JavaScript",
 };
 export const kubernetes = {
-  logo: require("./kubernetes.svg"),
+  logo: LogoKubernetes,
   title: "Kubernetes",
 };
 export const mongodb = {
-  logo: require("./mongodb.svg"),
+  logo: LogoMongodb,
   title: "MongoDB",
 };
 export const nextjs = {
-  logo: require("./nextjs.svg"),
+  logo: LogoNextjs,
   title: "Next JS",
 };
 export const nodejs = {
-  logo: require("./nodejs.svg"),
+  logo: LogoNodejs,
   title: "Node",
 };
 export const postgres = {
-  logo: require("./postgres.svg"),
+  logo: LogoPostgres,
   title: "PostGres",
 };
 export const prisma = {
-  logo: require("./prisma.svg"),
+  logo: LogoPrisma,
   title: "Prisma",
 };
 export const python = {
-  logo: require("./python.svg"),
+  logo: LogoPython,
   title: "Python",
 };
 export const rails = {
-  logo: require("./rails.svg"),
+  logo: LogoRails,
   title: "Rails",
 };
 export const react = {
-  logo: require("./react.svg"),
+  logo: LogoReact,
   title: "React",
 };
 export const redux = {
-  logo: require("./redux.svg"),
+  logo: LogoRedux,
   title: "Redux",
 };
 export const rust = {
-  logo: require("./rust.svg"),
+  logo: LogoRust,
   title: "Rust",
 };
 export const sass = {
-  logo: require("./sass.svg"),
+  logo: LogoSass,
   title: "SASS",
 };
 export const tailwind = {
-  logo: require("./tailwind.svg"),
+  logo: LogoTailwind,
   title: "Tailwind",
 };
 export const typescript = {
-  logo: require("./typescript.svg"),
+  logo: LogoTypescript,
   title: "TypeScript",
 };
 export const vue = {
-  logo: require("./vue.svg"),
+  logo: LogoVue,
   title: "Vue",
 };
