@@ -1,6 +1,8 @@
 # Source for calebburton.com
 
-[![CI](https://img.shields.io/github/workflow/status/calebburton/website-source/CI?logo=github&style=plastic)](https://github.com/CalebBurton/website-source/actions?query=workflow%3ACI)
+<!-- [![CI](https://img.shields.io/github/workflow/status/calebburton/website-source/CI?logo=github&style=plastic)](https://github.com/CalebBurton/website-source/actions?query=workflow%3ACI) -->
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3d150968-bc75-4e7e-bc26-b845266b7004/deploy-status)](https://app.netlify.com/sites/competent-benz-edf1cf/deploys)
 
 [![Code Style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?logo=prettier&style=plastic)](https://github.com/prettier/prettier)
 
@@ -19,7 +21,9 @@ Let's check out this React thing all the cool kids are talking about.
 
 - <https://www.gatsbyjs.com/docs>
 
-In `.zshrc`:
+And now that we're confident in our Apache skills, let's deploy to Netlify and save a few bucks.
+
+<!-- In `.zshrc`:
 
 ```bash
 alias website-go='cd ~/Documents/GitHub/website-source && npm run build:dev'
@@ -32,7 +36,7 @@ Harden Apache ([reference docs](https://httpd.apache.org/docs/)):
 - [x] <https://geekflare.com/apache-web-server-hardening-security/>
 - [x] <https://infosec.mozilla.org/guidelines/web_security>
 - [x] <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Opener-Policy>
-- [x] <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy>
+- [x] <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cross-Origin-Embedder-Policy> -->
 
 <!--
 sudo -u deployemon bash
