@@ -9,6 +9,7 @@
     "start:fast": "gatsby develop",
     "build": "gatsby build",
     "clean": "npm run install:quick && npm run lint && gatsby clean",
+    "serve": "gatsby build && gatsby serve",
     "install:quick": "npm --silent --prefer-offline install",
     "lint": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\" && eslint . --fix",
     "publish": "npm run build && npm run sync:dist && npm run sync:cgi",
