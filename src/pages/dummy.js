@@ -1,3 +1,6 @@
+// Just a placeholder to load the static Wordle assets
+// https://github.com/gatsbyjs/gatsby/issues/17761#issuecomment-533816520
+
 import React from "react";
 
 const dummy = () => (
