@@ -19,14 +19,14 @@ import {
 export const skillsData = [
   {
     phrase: "I specialize in",
-    items: [css, html, javascript, nodejs, typescript, vue],
+    items: [css, html, javascript, nodejs, typescript, react],
   },
   {
     phrase: "am familiar with",
-    items: [docker, django, python, sql, firebase],
+    items: [docker, vue, django, python, sql, firebase],
   },
   {
     phrase: "and am currently exploring",
-    items: [react, rust, rails, graphql],
+    items: [rust, rails, graphql],
   },
 ];
