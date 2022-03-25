@@ -11,7 +11,7 @@
     "clean": "npm run install:quick && npm run lint && gatsby clean",
     "serve": "gatsby build && gatsby serve",
     "install:quick": "npm --silent --prefer-offline install",
-    "lint": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\" && eslint . --fix",
+    "lint": "prettier --write \"./**/*.{js,jsx,ts,tsx,json,md}\" && eslint . --fix",
     "publish": "npm run build && npm run sync:dist && npm run sync:cgi",
     "sync:dist": "rsync -qa --del --exclude='*JUNK.js' --exclude='*.DS_Store' ./public/ ../website-output",
     "sync:cgi": "rsync -qp --chmod=a+x ./build.cgi ../website-output"
