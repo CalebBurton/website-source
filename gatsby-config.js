@@ -6,6 +6,7 @@ module.exports = {
   },
   plugins: [
     // `gatsby-plugin-csp`,
+    "gatsby-plugin-typescript",
     "gatsby-plugin-sass",
     "gatsby-plugin-react-helmet",
   ],

@@ -15,7 +15,6 @@ const About = () => {
           <span
             role="img"
             aria-label="waving hand"
-            // className={`${styles.waveEmoji} ${styles.isWaving}`}
             className={`${styles.waveEmoji} ${inView ? styles.isWaving : null}`}
             ref={ref}
           >
@@ -24,8 +23,8 @@ const About = () => {
           {/* <img draggable="false" loading="eager" class="emoji" alt="👋" src="https://jarv.is/vendor/emoji/svg/1f44b.svg"></img> */}
         </h2>
         <p className="text--md font--heading aligned--left">
-          I'm a web developer fascinated with electronics, programming, and all
-          things healthcare.
+          I&apos;m a web developer fascinated with electronics, programming, and
+          all things healthcare.
         </p>
         <p className="text--md font--heading aligned--left">
           My most recent hobbies have been running some self-hosted projects
@@ -59,15 +58,15 @@ const About = () => {
         <p className="text--md font--heading aligned--left">
           {isAvailableData.isAvailable ? (
             <>
-              <span className="">I'm</span> currently available for part-time
-              freelance projects. If you'd like to work together, please reach
-              out using the contact information below.
+              <span className="">I&apos;m</span> currently available for
+              part-time freelance projects. If you&apos;d like to work together,
+              please reach out using the contact information below.
             </>
           ) : (
             <>
-              I'm <span className="">NOT</span> currently available for
-              freelance work, but if you have a project I'm happy to recommend
-              other developers who might suit your needs.
+              I&apos;m <span className="">NOT</span> currently available for
+              freelance work, but if you have a project I&apos;m happy to
+              recommend other developers who might suit your needs.
             </>
           )}
         </p>
