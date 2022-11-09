@@ -1,1 +1,1 @@
-export const isAvailableData = { isAvailable: true };
+export const isAvailableData = { isAvailable: false };
