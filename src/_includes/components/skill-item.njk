@@ -1,0 +1,6 @@
+{% macro skillItem(skill) %}
+<li class="skill-item">
+  <img class="logo" src="/assets/img/logos/{{ skill.logo }}" alt="{{ skill.title }} logo">
+  <span class="text--sm font--bold font--heading">{{ skill.title }}</span>
+</li>
+{% endmacro %}

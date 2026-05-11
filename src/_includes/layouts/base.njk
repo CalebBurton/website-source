@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{% if title %}{{ title }} | {% endif %}{{ site.title }}</title>
+
+  {# Meta Tags #}
+  <meta name="description" content="{{ description or site.description }}">
+
+  {# Open Graph #}
+  <meta property="og:title" content="{% if title %}{{ title }} | {% endif %}{{ site.title }}">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:description" content="{{ description or site.description }}">
+  <meta property="og:image" content="{{ image or '/favicon.svg' }}">
+  {% if site.siteUrl %}
+  <meta property="og:url" content="{{ site.siteUrl }}{{ page.url }}">
+  {% endif %}
+
+  {# Favicons #}
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  {# Stylesheets #}
+  <link rel="stylesheet" href="/assets/styles/main.css">
+
+  {# JavaScript #}
+  <script src="/assets/scripts/main.js" defer></script>
+</head>
+<body>
+  {{ content | safe }}
+</body>
+</html>

@@ -1,0 +1,18 @@
+---
+layout: layouts/base.njk
+title: Homepage
+permalink: /
+---
+
+<div class="app theme--default">
+  {% include "components/banner.njk" %}
+  {% include "components/navigation.njk" %}
+  <main>
+    {% include "components/about.njk" %}
+    {% include "components/skills.njk" %}
+    {# Projects section is temporarily disabled pending content updates and design refinements #}
+    {# {% include "components/projects.njk" %} #}
+    {% include "components/contact.njk" %}
+  </main>
+  {% include "components/footer.njk" %}
+</div>

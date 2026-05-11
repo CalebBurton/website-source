@@ -1,0 +1,11 @@
+{% macro section(id, title, description, sectionClass="section") %}
+<section class="{{ sectionClass }}" id="{{ id }}">
+  <div class="heading">
+    <h2 class="text--xl font--heading font--bold">{{ title }}</h2>
+    {% if description %}
+      <p class="text--md font--heading">{{ description }}</p>
+    {% endif %}
+  </div>
+  {{ caller() }}
+</section>
+{% endmacro %}

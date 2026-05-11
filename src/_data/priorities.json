@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Detail-Oriented",
+    "icon": "html.svg",
+    "altText": "Code window",
+    "text": "With quality built in from the start"
+  },
+  {
+    "title": "Modern",
+    "icon": "rocket-ship.svg",
+    "altText": "Rocket ship",
+    "text": "Aligned with industry trends, emerging tools, and proven technologies"
+  },
+  {
+    "title": "Accessible",
+    "icon": "responsive-design.svg",
+    "altText": "Mobile phone and desktop computer",
+    "text": "Always keeping the end-user front and center"
+  }
+]

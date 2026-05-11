@@ -1,0 +1,32 @@
+[
+  {
+    "phrase": "I specialize in",
+    "items": [
+      { "logo": "css.svg", "title": "CSS" },
+      { "logo": "html.svg", "title": "HTML" },
+      { "logo": "javascript.svg", "title": "JavaScript" },
+      { "logo": "nodejs.svg", "title": "Node" },
+      { "logo": "typescript.svg", "title": "TypeScript" },
+      { "logo": "react.svg", "title": "React" }
+    ]
+  },
+  {
+    "phrase": "am familiar with",
+    "items": [
+      { "logo": "docker.svg", "title": "Docker" },
+      { "logo": "vue.svg", "title": "Vue" },
+      { "logo": "django.svg", "title": "Django" },
+      { "logo": "python.svg", "title": "Python" },
+      { "logo": "db.svg", "title": "SQL" },
+      { "logo": "firebase.svg", "title": "Firebase" }
+    ]
+  },
+  {
+    "phrase": "and am currently exploring",
+    "items": [
+      { "logo": "rust.svg", "title": "Rust" },
+      { "logo": "rails.svg", "title": "Rails" },
+      { "logo": "graphql.svg", "title": "GraphQL" }
+    ]
+  }
+]

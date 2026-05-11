@@ -1,0 +1,18 @@
+{% from "components/social.njk" import social as socialItem %}
+
+<section class="contactBackground" id="contact">
+  <div class="heading contact">
+    <h2 class="text--xl font--heading font--bold head">
+      Get in touch!
+    </h2>
+    <p class="text--md subhead">
+      Whether you're looking for development help, want to work together, or
+      have any queries at all, I'd love to hear from you.
+    </p>
+    <ul class="socials">
+      {% for item in social %}
+        {{ socialItem(item) }}
+      {% endfor %}
+    </ul>
+  </div>
+</section>

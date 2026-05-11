@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tree:*)",
+      "Bash(npm install:*)",
+      "Bash(ls:*)",
+      "Bash(npm run build:css:*)",
+      "Bash(npx eleventy)",
+      "Bash(./node_modules/.bin/eleventy:*)",
+      "Bash(node --version:*)",
+      "Bash(npm run build:*)",
+      "Bash(pkill:*)",
+      "Bash(npm ls:*)",
+      "Bash(wc:*)",
+      "Bash(grep:*)",
+      "Bash(test:*)"
+    ]
+  }
+}

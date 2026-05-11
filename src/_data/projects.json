@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Hamilton County Recorder's Office",
+    "description": "A complete rebuild of the county office's 2006-era website with a focus on simplicity, maintainability, and integration with another county site",
+    "image": "showdown.jpg",
+    "role": "Frontend Developer",
+    "type": "Freelance Project",
+    "stack": [
+      { "logo": "jquery.svg", "title": "jQuery" },
+      { "logo": "bootstrap.svg", "title": "Bootstrap" },
+      { "logo": "jekyll.svg", "title": "Jekyll" }
+    ]
+  },
+  {
+    "title": "Australia stuff",
+    "description": "Not sure how to get a good image of this.",
+    "image": "courier.jpg",
+    "role": "Frontend Developer",
+    "type": "Freelance Project",
+    "stack": [{ "logo": "html.svg", "title": "HTML" }],
+    "buttons": []
+  },
+  {
+    "title": "CONWEB",
+    "description": "NUIT et cetera",
+    "image": "portfolio.jpg",
+    "role": "Frontend Developer",
+    "type": "Personal Project",
+    "stack": [{ "logo": "html.svg", "title": "HTML" }],
+    "buttons": []
+  },
+  {
+    "title": "Portfolio",
+    "description": "Created to showcase my experience as a developer while also exploring the React ecosystem (hint: it's the site you're currently on!)",
+    "image": "portfolio.jpg",
+    "role": "",
+    "type": "Personal Project",
+    "stack": [
+      { "logo": "gatsby.svg", "title": "Gatsby" },
+      { "logo": "react.svg", "title": "React" },
+      { "logo": "sass.svg", "title": "SASS" }
+    ],
+    "buttons": []
+  },
+  {
+    "title": "Wedding",
+    "description": "A static site providing details for our wedding. Guests had the ability to RSVP through a reactive web form connected to a Firebase database.",
+    "image": "wedding.jpg",
+    "role": "",
+    "type": "Personal Project",
+    "stack": [
+      { "logo": "javascript.svg", "title": "JavaScript" },
+      { "logo": "html.svg", "title": "HTML" },
+      { "logo": "css.svg", "title": "CSS" },
+      { "logo": "firebase.svg", "title": "Firebase" }
+    ],
+    "buttons": []
+  }
+]

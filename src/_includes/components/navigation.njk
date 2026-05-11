@@ -1,0 +1,16 @@
+{% set sections = ["about", "skills", "contact"] %}
+
+<nav class="navigation">
+  <ul class="links" data-animate>
+    {% for section in sections %}
+    <li class="link">
+      <a
+        class="text--lg color--primary navLink"
+        href="#{{ section }}"
+      >
+        {{ section }}
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</nav>

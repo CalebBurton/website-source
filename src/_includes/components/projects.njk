@@ -1,0 +1,16 @@
+{% from "components/project-card.njk" import projectCard %}
+
+<section class="section" id="projects">
+  <div class="heading">
+    <h2 class="text--xl font--heading font--bold">Projects</h2>
+    <p class="text--md font--heading">
+      Mmmm tasty projects. Imagine if <em>you</em> could be listed in this
+      hall of fame.
+    </p>
+  </div>
+  <div class="list">
+    {% for project in projects %}
+      {{ projectCard(project) }}
+    {% endfor %}
+  </div>
+</section>

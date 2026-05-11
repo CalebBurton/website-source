@@ -1,0 +1,16 @@
+<section class="prioritiesBackground">
+  <div class="prioritiesWrapper">
+    <h2 class="text--xl prioritiesHeader">
+      I provide work that is
+    </h2>
+    <div class="prioritiesRow">
+      {% for priority in priorities %}
+      <div class="priority" data-animate>
+        <img src="/assets/img/priorities/{{ priority.icon }}" alt="{{ priority.altText }}">
+        <p class="text--lg font--bold font--heading">{{ priority.title }}</p>
+        <p class="text--md">{{ priority.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

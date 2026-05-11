@@ -1,0 +1,46 @@
+{% from "components/skill-item.njk" import skillItem %}
+
+{% macro projectCard(project) %}
+<article class="card-wrapper">
+  <button class="card" data-animate data-flip-card data-flipped="false">
+    <div class="card--side card--front">
+      <img src="/assets/img/projects/{{ project.image }}" alt="{{ project.title }}">
+      <div class="details">
+        <h3 class="text--lg font--bold">{{ project.title }}</h3>
+        <p class="text--md">{{ project.description }}</p>
+      </div>
+      <span class="text--sm" data-device-text>Click for Details</span>
+    </div>
+    <div class="card--side card--back">
+      <div class="heading">
+        <p class="text--lg font--bold">{{ project.role }}</p>
+        <p class="text--lg">{{ project.type }}</p>
+      </div>
+      <div class="stack-wrapper">
+        <span class="text--lg space--lg">Tech Stack</span>
+        <ul class="stack">
+          {% for skill in project.stack %}
+            {{ skillItem(skill) }}
+          {% endfor %}
+        </ul>
+      </div>
+      {% if project.buttons and project.buttons.length > 0 %}
+      <div class="buttons">
+        {% for button in project.buttons %}
+        <a
+          class="button"
+          href="{{ button.link }}"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="{{ button.linkAriaLabel }}"
+        >
+          <span class="text--sm">{{ button.text }}</span>
+          {# Icon rendering would go here if needed #}
+        </a>
+        {% endfor %}
+      </div>
+      {% endif %}
+    </div>
+  </button>
+</article>
+{% endmacro %}

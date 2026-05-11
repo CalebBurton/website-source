@@ -1,0 +1,17 @@
+{% from "components/skill-item.njk" import skillItem %}
+{% from "components/section.njk" import section %}
+
+{% call section("skills", "Skills", "Here's an overview of my skill set, with an emphasis on foundational technologies rather than the tooling and libraries that extend them.", "section section--primary") %}
+  <ul class="list">
+    {% for skillSet in skills %}
+    <li class="skill-set" data-animate>
+      <span class="text--md font--heading">{{ skillSet.phrase }}</span>
+      <ul class="skill-list">
+        {% for skill in skillSet.items %}
+          {{ skillItem(skill) }}
+        {% endfor %}
+      </ul>
+    </li>
+    {% endfor %}
+  </ul>
+{% endcall %}

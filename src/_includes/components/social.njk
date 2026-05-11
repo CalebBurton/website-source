@@ -1,0 +1,22 @@
+{% macro socialIcon(iconName) %}
+  <img
+    src="/assets/img/icons/{{ iconName }}.svg"
+    alt="{{ iconName }} icon"
+    width="28"
+    height="28"
+  />
+{% endmacro %}
+
+{% macro social(item) %}
+<li class="social {{ item.className }}">
+  <a
+    href="{{ item.href }}"
+    {% if item.target %}target="{{ item.target }}"{% endif %}
+    {% if item.rel %}rel="{{ item.rel }}"{% endif %}
+    title="{{ item.ariaLabel }}"
+    aria-label="{{ item.ariaLabel }}"
+  >
+    {{ socialIcon(item.icon) }}
+  </a>
+</li>
+{% endmacro %}

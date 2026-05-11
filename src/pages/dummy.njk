@@ -1,0 +1,22 @@
+---
+layout: layouts/base.njk
+title: Wordle
+permalink: /dummy/
+---
+
+{#
+  Test page for embedding external content in an iframe.
+  This page demonstrates the iframe embedding pattern and serves as
+  a testing ground for new layout components.
+#}
+
+<div style="display: flex; align-content: center; margin: 3rem auto; justify-content: space-around;">
+  <div>
+    <iframe
+      src="/wordle.html"
+      title="wordle"
+      style="width: 800px; height: 600px;"
+    ></iframe>
+  </div>
+  <div>this is content for the page</div>
+</div>

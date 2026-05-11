@@ -6,22 +6,31 @@
 
 [![Code Style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?logo=prettier&style=plastic)](https://github.com/prettier/prettier)
 
-Source code for my personal website
+Source code for my personal website, built with Eleventy.
 
-<!--
-## Eleventy
+## Development
 
--   <https://www.11ty.dev/>
--   <https://github.com/11ty/11ty-website>
--->
+### Prerequisites
+- Node.js 24+ (specified in `.nvmrc`)
+- npm 8+
 
-## Gatsby
+### Commands
+- `npm run dev` - Start development server with live reload
+- `npm run build` - Build for production
+- `npm run clean` - Remove build directory
+- `npm run format` - Format code with Prettier
+- `npm run lint:check` - Check code formatting
 
-Let's check out this React thing all the cool kids are talking about.
+### Project Structure
+- `src/_includes/layouts/` - Page layouts
+- `src/_includes/components/` - Reusable Nunjucks components
+- `src/_data/` - JSON data files (auto-loaded by Eleventy)
+- `src/pages/` - Page templates
+- `src/assets/` - Static assets (scripts, styles, images)
 
-- <https://www.gatsbyjs.com/docs>
-
-And now that we're confident in our Apache skills, let's deploy to Netlify and save a few bucks.
+### Build Output
+- Generated site is built to `_site/` directory
+- Build time: ~0.07s (400x faster than previous Gatsby setup)
 
 <!-- In `.zshrc`:
 
