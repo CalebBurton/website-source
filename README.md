@@ -29,9 +29,9 @@ Source code for my personal website, built with Eleventy.
 - `src/_includes/layouts/` - Page layouts
 - `src/_includes/components/` - Reusable Nunjucks components
 - `src/_data/` - JSON data files (auto-loaded by Eleventy)
-- `src/pages/` - Page templates (including `dummy.njk`, which may be removed in a later phase)
+- `src/pages/` - Page templates
 - `src/assets/` - Static assets (scripts, styles, images)
-- `static/` - Static files copied through as-is (favicon, wordle)
+- `static/` - Static files copied through as-is (favicon)
 
 ### Build Output
 - Generated site is built to `_site/` directory

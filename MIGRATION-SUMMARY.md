@@ -21,7 +21,7 @@ Successfully migrated single-page portfolio from Gatsby v4 + React 17 to Elevent
 ### Bundle Size
 - **JavaScript**: 5.7KB (down from React + dependencies)
 - **CSS**: 15KB (unchanged)
-- **Total pages**: 3 HTML files + 50 copied assets
+- **Total pages**: 2 HTML files + 44 copied assets
 
 ## Architecture Changes
 
@@ -67,13 +67,13 @@ Successfully migrated single-page portfolio from Gatsby v4 + React 17 to Elevent
 │   │   │   └── base.njk     # Base HTML layout
 │   │   └── components/      # 12 Nunjucks components
 │   ├── _data/               # 6 JSON data files
-│   ├── pages/               # 3 page templates
+│   ├── pages/               # 2 page templates
 │   └── assets/
 │       ├── styles/          # SCSS (preserved structure)
 │       ├── scripts/
 │       │   └── main.js      # Single vanilla JS file
 │       └── img/             # Images/SVGs
-├── static/                  # Static files (wordle, favicon)
+├── static/                  # Static files (favicon)
 └── _site/                   # Build output
 ```
 
@@ -101,7 +101,6 @@ All React components successfully converted to Nunjucks:
 **Pages**:
 - index.njk (homepage with all sections)
 - 404.njk (error page)
-- dummy.njk (Wordle iframe)
 
 ## Interactive Features
 
@@ -233,7 +232,7 @@ The site is ready to deploy to any static hosting:
 - `src/_includes/layouts/base.njk` - Base layout
 - `src/_includes/components/*.njk` - 12 component templates
 - `src/_data/*.json` - 6 data files
-- `src/pages/*.njk` - 3 page templates
+- `src/pages/*.njk` - 2 page templates
 - `src/assets/scripts/main.js` - Vanilla JavaScript
 - `src/assets/styles/components/` - Component SCSS (copied from old location)
 

@@ -1,6 +1,8 @@
 # Gatsby → Eleventy Migration: Remaining Work Plan
 
-**Status:** Phases 1–3.5 complete and committed. Phase 3.5 restored visual parity with `main` (404 pixel-identical; homepage ~0.03% residual antialiasing). Next: Phase 4 (content decisions).
+**Status:** Phases 1–4 complete. Phase 3.5 restored visual parity with `main`
+(404 pixel-identical; homepage ~0.03% residual antialiasing). Next: Phase 5
+(deployment) and Phase 6 (verification).
 **Branch:** `eleventy-rewrite` (based on `main` @ `c9f6c84`)
 **Last updated:** 2026-05-11
 
@@ -12,9 +14,8 @@ Finish and harden the migration of calebburton.com from Gatsby v4 + React 17 to
 Eleventy v3 + vanilla JS so the branch can be merged to `main` and deployed with
 confidence.
 
-The bulk of the migration is already done and building cleanly (3 HTML pages +
-53 copied assets in ~0.09s). The remaining work is **cleanup, documentation
-reconciliation, tooling, a few product decisions, and deployment cutover**.
+The migration builds cleanly (2 HTML pages + 44 copied assets in ~0.1s). Phases 1–4
+are complete; remaining work is **deployment cutover and final verification**.
 
 ---
 
@@ -24,9 +25,9 @@ reconciliation, tooling, a few product decisions, and deployment cutover**.
   copies for `src/assets/img`, `src/assets/scripts`, and `static`.
 - 6 JSON data files in `src/_data/` (availability, priorities, projects, site,
   skills, social).
-- 13 Nunjucks components in `src/_includes/components/`, base layout in
+- 12 Nunjucks components in `src/_includes/components/`, base layout in
   `src/_includes/layouts/base.njk`.
-- Pages: `src/pages/index.njk`, `src/pages/404.njk`, `src/pages/dummy.njk`.
+- Pages: `src/pages/index.njk`, `src/pages/404.njk`.
 - Vanilla JS in `src/assets/scripts/main.js` (smooth scroll, scroll spy,
   IntersectionObserver animations, project-card flip, device text, dev CSS toggle).
 - SCSS in `src/assets/styles/` compiles via `sass` to
@@ -234,24 +235,27 @@ scroll animations never fire (`.links` stays at `opacity: 0`, hiding the nav).
 The section is commented out in `src/pages/index.njk`; components
 (`projects.njk`, `project-card.njk`) and data exist.
 
-- [ ] If re-enabling: uncomment the include and verify card flip, tech-stack
-      rendering, and button/icon markup (the project-card template currently has
-      a placeholder comment where icons would render).
-- [ ] If keeping disabled: remove the dead components/data or leave with a
-      clear comment.
+- [x] Decision D2: **keep disabled.** The include stays commented out; the
+      components/data are intentionally left in place with an explanatory
+      comment in `src/pages/index.njk`.
+- [x] Re-enabling branch: not applicable — D2 keeps the section disabled, so
+      card-flip/tech-stack verification is deferred until/unless it is
+      re-enabled.
 
 ### 8.2 Remove `dummy.njk` / Wordle (D3)
 
 Decision D3: **remove**. `src/pages/dummy.njk` embeds `/wordle.html` from
 `static/wordle/` and exists only as a test page.
 
-- [ ] `git rm src/pages/dummy.njk`
-- [ ] `git rm -r static/wordle/`
-- [ ] Remove the `**/wordle/**` entry from `.eslintignore` (and confirm whether
-      `.eslintignore` itself is still needed — see Phase 3).
-- [ ] Confirm no remaining references:
-      `grep -rn "wordle\|dummy" src static eleventy.config.js`
-- [ ] Rebuild and confirm `_site/dummy/` and `_site/wordle.html` no longer exist.
+- [x] `git rm src/pages/dummy.njk`
+- [x] `git rm -r static/wordle/`
+- [x] Also `git rm static/wordle.html` — it is the iframe target that
+      passthrough-copies to `_site/wordle.html`, so it must be removed too.
+- [x] `.eslintignore` was deleted in Phase 3 (commit `525df8e`), so there is no
+      `**/wordle/**` entry left to remove.
+- [x] Confirm no remaining references:
+      `grep -rn "wordle\|dummy" src static eleventy.config.js` (none).
+- [x] Rebuild and confirm `_site/dummy/` and `_site/wordle.html` no longer exist.
 
 ### 8.3 Footer build date
 
@@ -266,17 +270,25 @@ Decision D3: **remove**. `src/pages/dummy.njk` embeds `/wordle.html` from
 
 ### 8.4 SEO / metadata
 
-Base layout has basic OG tags; missing OG image, canonical link, Twitter card.
+`src/_includes/layouts/base.njk` now matches the `main` Gatsby SEO component
+(`main:src/components/seo/index.js`) for the tags it renders.
 
-- [ ] Decide scope for SEO improvements; add `og:image`, canonical URL, and
-      optional `twitter:*` tags.
+- [x] Reconciled `base.njk` with `main`: fixed `og:title` to render the bare
+      page title (falling back to `site.title`), matching `main`'s
+      `og:title="Homepage"` while `<title>` stays `Homepage | CalebBurton.com`.
+      `description`, `og:image`, favicon, viewport, and charset already matched.
+- [x] **Deferred enhancement** (out of scope for parity reconciliation): add a
+      canonical URL and optional `twitter:*` tags. `og:image` is already present
+      (`image or '/favicon.svg'`). Do not add as part of Phase 4.
 
 ### 8.5 Availability copy
 
 `src/_data/availability.json` is `{"isAvailable": false}`; confirm current copy
 is intended.
 
-- [ ] Confirm or update.
+- [x] Confirmed: the rendered About copy uses the "I'm **NOT** currently
+      available…" branch (`src/_includes/components/about.njk`), matching
+      `isAvailable: false`. No change needed.
 
 ---
 
@@ -306,7 +318,7 @@ the CI workflow commented out.**
 ### 10.1 Automated
 
 - [ ] `npm ci`
-- [ ] `npm run build` succeeds; output has 3 HTML pages + expected assets.
+- [x] `npm run build` succeeds; output has 2 HTML pages + expected assets.
 - [ ] `npm run lint:check` passes (once Phase 3 lands).
 - [ ] Confirm no React leftovers in `_site/` (no `**/index.js` under assets).
 
@@ -354,8 +366,7 @@ the CI workflow commented out.**
 1. Phase 1 (cleanup) — done.
 2. Phase 2 (docs) — done.
 3. Phase 3 (tooling) — done.
-4. **Phase 3.5 (visual parity with `main`)** — highest priority; the current
-   build is visually broken (About/footer background, priorities card, nav
-   links, animations).
-5. Phase 4 (content decisions) and Phase 5 (deployment).
-6. Phase 6 (verification, including the screenshot parity gate) → merge to `main`.
+4. Phase 3.5 (visual parity with `main`) — done.
+5. Phase 4 (content decisions) — done.
+6. Phase 5 (deployment) and Phase 6 (verification, including the screenshot
+   parity gate) → merge to `main`.

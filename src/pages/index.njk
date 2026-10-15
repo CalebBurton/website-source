@@ -10,7 +10,11 @@ permalink: /
   <main>
     {% include "components/about.njk" %}
     {% include "components/skills.njk" %}
-    {# Projects section is temporarily disabled pending content updates and design refinements #}
+    {#
+      Projects section is intentionally disabled (migration decision D2). The
+      components (projects.njk, project-card.njk) and data (projects.json) are
+      kept in place for a possible future re-enable. See MIGRATION-PLAN.md §8.1.
+    #}
     {# {% include "components/projects.njk" %} #}
     {% include "components/contact.njk" %}
   </main>
