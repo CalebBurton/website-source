@@ -9,7 +9,11 @@ permalink: /
   {% include "components/navigation.njk" %}
   <main>
     {% include "components/about.njk" %}
-    {% include "components/skills.njk" %}
+    {#
+      Skills section is intentionally hidden. The component (skills.njk) and
+      data (skills.json) are kept in place for a possible future re-enable.
+    #}
+    {# {% include "components/skills.njk" %} #}
     {#
       Projects section is intentionally disabled (migration decision D2). The
       components (projects.njk, project-card.njk) and data (projects.json) are

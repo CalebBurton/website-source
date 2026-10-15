@@ -1,5 +1,6 @@
 .footer-wrapper {
   display: grid;
+  background-color: var(--color-primary);
 
   @media only screen and (min-width: 1300px) {
     justify-content: center;

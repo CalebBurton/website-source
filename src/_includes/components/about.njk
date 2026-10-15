@@ -23,20 +23,13 @@
       >, and
       <a href="https://jellyfin.org/" target="_blank" rel="noopener noreferrer"
         >Jellyfin</a
-      >. Other ways I love to spend time are playing with my dogs, reading, and
+      >. Other ways I love to spend time are playing with dogs, reading, and
       making music.
     </p>
-    <p class="text--md font--heading aligned--left">
-      {% if availability.isAvailable %}
-        <span>I'm</span> currently available for part-time freelance projects.
-        If you'd like to work together, please reach out using the contact
-        information below.
-      {% else %}
-        I'm <span>NOT</span> currently available for freelance work, but if you
-        have a project I'm happy to recommend other developers who might suit
-        your needs.
-      {% endif %}
-    </p>
   </div>
-  {% include "components/priorities.njk" %}
+  {#
+    Priorities section is intentionally hidden. The component (priorities.njk)
+    and data (priorities.json) are kept in place for a possible future re-enable.
+  #}
+  {# {% include "components/priorities.njk" %} #}
 </section>
