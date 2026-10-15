@@ -134,23 +134,30 @@ Known inaccuracies:
 `lint:check` currently runs Prettier over `src/**/*.{js,json}` only. Nunjucks and
 SCSS are unformatted and unvalidated.
 
-- [ ] Decide scope: add Prettier for `njk`/`scss` (Prettier supports both).
-- [ ] Decide whether to restore ESLint (`.eslintrc` was deleted in the migration;
-      `.eslintignore` still exists).
-- [ ] Wire chosen checks into `npm run lint:check` and CI.
+- [x] Decide scope: add Prettier for `njk`/`scss` (Prettier supports both).
+      Implemented via `prettier-plugin-jinja-template` plus an `overrides` entry
+      so `.njk` uses the plugin's `jinja-template` parser; `lint:check`/`format`
+      now cover `src/**/*.{js,json,njk,scss}`.
+- [x] Decide whether to restore ESLint (`.eslintrc` was deleted in the migration;
+      `.eslintignore` still exists). Decision: do **not** restore ESLint; the
+      vestigial `.eslintignore` was deleted.
+- [x] Wire chosen checks into `npm run lint:check` and CI.
 
 ### 6.2 Eleventy config polish
 
-- [ ] Add a date filter for the footer build date (see 7.3).
-- [ ] Consider `eleventyConfig.addWatchTarget` already present — verify `dev`
-      workflow compiles SCSS and Eleventy together without races.
-- [ ] Consider HTML minification for production (optional; Gatsby previously
-      minified).
+- [x] Add a date filter for the footer build date (see 7.3). Implemented as a
+      preformatted UTC string in `src/_data/build.js` (`build.formatted`) because
+      Eleventy v3 does not register a `date` filter for Nunjucks.
+- [x] Consider `eleventyConfig.addWatchTarget` already present — verify `dev`
+      workflow compiles SCSS and Eleventy together without races. Watch target is
+      already configured; SCSS is compiled by the separate `sass --watch` script.
+- [x] Consider HTML minification for production (optional; Gatsby previously
+      minified). **Deferred** — left as a future enhancement.
 
 ### 6.3 Node/tooling consistency
 
-- [ ] Confirm `.nvmrc` (24) and `package.json` `engines.node` (`>=24`) agree.
-- [ ] Confirm `package-lock.json` is committed and in sync.
+- [x] Confirm `.nvmrc` (24) and `package.json` `engines.node` (`>=24`) agree.
+- [x] Confirm `package-lock.json` is committed and in sync (`npm ls` clean).
 
 ---
 
@@ -184,8 +191,12 @@ Decision D3: **remove**. `src/pages/dummy.njk` embeds `/wordle.html` from
 
 `src/_includes/components/footer.njk` prints raw `{{ page.date }}`.
 
-- [ ] Add/choose an Eleventy date filter and format it, e.g.
+- [x] Add/choose an Eleventy date filter and format it, e.g.
       `{{ page.date | date: "yyyy-MM-dd 'at' HH:mm 'UTC'" }}`.
+      **Completed in Phase 3.** Eleventy v3 exposes no Nunjucks `date` filter
+      (the colon syntax above is Liquid-only), so `src/_data/build.js` precomputes
+      `build.formatted` in UTC and `footer.njk` renders
+      `Last build was {{ build.formatted }}`.
 
 ### 7.4 SEO / metadata
 

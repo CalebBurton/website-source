@@ -1,8 +1,8 @@
 :root {
-  --font-text: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif,
-    "Apple Color Emoji", /* Emoji */ "Segoe UI Emoji",
-    /* Emoji */ "Segoe UI Symbol"; /* Emoji */
+  --font-text:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu,
+    Cantarell, "Helvetica Neue", sans-serif, "Apple Color Emoji",
+    /* Emoji */ "Segoe UI Emoji", /* Emoji */ "Segoe UI Symbol"; /* Emoji */
   --font-heading: -apple-system-headline, var(--font-text);
 
   --weight-thin: 300;

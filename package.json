@@ -13,8 +13,8 @@
     "build": "npm run build:css && eleventy",
     "build:css": "sass src/assets/styles/main.scss:_site/assets/styles/main.css --style=compressed",
     "clean": "rm -rf _site",
-    "lint:check": "prettier --check 'src/**/*.{js,json}'",
-    "format": "prettier --write 'src/**/*.{js,json}'",
+    "lint:check": "prettier --check 'src/**/*.{js,json,njk,scss}'",
+    "format": "prettier --write 'src/**/*.{js,json,njk,scss}'",
     "publish": "npm run build && npm run sync:dist && npm run sync:cgi",
     "sync:dist": "rsync -qa --del --exclude='*JUNK.js' --exclude='*.DS_Store' ./_site/ ../website-output",
     "sync:cgi": "rsync -qp --chmod=a+x ./build.cgi ../website-output"
@@ -39,6 +39,7 @@
   "devDependencies": {
     "npm-run-all": "^4.1.5",
     "prettier": "^3.8.0",
+    "prettier-plugin-jinja-template": "^2.2.0",
     "sass": "^1.97.2"
   }
 }
