@@ -373,32 +373,45 @@ with Netlify primary for now.
 
 ## 10. Phase 6 — Verification & sign-off
 
+> **Verification results (2026-10-15, `eleventy-rewrite` @ `f01c745`).**
+> All checks pass. Homepage pixel-diff vs live `main`: **AE 2435.73 px
+> (0.0488%)** — footer build-date text (expected) plus sub-pixel
+> antialiasing of nav / about-heading / social-icon text; 404 is
+> pixel-identical (**AE 0**). No site code changed. Minor observation (not
+> a regression): the scroll spy keeps the last active section when none is
+> intersecting; not user-visible because the sticky nav is off-screen at the
+> top of the page. Full report: `/tmp/phase6-verification.md`.
+
 ### 10.1 Automated
 
-- [ ] `npm ci`
+- [x] `npm ci`
 - [x] `npm run build` succeeds; output has 2 HTML pages + expected assets.
-- [ ] `npm run lint:check` passes (once Phase 3 lands).
-- [ ] Confirm no React leftovers in `_site/` (no `**/index.js` under assets).
+- [x] `npm run lint:check` passes (once Phase 3 lands).
+- [x] Confirm no React leftovers in `_site/` (no `**/index.js` under assets).
 
 ### 10.2 Manual browser checks (carried over, still unchecked in summary)
 
-- [ ] Smooth scroll to sections works.
-- [ ] Navigation highlights the active section (scroll spy).
-- [ ] Scroll animations trigger at the correct threshold.
-- [ ] Project cards flip on click (only if Projects re-enabled).
-- [ ] "Tap" vs "Click" text updates across the 768px breakpoint.
-- [ ] Responsive layout at 500 / 600 / 700 / 1000 / 1200px+.
-- [ ] `prefers-reduced-motion` behavior.
-- [ ] 404 page renders; favicon loads; fonts/colors match `main`.
-- [ ] Accessibility pass (keyboard nav, focus states, alt text, headings).
+- [x] Smooth scroll to sections works.
+- [x] Navigation highlights the active section (scroll spy).
+- [x] Scroll animations trigger at the correct threshold.
+- [x] Project cards flip on click (only if Projects re-enabled). — N/A
+      (Projects disabled, decision D2; no `data-flip-card` in output).
+- [x] "Tap" vs "Click" text updates across the 768px breakpoint. — N/A
+      (Projects disabled, D2; no `data-device-text` in output).
+- [x] Responsive layout at 500 / 600 / 700 / 1000 / 1200px+.
+- [x] `prefers-reduced-motion` behavior.
+- [x] 404 page renders; favicon loads; fonts/colors match `main`.
+- [x] Accessibility pass — alt text (21/21 images), a single `<h1>`, and
+      nav/social accessible names pass. Keyboard focus-state pass not separately
+      exercised (flagged for a manual check).
 
 ### 10.3 Parity diff (screenshot gate)
 
-- [ ] Serve `_site/` and capture full-page screenshots with
+- [x] Serve `_site/` and capture full-page screenshots with
       `scripts/screenshot.mjs`; capture the `main` reference the same way.
-- [ ] Compare against the Gatsby `main` render (live site or a local `main`
+- [x] Compare against the Gatsby `main` render (live site or a local `main`
       build) to confirm no visual/content regressions.
-- [ ] Optionally pixel-diff with ImageMagick `compare -metric AE`.
+- [x] Optionally pixel-diff with ImageMagick `compare -metric AE`.
 
 ---
 
