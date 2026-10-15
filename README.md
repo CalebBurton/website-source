@@ -8,6 +8,8 @@
 
 Source code for my personal website, built with Eleventy.
 
+> **Migration in progress:** the site is being finished and hardened on the `eleventy-rewrite` branch. See [`MIGRATION-PLAN.md`](./MIGRATION-PLAN.md) for the in-flight plan.
+
 ## Development
 
 ### Prerequisites
@@ -20,17 +22,20 @@ Source code for my personal website, built with Eleventy.
 - `npm run clean` - Remove build directory
 - `npm run format` - Format code with Prettier
 - `npm run lint:check` - Check code formatting
+- `npm run publish` - Build and rsync `_site/` to the deploy target
 
 ### Project Structure
+- `eleventy.config.js` - Eleventy configuration
 - `src/_includes/layouts/` - Page layouts
 - `src/_includes/components/` - Reusable Nunjucks components
 - `src/_data/` - JSON data files (auto-loaded by Eleventy)
-- `src/pages/` - Page templates
+- `src/pages/` - Page templates (including `dummy.njk`, which may be removed in a later phase)
 - `src/assets/` - Static assets (scripts, styles, images)
+- `static/` - Static files copied through as-is (favicon, wordle)
 
 ### Build Output
 - Generated site is built to `_site/` directory
-- Build time: ~0.07s (400x faster than previous Gatsby setup)
+- Build time: ~0.1s (hundreds of times faster than the previous Gatsby setup)
 
 <!-- In `.zshrc`:
 

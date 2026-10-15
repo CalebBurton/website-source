@@ -110,15 +110,15 @@ Known inaccuracies:
 - "Known Issues" says Projects component ready to uncomment; confirm against D2.
 - Add a note that `old/` was removed and is recoverable from history.
 
-- [ ] Apply D1: **correct and keep** `MIGRATION-SUMMARY.md` as the historical
+- [x] Apply D1: **correct and keep** `MIGRATION-SUMMARY.md` as the historical
       record (do not fold into this plan or delete).
 
 ### 5.2 Update `README.md`
 
-- [ ] Verify commands still match `package.json` (`dev`, `build`, `clean`,
+- [x] Verify commands still match `package.json` (`dev`, `build`, `clean`,
       `format`, `lint:check`, `publish`).
-- [ ] Update "Project Structure" to match the actual tree.
-- [ ] Add a short note pointing to this plan while migration is in flight.
+- [x] Update "Project Structure" to match the actual tree.
+- [x] Add a short note pointing to this plan while migration is in flight.
 
 ### 5.3 Add a `CLAUDE.md` / contributor note (optional)
 

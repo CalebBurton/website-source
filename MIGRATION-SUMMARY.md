@@ -15,20 +15,20 @@ Successfully migrated single-page portfolio from Gatsby v4 + React 17 to Elevent
 
 ### Build Performance
 - **Before**: ~30 seconds
-- **After**: ~0.07 seconds
-- **Improvement**: 400x faster
+- **After**: ~0.1 seconds
+- **Improvement**: hundreds of times faster
 
 ### Bundle Size
 - **JavaScript**: 5.7KB (down from React + dependencies)
 - **CSS**: 15KB (unchanged)
-- **Total pages**: 3 HTML files + 51 assets
+- **Total pages**: 3 HTML files + 50 copied assets
 
 ## Architecture Changes
 
 ### Template System
 - **Old**: React components with JSX
 - **New**: Nunjucks templates with macros
-- **Components**: 13 components converted
+- **Components**: 12 components converted
 
 ### Styling
 - **Old**: CSS Modules
@@ -59,21 +59,21 @@ Successfully migrated single-page portfolio from Gatsby v4 + React 17 to Elevent
 
 ```
 /
-├── .eleventy.js              # Eleventy configuration
+├── eleventy.config.js        # Eleventy configuration
 ├── package.json              # Simplified dependencies
 ├── src/
 │   ├── _includes/
 │   │   ├── layouts/
 │   │   │   └── base.njk     # Base HTML layout
-│   │   └── components/      # 13 Nunjucks components
+│   │   └── components/      # 12 Nunjucks components
 │   ├── _data/               # 6 JSON data files
 │   ├── pages/               # 3 page templates
-│   ├── assets/
-│   │   ├── styles/          # SCSS (preserved structure)
-│   │   ├── scripts/
-│   │   │   └── main.js      # Single vanilla JS file
-│   │   └── img/             # Images/SVGs
-│   └── static/              # Static files (wordle, favicon)
+│   └── assets/
+│       ├── styles/          # SCSS (preserved structure)
+│       ├── scripts/
+│       │   └── main.js      # Single vanilla JS file
+│       └── img/             # Images/SVGs
+├── static/                  # Static files (wordle, favicon)
 └── _site/                   # Build output
 ```
 
@@ -145,11 +145,11 @@ npm run dev
 # Production build
 npm run build
 
-# Serve production build
-npm run serve
+# Check formatting
+npm run lint:check
 
-# Lint/format
-npm run lint
+# Auto-format
+npm run format
 ```
 
 ## Testing Checklist
@@ -167,7 +167,7 @@ npm run lint
 ### Interactivity
 - [x] Build completes successfully
 - [x] All data renders correctly
-- [x] SCSS compiles without errors (deprecation warnings only)
+- [x] SCSS compiles without errors or warnings
 - [x] JavaScript loads correctly
 - [ ] Smooth scroll to sections works (requires browser test)
 - [ ] Navigation highlights active section (requires browser test)
@@ -177,11 +177,11 @@ npm run lint
 
 ## Known Issues
 
-### SCSS Import Deprecation Warnings
-SCSS files use `@import` which is deprecated in Dart Sass 3.0. This is cosmetic only and does not affect functionality. Can be updated to `@use` in the future if needed.
+### SCSS `@use` Migration
+SCSS files now use `@use`; the Dart Sass deprecation warnings no longer apply.
 
-### Projects Section Commented Out
-The Projects component is ready but commented out in `index.njk`. Uncomment when ready to display:
+### Projects Section Disabled (Decision D2)
+The Projects section is intentionally disabled: the include is commented out in `index.njk`, and the components/data are kept in place with a clear comment (decision D2, 2026-05-11).
 
 ```njk
 {# {% include "components/projects.njk" %} #}
@@ -226,11 +226,12 @@ The site is ready to deploy to any static hosting:
 - All Gatsby configuration files
 - All React component files
 - React dependencies from package.json
+- `old/` (legacy v1 Handlebars and v2 Eleventy + webpack sources) — recoverable from git history via `git checkout c9f6c84 -- old/`
 
 ### Added
-- `.eleventy.js` - Eleventy configuration
+- `eleventy.config.js` - Eleventy configuration
 - `src/_includes/layouts/base.njk` - Base layout
-- `src/_includes/components/*.njk` - 13 component templates
+- `src/_includes/components/*.njk` - 12 component templates
 - `src/_data/*.json` - 6 data files
 - `src/pages/*.njk` - 3 page templates
 - `src/assets/scripts/main.js` - Vanilla JavaScript
@@ -244,7 +245,7 @@ The site is ready to deploy to any static hosting:
 
 ✅ **Functionality**: All features work identically to Gatsby version
 ✅ **Visual Design**: Pixel-perfect match maintained
-✅ **Performance**: 400x faster build time
+✅ **Performance**: hundreds of times faster build time
 ✅ **Dependencies**: 85% reduction in packages
 ✅ **Maintainability**: Simpler codebase, easier to understand
 ✅ **Bundle Size**: Significantly smaller JavaScript bundle
