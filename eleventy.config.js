@@ -2,7 +2,9 @@ export default function (eleventyConfig) {
   // Passthrough copies for static assets
   eleventyConfig.addPassthroughCopy("src/assets/img");
   eleventyConfig.addPassthroughCopy("src/assets/scripts");
-  eleventyConfig.addPassthroughCopy("static");
+  // Copy the *contents* of static/ to the site root (Gatsby parity): the
+  // favicon must resolve at /favicon.svg, not /static/favicon.svg.
+  eleventyConfig.addPassthroughCopy({ static: "/" });
 
   // Watch for SCSS changes (compilation handled by separate script)
   eleventyConfig.addWatchTarget("src/assets/styles/**/*.scss");

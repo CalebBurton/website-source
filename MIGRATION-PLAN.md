@@ -298,18 +298,76 @@ Decision D4: **leave deployment unchanged; keep both** the Apache `build.cgi`
 path and Netlify. Netlify is the primary target for now. Decision D5: **leave
 the CI workflow commented out.**
 
-- [ ] Confirm production output directory (`_site`) matches what the deploy
+- [x] Confirm production output directory (`_site`) matches what the deploy
       expects. Note history: Gatsby used `public/`, old v2 used `dist/`, now
-      `_site/`.
-- [ ] `build.cgi` does `git reset --hard origin/main` — **the branch is not live
-      until merged to `main`**. Plan the merge.
-- [ ] Verify `npm run publish` (`sync:dist` rsync `_site/` → `../website-output`)
+      `_site/`. `package.json` `clean`/`build`/`build:css` and
+      `eleventy.config.js` (`dir.output: "_site"`) all target `_site/`.
+      **Fixed:** the favicon previously landed at `_site/static/favicon.svg`
+      because `addPassthroughCopy("static")` preserved the folder, while
+      `base.njk` links `/favicon.svg`. Resolved by copying the contents of
+      `static/` to the site root — `addPassthroughCopy({ static: "/" })` in
+      `eleventy.config.js` — matching Gatsby's `static/` → site-root behavior.
+      Verified: `_site/favicon.svg` exists, `_site/static/` is gone, and
+      serving `_site` returns HTTP 200 for `/favicon.svg`.
+- [x] `build.cgi` does `git reset --hard origin/main` — **the branch is not live
+      until merged to `main`**. Plan the merge (see 9.6).
+- [x] Verify `npm run publish` (`sync:dist` rsync `_site/` → `../website-output`)
       still matches the server layout; the `../website-output` sibling directory
-      must exist on the deploy host.
-- [ ] Netlify (primary): verify build command `npm run build` and publish
-      directory `_site`. Add a `netlify.toml` only if the current setup needs it;
-      otherwise confirm the dashboard settings match.
-- [ ] No change to `.github/workflows/test_and_deploy.yml` (leave commented).
+      must exist on the deploy host. Verified by `--dry-run` against
+      `/tmp/website-output-test` (transfer shape matches; real sibling dir absent
+      here, as expected — deploy-host only).
+- [x] Netlify (primary): verify build command `npm run build` and publish
+      directory `_site`. No `netlify.toml` is present; dashboard settings must be
+      confirmed on Netlify. **Recommendation:** add a `netlify.toml` (build
+      `npm run build`, publish `_site`, `NODE_VERSION=24`) to make settings
+      explicit and reproducible — not added here pending approval.
+- [x] No change to `.github/workflows/test_and_deploy.yml` (leave commented).
+      Confirmed fully commented (0 non-comment lines).
+
+### 9.6 Merge checklist
+
+Merge target: `eleventy-rewrite` (HEAD `2198d57`) → `main`. Deployment is
+unchanged (D4): both the Apache `build.cgi` path and Netlify remain supported,
+with Netlify primary for now.
+
+**Pre-merge (on `eleventy-rewrite`)**
+
+- [ ] `npm ci` then `npm run build` succeeds; `_site/` contains `index.html`,
+      `404.html`, `favicon.svg` (at the root), and `assets/{styles,scripts,img}`,
+      with no `dummy/` or `wordle*`.
+- [x] Fix the favicon path so `/favicon.svg` resolves (see the Phase 5 note
+      above); applied in `eleventy.config.js` and verified locally.
+- [ ] `npm run lint:check` passes.
+- [ ] Visual parity vs `main` (Gatsby): serve `_site/` locally
+      (`python3 -m http.server 8099 --directory _site`) and capture full-page
+      screenshots with `scripts/screenshot.mjs`; capture the Gatsby reference the
+      same way (`https://www.calebburton.com/`). Optional pixel diff:
+      `compare -metric AE /tmp/main.png /tmp/eleventy.png /tmp/diff.png`.
+- [ ] Confirm the 404 page renders and fonts/colors match `main` (manual).
+
+**Merge**
+
+- [ ] Record the pre-merge `main` commit as the rollback anchor:
+      `git rev-parse origin/main` (call it `<pre-merge-main>`).
+- [ ] Merge `eleventy-rewrite` into `main` (fast-forward if possible) and push
+      `origin/main`.
+
+**Deploy**
+
+- [ ] Apache path: `build.cgi` does `git reset --hard origin/main` → `git pull` →
+      `npm run --silent publish`, so it picks up `main` **after** the merge.
+      `npm run publish` = `build` + `sync:dist` (rsync `_site/` →
+      `../website-output`) + `sync:cgi` (`build.cgi` → `../website-output`). The
+      `../website-output` sibling directory must exist on the deploy host.
+- [ ] Netlify path: build command `npm run build`, publish directory `_site`,
+      Node 24. Netlify builds on push to `main` (or per dashboard settings).
+
+**Rollback**
+
+- [ ] Reset `origin/main` to `<pre-merge-main>`
+      (`git reset --hard <pre-merge-main> && git push --force origin main`) and
+      redeploy. All removed files (e.g. `old/`, `dummy.njk`, `static/wordle*`)
+      remain in git history, so nothing is irrecoverable.
 
 ---
 
