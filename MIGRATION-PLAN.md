@@ -1,6 +1,6 @@
 # Gatsby → Eleventy Migration: Remaining Work Plan
 
-**Status:** Phases 1–3 complete and committed. **Phase 3.5 (visual parity with `main`) is next** — the current build is not at visual parity.
+**Status:** Phases 1–3.5 complete and committed. Phase 3.5 restored visual parity with `main` (404 pixel-identical; homepage ~0.03% residual antialiasing). Next: Phase 4 (content decisions).
 **Branch:** `eleventy-rewrite` (based on `main` @ `c9f6c84`)
 **Last updated:** 2026-05-11
 
@@ -175,15 +175,15 @@ the live Gatsby site at <https://www.calebburton.com>.
 
 ### 7.1 Restore dropped page-level styles
 
-- [ ] Add `.app` styles (from `main:src/pages/index.module.scss`):
+- [x] Add `.app` styles (from `main:src/pages/index.module.scss`):
       `background-color: var(--color-secondary); display: grid; width: 100%;
       will-change: opacity; --items-max-width: 70rem;`. Put it in a new
       `src/assets/styles/components/_app.scss` and `@use` it in `main.scss`.
       This restores the dark-grey page background so About/footer text is visible.
-- [ ] Migrate 404 styles (from `main:src/pages/404.module.scss`): the 404 `.app`
+- [x] Migrate 404 styles (from `main:src/pages/404.module.scss`): the 404 `.app`
       variant (centered, `height: 100vh`), `.list-wrapper`, `.bullets`. Reconcile
       the homepage and 404 `.app` variants so both work.
-- [ ] Diff every Eleventy SCSS file against its `main` counterpart and migrate
+- [x] Diff every Eleventy SCSS file against its `main` counterpart and migrate
       any other dropped rules (e.g. `.footer .lastBuilt`).
 
 ### 7.2 Reconcile camelCase template classes with kebab-case selectors
@@ -191,16 +191,16 @@ the live Gatsby site at <https://www.calebburton.com>.
 Rename template classes to the kebab-case selectors used by the SCSS (the `main`
 selector names):
 
-- [ ] `prioritiesBackground` → `priorities-background`
-- [ ] `prioritiesWrapper` → `priorities-wrapper`
-- [ ] `prioritiesHeader` → `priorities-header`
-- [ ] `prioritiesRow` → `priorities-row`
-- [ ] `contactBackground` → `contact-background`
-- [ ] `waveEmoji` → `wave-emoji`
-- [ ] `footerWrapper` → `footer-wrapper`
-- [ ] `navLink` → `nav-link`
-- [ ] `listWrapper` → `list-wrapper` (404 page)
-- [ ] Audit all template classes against the SCSS selector list and fix any
+- [x] `prioritiesBackground` → `priorities-background`
+- [x] `prioritiesWrapper` → `priorities-wrapper`
+- [x] `prioritiesHeader` → `priorities-header`
+- [x] `prioritiesRow` → `priorities-row`
+- [x] `contactBackground` → `contact-background`
+- [x] `waveEmoji` → `wave-emoji`
+- [x] `footerWrapper` → `footer-wrapper`
+- [x] `navLink` → `nav-link`
+- [x] `listWrapper` → `list-wrapper` (404 page)
+- [x] Audit all template classes against the SCSS selector list and fix any
       remaining mismatches.
 
 ### 7.3 Fix animation class names in `main.js`
@@ -208,21 +208,21 @@ selector names):
 `src/assets/scripts/main.js` adds camelCase classes that no selector matches, so
 scroll animations never fire (`.links` stays at `opacity: 0`, hiding the nav).
 
-- [ ] `footerVisible` → `footer--visible`
-- [ ] `linksVisible` → `links--visible`
-- [ ] `priorityVisible` → `priority--visible`
-- [ ] `isWaving` → `is-waving`
-- [ ] Update the `animationClassMap` keys to match the (renamed) element classes
+- [x] `footerVisible` → `footer--visible`
+- [x] `linksVisible` → `links--visible`
+- [x] `priorityVisible` → `priority--visible`
+- [x] `isWaving` → `is-waving`
+- [x] Update the `animationClassMap` keys to match the (renamed) element classes
       (e.g. `wave-emoji`); keep `skill-set--visible` and `card--visible`.
-- [ ] Verify nav links become visible after the animation triggers.
+- [x] Verify nav links become visible after the animation triggers.
 
 ### 7.4 Verify against `main`
 
-- [ ] Use `scripts/screenshot.mjs` to capture full-page screenshots of the local
+- [x] Use `scripts/screenshot.mjs` to capture full-page screenshots of the local
       `_site/` and a `main` reference.
-- [ ] Confirm parity: About/footer dark-grey background, priorities card visible,
+- [x] Confirm parity: About/footer dark-grey background, priorities card visible,
       nav links visible, animations fire.
-- [ ] Pixel-diff with ImageMagick `compare -metric AE` and document any remaining
+- [x] Pixel-diff with ImageMagick `compare -metric AE` and document any remaining
       (intentional) deviations.
 
 ---

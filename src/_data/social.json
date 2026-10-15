@@ -5,13 +5,13 @@
     "target": "_blank",
     "rel": "noopener noreferrer",
     "ariaLabel": "Open Github profile for Caleb Burton",
-    "className": "socialGithub"
+    "className": "social--github"
   },
   {
     "icon": "email",
     "href": "mailto:hi@calebburton.com",
     "ariaLabel": "Send mail to hi@calebburton.com",
-    "className": "socialEmail"
+    "className": "social--email"
   },
   {
     "icon": "linkedin",
@@ -19,6 +19,6 @@
     "target": "_blank",
     "rel": "noopener noreferrer",
     "ariaLabel": "Open LinkedIn profile for Caleb Burton",
-    "className": "socialLinkedin"
+    "className": "social--linkedin"
   }
 ]

@@ -61,14 +61,16 @@ function initScrollAnimations() {
 
   if (animatedElements.length === 0) return;
 
-  // Map of class names to their corresponding animation classes
+  // Map of element classes to the animation class they should receive.
+  // Values match the SCSS selectors (e.g. `.footer--visible`), not the
+  // camelCase names CSS Modules generated in the Gatsby build.
   const animationClassMap = {
-    footer: "footerVisible",
+    footer: "footer--visible",
     "skill-set": "skill-set--visible",
-    priority: "priorityVisible",
+    priority: "priority--visible",
     card: "card--visible",
-    links: "linksVisible",
-    waveEmoji: "isWaving",
+    links: "links--visible",
+    "wave-emoji": "is-waving",
   };
 
   const observer = new IntersectionObserver(

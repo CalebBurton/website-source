@@ -36,6 +36,10 @@
     border: none;
     cursor: pointer;
     text-transform: capitalize;
+    // Gatsby used react-scroll's <Link>, which renders an href-less <a> and so
+    // gets no default underline. We use real <a href> links (better a11y), so
+    // suppress the underline explicitly to match the design.
+    text-decoration: none;
 
     &.active {
       border-bottom: 2px solid var(--color-primary);
