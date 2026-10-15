@@ -1,0 +1,9 @@
+# Netlify build configuration for calebburton.com.
+# Keeps the build command, publish directory, and Node version explicit so the
+# deploy does not depend on dashboard settings.
+[build]
+  command = "npm run build"
+  publish = "_site"
+
+[build.environment]
+  NODE_VERSION = "24"

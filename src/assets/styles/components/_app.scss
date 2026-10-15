@@ -1,0 +1,28 @@
+// Page-level `.app` shell. In the Gatsby `main` build these rules lived in
+// per-page CSS Modules (`src/pages/index.module.scss` and `404.module.scss`);
+// they are consolidated here because Eleventy serves one stylesheet. The
+// `.app--404` modifier carries the 404-only overrides so both pages render.
+.app {
+  will-change: opacity;
+  background-color: var(--color-secondary);
+
+  display: grid;
+  width: 100%;
+
+  --items-max-width: 70rem;
+
+  &--404 {
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+  }
+}
+
+.list-wrapper {
+  margin-top: 2rem;
+}
+
+.bullets {
+  margin-left: 2rem;
+  padding-left: 1rem;
+}

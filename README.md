@@ -6,22 +6,36 @@
 
 [![Code Style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?logo=prettier&style=plastic)](https://github.com/prettier/prettier)
 
-Source code for my personal website
+Source code for my personal website, built with Eleventy.
 
-<!--
-## Eleventy
+> **Migration in progress:** the site is being finished and hardened on the `eleventy-rewrite` branch. See [`MIGRATION-PLAN.md`](./MIGRATION-PLAN.md) for the in-flight plan.
 
--   <https://www.11ty.dev/>
--   <https://github.com/11ty/11ty-website>
--->
+## Development
 
-## Gatsby
+### Prerequisites
+- Node.js 24+ (specified in `.nvmrc`)
+- npm 8+
 
-Let's check out this React thing all the cool kids are talking about.
+### Commands
+- `npm run dev` - Start development server with live reload
+- `npm run build` - Build for production
+- `npm run clean` - Remove build directory
+- `npm run format` - Format code with Prettier
+- `npm run lint:check` - Check code formatting
+- `npm run publish` - Build and rsync `_site/` to the deploy target
 
-- <https://www.gatsbyjs.com/docs>
+### Project Structure
+- `eleventy.config.js` - Eleventy configuration
+- `src/_includes/layouts/` - Page layouts
+- `src/_includes/components/` - Reusable Nunjucks components
+- `src/_data/` - JSON data files (auto-loaded by Eleventy)
+- `src/pages/` - Page templates
+- `src/assets/` - Static assets (scripts, styles, images)
+- `static/` - Static files copied through as-is (favicon)
 
-And now that we're confident in our Apache skills, let's deploy to Netlify and save a few bucks.
+### Build Output
+- Generated site is built to `_site/` directory
+- Build time: ~0.1s (hundreds of times faster than the previous Gatsby setup)
 
 <!-- In `.zshrc`:
 

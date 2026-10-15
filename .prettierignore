@@ -2,5 +2,5 @@
 package-lock.json
 public
 node_modules
-old
 website_output
+_site

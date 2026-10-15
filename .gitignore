@@ -17,6 +17,7 @@ node_modules/
 dist/
 public/
 .cache
+_site/
 
 # IDE specific
 .vscode/
