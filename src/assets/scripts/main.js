@@ -25,24 +25,33 @@ function initSmoothScroll() {
 // Module 2: Scroll Spy (Active Nav State)
 // ============================================
 function initScrollSpy() {
-  const sections = document.querySelectorAll("section[id]");
-  const navLinks = document.querySelectorAll('nav a[href^="#"]');
+  const sections = [...document.querySelectorAll("section[id]")];
+  const navLinks = [...document.querySelectorAll('nav a[href^="#"]')];
 
   if (sections.length === 0 || navLinks.length === 0) return;
+
+  // Track the intersection state of every section so the active link can be
+  // cleared when no section is in view (e.g. at the very top of the page).
+  const visibility = new Map(sections.map((section) => [section.id, false]));
+
+  const updateActiveLink = () => {
+    navLinks.forEach((link) => link.classList.remove("active"));
+
+    // The first section (in document order) currently within the active band.
+    const active = sections.find((section) => visibility.get(section.id));
+    if (active) {
+      document
+        .querySelector(`nav a[href="#${active.id}"]`)
+        ?.classList.add("active");
+    }
+  };
 
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          // Remove active class from all links
-          navLinks.forEach((link) => link.classList.remove("active"));
-
-          // Add active class to current section link
-          document
-            .querySelector(`nav a[href="#${entry.target.id}"]`)
-            ?.classList.add("active");
-        }
+        visibility.set(entry.target.id, entry.isIntersecting);
       });
+      updateActiveLink();
     },
     {
       threshold: 0.3,

@@ -316,11 +316,10 @@ the CI workflow commented out.**
       must exist on the deploy host. Verified by `--dry-run` against
       `/tmp/website-output-test` (transfer shape matches; real sibling dir absent
       here, as expected — deploy-host only).
-- [x] Netlify (primary): verify build command `npm run build` and publish
-      directory `_site`. No `netlify.toml` is present; dashboard settings must be
-      confirmed on Netlify. **Recommendation:** add a `netlify.toml` (build
-      `npm run build`, publish `_site`, `NODE_VERSION=24`) to make settings
-      explicit and reproducible — not added here pending approval.
+- [x] Netlify (primary): build command `npm run build`, publish directory
+      `_site`. **Added `netlify.toml`** (build `npm run build`, publish `_site`,
+      `NODE_VERSION=24`) so settings are explicit and reproducible; confirm the
+      Netlify dashboard matches it.
 - [x] No change to `.github/workflows/test_and_deploy.yml` (leave commented).
       Confirmed fully commented (0 non-comment lines).
 
@@ -373,14 +372,13 @@ with Netlify primary for now.
 
 ## 10. Phase 6 — Verification & sign-off
 
-> **Verification results (2026-10-15, `eleventy-rewrite` @ `f01c745`).**
-> All checks pass. Homepage pixel-diff vs live `main`: **AE 2435.73 px
-> (0.0488%)** — footer build-date text (expected) plus sub-pixel
-> antialiasing of nav / about-heading / social-icon text; 404 is
-> pixel-identical (**AE 0**). No site code changed. Minor observation (not
-> a regression): the scroll spy keeps the last active section when none is
-> intersecting; not user-visible because the sticky nav is off-screen at the
-> top of the page. Full report: `/tmp/phase6-verification.md`.
+> **Verification results (2026-10-15).**
+> All checks pass. Homepage pixel-diff vs live `main`: **AE ~2355 px
+> (~0.047%)** — footer build-date text (expected) plus sub-pixel antialiasing
+> of nav / about-heading / social-icon text; 404 is pixel-identical (**AE 0**).
+> **Follow-ups resolved:** the scroll spy now clears the active link when no
+> section is in view, and a `netlify.toml` was added. Full report:
+> `/tmp/phase6-verification.md`.
 
 ### 10.1 Automated
 
