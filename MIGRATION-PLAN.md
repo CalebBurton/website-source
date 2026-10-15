@@ -1,10 +1,11 @@
-# Gatsby → Eleventy Migration: Remaining Work Plan
+# Gatsby → Eleventy Migration: Plan (Complete)
 
-**Status:** Phases 1–4 complete. Phase 3.5 restored visual parity with `main`
-(404 pixel-identical; homepage ~0.03% residual antialiasing). Next: Phase 5
-(deployment) and Phase 6 (verification).
-**Branch:** `eleventy-rewrite` (based on `main` @ `c9f6c84`)
-**Last updated:** 2026-05-11
+**Status:** ✅ **Complete.** Merged to `main` as `142c187` (squash of PR #7 —
+<https://github.com/CalebBurton/website-source/pull/7>) and deployed to
+production via Netlify on 2026-10-15. Visual parity with the Gatsby build
+confirmed: 404 pixel-identical, homepage ~0.047% residual antialiasing.
+**Branch:** `eleventy-rewrite` (merged; local and remote branches deleted)
+**Last updated:** 2026-10-15
 
 ---
 
@@ -325,41 +326,44 @@ the CI workflow commented out.**
 
 ### 9.6 Merge checklist
 
-Merge target: `eleventy-rewrite` (HEAD `2198d57`) → `main`. Deployment is
-unchanged (D4): both the Apache `build.cgi` path and Netlify remain supported,
-with Netlify primary for now.
+Merge target: `eleventy-rewrite` → `main`. Deployment is unchanged (D4): both
+the Apache `build.cgi` path and Netlify remain supported, with Netlify primary.
+
+**Merged 2026-10-15** via PR #7 (squash commit `142c187`); production deployed
+through Netlify.
 
 **Pre-merge (on `eleventy-rewrite`)**
 
-- [ ] `npm ci` then `npm run build` succeeds; `_site/` contains `index.html`,
+- [x] `npm ci` then `npm run build` succeeds; `_site/` contains `index.html`,
       `404.html`, `favicon.svg` (at the root), and `assets/{styles,scripts,img}`,
       with no `dummy/` or `wordle*`.
 - [x] Fix the favicon path so `/favicon.svg` resolves (see the Phase 5 note
       above); applied in `eleventy.config.js` and verified locally.
-- [ ] `npm run lint:check` passes.
-- [ ] Visual parity vs `main` (Gatsby): serve `_site/` locally
+- [x] `npm run lint:check` passes.
+- [x] Visual parity vs `main` (Gatsby): serve `_site/` locally
       (`python3 -m http.server 8099 --directory _site`) and capture full-page
       screenshots with `scripts/screenshot.mjs`; capture the Gatsby reference the
       same way (`https://www.calebburton.com/`). Optional pixel diff:
       `compare -metric AE /tmp/main.png /tmp/eleventy.png /tmp/diff.png`.
-- [ ] Confirm the 404 page renders and fonts/colors match `main` (manual).
+- [x] Confirm the 404 page renders and fonts/colors match `main` (manual).
 
 **Merge**
 
-- [ ] Record the pre-merge `main` commit as the rollback anchor:
+- [x] Record the pre-merge `main` commit as the rollback anchor:
       `git rev-parse origin/main` (call it `<pre-merge-main>`).
-- [ ] Merge `eleventy-rewrite` into `main` (fast-forward if possible) and push
-      `origin/main`.
+- [x] Merge `eleventy-rewrite` into `main` and push `origin/main`. Done via
+      **PR #7**, squash-merged as `142c187` (2026-10-15).
 
 **Deploy**
 
-- [ ] Apache path: `build.cgi` does `git reset --hard origin/main` → `git pull` →
+- [ ] Apache path (manual only; trigger workflow commented per D5): `build.cgi` does `git reset --hard origin/main` → `git pull` →
       `npm run --silent publish`, so it picks up `main` **after** the merge.
       `npm run publish` = `build` + `sync:dist` (rsync `_site/` →
       `../website-output`) + `sync:cgi` (`build.cgi` → `../website-output`). The
       `../website-output` sibling directory must exist on the deploy host.
-- [ ] Netlify path: build command `npm run build`, publish directory `_site`,
-      Node 24. Netlify builds on push to `main` (or per dashboard settings).
+- [x] Netlify path: build command `npm run build`, publish directory `_site`,
+      Node 24 (`netlify.toml`). Deployed on merge; `www.calebburton.com` verified
+      (200, fresh footer build time, `/favicon.svg` 200).
 
 **Rollback**
 
@@ -437,5 +441,6 @@ with Netlify primary for now.
 3. Phase 3 (tooling) — done.
 4. Phase 3.5 (visual parity with `main`) — done.
 5. Phase 4 (content decisions) — done.
-6. Phase 5 (deployment) and Phase 6 (verification, including the screenshot
-   parity gate) → merge to `main`.
+6. Phase 5 (deployment) — done.
+7. Phase 6 (verification, including the screenshot parity gate) — done.
+8. Merged to `main` as `142c187` (PR #7) and deployed via Netlify — done.
