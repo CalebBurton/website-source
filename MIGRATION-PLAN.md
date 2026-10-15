@@ -1,7 +1,7 @@
 # Gatsby → Eleventy Migration: Remaining Work Plan
 
-**Status:** Decisions resolved (2026-05-11) — ready to execute pending go-ahead. **Not yet executed.**
-**Branch:** `eleventy-rewrite` (HEAD `2e7b966 feat: migrate to 11ty`, based on `main` @ `c9f6c84`)
+**Status:** Phases 1–3 complete and committed. **Phase 3.5 (visual parity with `main`) is next** — the current build is not at visual parity.
+**Branch:** `eleventy-rewrite` (based on `main` @ `c9f6c84`)
 **Last updated:** 2026-05-11
 
 ---
@@ -145,7 +145,7 @@ SCSS are unformatted and unvalidated.
 
 ### 6.2 Eleventy config polish
 
-- [x] Add a date filter for the footer build date (see 7.3). Implemented as a
+- [x] Add a date filter for the footer build date (see 8.3). Implemented as a
       preformatted UTC string in `src/_data/build.js` (`build.formatted`) because
       Eleventy v3 does not register a `date` filter for Nunjucks.
 - [x] Consider `eleventyConfig.addWatchTarget` already present — verify `dev`
@@ -161,9 +161,75 @@ SCSS are unformatted and unvalidated.
 
 ---
 
-## 7. Phase 4 — Content & feature decisions
+## 7. Phase 3.5 — Restore visual parity with `main` (Gatsby)
 
-### 7.1 Projects section (D2)
+The Phase 10.3 screenshot comparison against `main` found the migrated site is
+**not** at visual parity. `main` relied on CSS Modules, which mapped camelCase
+JS references (`styles.prioritiesBackground`) to kebab-case selectors
+(`.priorities-background`); the Eleventy templates kept the camelCase literals
+but the SCSS is kebab-case, and page-level styles were dropped. The migration's
+browser-test checklist was never run, which is why this shipped.
+
+Reference (ground truth): `git show main:<path>` for the original SCSS/JS, and
+the live Gatsby site at <https://www.calebburton.com>.
+
+### 7.1 Restore dropped page-level styles
+
+- [ ] Add `.app` styles (from `main:src/pages/index.module.scss`):
+      `background-color: var(--color-secondary); display: grid; width: 100%;
+      will-change: opacity; --items-max-width: 70rem;`. Put it in a new
+      `src/assets/styles/components/_app.scss` and `@use` it in `main.scss`.
+      This restores the dark-grey page background so About/footer text is visible.
+- [ ] Migrate 404 styles (from `main:src/pages/404.module.scss`): the 404 `.app`
+      variant (centered, `height: 100vh`), `.list-wrapper`, `.bullets`. Reconcile
+      the homepage and 404 `.app` variants so both work.
+- [ ] Diff every Eleventy SCSS file against its `main` counterpart and migrate
+      any other dropped rules (e.g. `.footer .lastBuilt`).
+
+### 7.2 Reconcile camelCase template classes with kebab-case selectors
+
+Rename template classes to the kebab-case selectors used by the SCSS (the `main`
+selector names):
+
+- [ ] `prioritiesBackground` → `priorities-background`
+- [ ] `prioritiesWrapper` → `priorities-wrapper`
+- [ ] `prioritiesHeader` → `priorities-header`
+- [ ] `prioritiesRow` → `priorities-row`
+- [ ] `contactBackground` → `contact-background`
+- [ ] `waveEmoji` → `wave-emoji`
+- [ ] `footerWrapper` → `footer-wrapper`
+- [ ] `navLink` → `nav-link`
+- [ ] `listWrapper` → `list-wrapper` (404 page)
+- [ ] Audit all template classes against the SCSS selector list and fix any
+      remaining mismatches.
+
+### 7.3 Fix animation class names in `main.js`
+
+`src/assets/scripts/main.js` adds camelCase classes that no selector matches, so
+scroll animations never fire (`.links` stays at `opacity: 0`, hiding the nav).
+
+- [ ] `footerVisible` → `footer--visible`
+- [ ] `linksVisible` → `links--visible`
+- [ ] `priorityVisible` → `priority--visible`
+- [ ] `isWaving` → `is-waving`
+- [ ] Update the `animationClassMap` keys to match the (renamed) element classes
+      (e.g. `wave-emoji`); keep `skill-set--visible` and `card--visible`.
+- [ ] Verify nav links become visible after the animation triggers.
+
+### 7.4 Verify against `main`
+
+- [ ] Use `scripts/screenshot.mjs` to capture full-page screenshots of the local
+      `_site/` and a `main` reference.
+- [ ] Confirm parity: About/footer dark-grey background, priorities card visible,
+      nav links visible, animations fire.
+- [ ] Pixel-diff with ImageMagick `compare -metric AE` and document any remaining
+      (intentional) deviations.
+
+---
+
+## 8. Phase 4 — Content & feature decisions
+
+### 8.1 Projects section (D2)
 
 The section is commented out in `src/pages/index.njk`; components
 (`projects.njk`, `project-card.njk`) and data exist.
@@ -174,7 +240,7 @@ The section is commented out in `src/pages/index.njk`; components
 - [ ] If keeping disabled: remove the dead components/data or leave with a
       clear comment.
 
-### 7.2 Remove `dummy.njk` / Wordle (D3)
+### 8.2 Remove `dummy.njk` / Wordle (D3)
 
 Decision D3: **remove**. `src/pages/dummy.njk` embeds `/wordle.html` from
 `static/wordle/` and exists only as a test page.
@@ -187,7 +253,7 @@ Decision D3: **remove**. `src/pages/dummy.njk` embeds `/wordle.html` from
       `grep -rn "wordle\|dummy" src static eleventy.config.js`
 - [ ] Rebuild and confirm `_site/dummy/` and `_site/wordle.html` no longer exist.
 
-### 7.3 Footer build date
+### 8.3 Footer build date
 
 `src/_includes/components/footer.njk` prints raw `{{ page.date }}`.
 
@@ -198,14 +264,14 @@ Decision D3: **remove**. `src/pages/dummy.njk` embeds `/wordle.html` from
       `build.formatted` in UTC and `footer.njk` renders
       `Last build was {{ build.formatted }}`.
 
-### 7.4 SEO / metadata
+### 8.4 SEO / metadata
 
 Base layout has basic OG tags; missing OG image, canonical link, Twitter card.
 
 - [ ] Decide scope for SEO improvements; add `og:image`, canonical URL, and
       optional `twitter:*` tags.
 
-### 7.5 Availability copy
+### 8.5 Availability copy
 
 `src/_data/availability.json` is `{"isAvailable": false}`; confirm current copy
 is intended.
@@ -214,7 +280,7 @@ is intended.
 
 ---
 
-## 8. Phase 5 — Deployment & CI (D4, D5)
+## 9. Phase 5 — Deployment & CI (D4, D5)
 
 Decision D4: **leave deployment unchanged; keep both** the Apache `build.cgi`
 path and Netlify. Netlify is the primary target for now. Decision D5: **leave
@@ -235,16 +301,16 @@ the CI workflow commented out.**
 
 ---
 
-## 9. Phase 6 — Verification & sign-off
+## 10. Phase 6 — Verification & sign-off
 
-### 9.1 Automated
+### 10.1 Automated
 
 - [ ] `npm ci`
 - [ ] `npm run build` succeeds; output has 3 HTML pages + expected assets.
 - [ ] `npm run lint:check` passes (once Phase 3 lands).
 - [ ] Confirm no React leftovers in `_site/` (no `**/index.js` under assets).
 
-### 9.2 Manual browser checks (carried over, still unchecked in summary)
+### 10.2 Manual browser checks (carried over, still unchecked in summary)
 
 - [ ] Smooth scroll to sections works.
 - [ ] Navigation highlights the active section (scroll spy).
@@ -256,14 +322,17 @@ the CI workflow commented out.**
 - [ ] 404 page renders; favicon loads; fonts/colors match `main`.
 - [ ] Accessibility pass (keyboard nav, focus states, alt text, headings).
 
-### 9.3 Parity diff
+### 10.3 Parity diff (screenshot gate)
 
-- [ ] Compare built `_site/` output against the Gatsby `main` output for the
-      homepage to confirm no visual/content regressions.
+- [ ] Serve `_site/` and capture full-page screenshots with
+      `scripts/screenshot.mjs`; capture the `main` reference the same way.
+- [ ] Compare against the Gatsby `main` render (live site or a local `main`
+      build) to confirm no visual/content regressions.
+- [ ] Optionally pixel-diff with ImageMagick `compare -metric AE`.
 
 ---
 
-## 10. Rollback
+## 11. Rollback
 
 - No irreversible steps: `old/` and all removed files remain in git history.
 - Before merging, tag or note the pre-merge `main` commit so deployment can be
@@ -271,7 +340,7 @@ the CI workflow commented out.**
 
 ---
 
-## 11. Out of scope
+## 12. Out of scope
 
 - Redesign or new content beyond parity.
 - Migrating the Wordle app itself.
@@ -280,10 +349,13 @@ the CI workflow commented out.**
 
 ---
 
-## 12. Suggested execution order
+## 13. Suggested execution order
 
-1. Phase 1 (cleanup) — low risk, immediate size/confusion reduction.
-2. Phase 2 (docs) — cheap, keeps the repo honest.
-3. Phase 6.1 (automated verification) — confirm green before deeper changes.
-4. Phase 3 (tooling) and Phase 4 (content decisions).
-5. Phase 5 (deployment) → Phase 6.2/6.3 → merge to `main`.
+1. Phase 1 (cleanup) — done.
+2. Phase 2 (docs) — done.
+3. Phase 3 (tooling) — done.
+4. **Phase 3.5 (visual parity with `main`)** — highest priority; the current
+   build is visually broken (About/footer background, priorities card, nav
+   links, animations).
+5. Phase 4 (content decisions) and Phase 5 (deployment).
+6. Phase 6 (verification, including the screenshot parity gate) → merge to `main`.
