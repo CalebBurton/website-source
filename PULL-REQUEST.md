@@ -6,7 +6,7 @@ Open this as a GitHub pull request instead of a local merge. See
 - **Head**: `eleventy-rewrite` @ `8daaa72`
 - **Base**: `main` @ `c9f6c84`
 - **Fast-forward possible**: yes (`main` is an ancestor)
-- **Size**: 11 commits · 209 files (+4363 / −56024)
+- **Size**: ~210 files changed (+4483 / −56024) across the migration commits
 
 ## 1. Push the branch
 
